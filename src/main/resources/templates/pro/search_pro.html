@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iam Freelancer</title>
+
+    <link rel="stylesheet" type="text/css" href="pro/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="pro/css/default.css">
+    <link rel="stylesheet" type="text/css" href="pro/css/style.css">
+  
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js'></script>
+
+
+
+</head>
+<body>
+    
+<header class="sub"> 
+    <div class="svisual _01">
+        <p>DESIGN</p>  
+    </div>   
+    <div class="top float">
+        <div class="hedmenu">
+            <h1><a href="/"><img src="pro/img/logo.png" alt="Iam Freelancer"></a></h1>
+            <ul class="top_smenu">
+                <li><a href="">로그인</a></li>
+                <li><a href="">전문가 등록</a></li>
+                <li><a href="">회원가입</a></li>
+                <li><a class="lang" href="">언어</li>
+            </ul>
+
+            <nav>
+                <ul class="navi">
+                    <li><a href="">Contest</a>
+                        <ul>                        
+                            <li><a href="">Open Contest</a></li>
+                            <li><a href="">Contest History</a></li>
+                            <li><a href="">Portfolio</a></li>
+                            <li><a href="">Review</a></li>
+                            <li><a href="">Price</a></li>                      
+                        </ul>
+                    </li>
+                    <li><a href="">Design</a></li>
+                    <li><a href="">Digital Marketing</a></li>
+                    <li><a href="">Writing</a></li>
+                    <li><a href="">Video</a></li>
+                    <li><a href="">Audio</a></li>
+                    <li><a href="">Programing</a></li>
+                    <li><a href="">Business</a></li>
+                    <li><a href="">Lifestyle</a></li>               
+                </ul>       
+            </nav>
+        </div>    
+    </div> 
+</header>
+
+
+
+<div class="sub">
+    <div class="container w1280 margin50auto ">
+        <div class="cearch_detail">
+            <div class="categore_info">
+                <p class="tit">일러스트 디자인</p>
+                <ul>
+                    <li><span>활동중인 전문가</span>1,200</li>
+                    <li><span>요청 건수</span>123,456</li>
+                    <li><span>REVIEW</span>5,020</li>
+                </ul>
+            </div>
+            <div class="condition">
+                <form class="steps">
+                    <div>
+                        <div class="step1" data-bind="fadeVisible: step() == 1, css: {current : step() == 1}, hasfocus: step() == 1">                            
+                            <div class="pnum">1/5</div>
+                            <p class="tit">원하시는 항목을 선택해주세요.</p>                    
+                            <div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox_two" class="gr" />
+                                    <label for="checkbox_two">배경/삽화</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox_two" class="gr" />
+                                    <label for="checkbox_two">인물/동물</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox_two" class="gr" />
+                                    <label for="checkbox_two">캐릭터</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox_two" class="gr" />
+                                    <label for="checkbox_two">캐리커쳐</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox_two" class="gr" />
+                                    <label for="checkbox_two">인물/동물</label>
+                                </div>
+                            </div>                               
+                        </div>
+                        
+                        <div class="step2" data-bind="fadeVisible: step() == 2, css: {current : step() == 2}, hasfocus: step() == 2">
+                            <div class="pnum">2/5</div>
+                            <p class="tit">언제까지 완료되어야 할까요?</p>                    
+                            <div>
+                                <div class="radio">
+                                    <input type="radio" id="radio_two" name="radio_group" />
+                                    <label for="radio_two">협의가능</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="radio_two" name="radio_group" />
+                                    <label for="radio_two">일주일 이내</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="radio_two" name="radio_group" />
+                                    <label for="radio_two">가능한 빨리</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="radio_two" name="radio_group" />
+                                    <label for="radio_two">원하는 날짜</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="radio_two" name="radio_group" />
+                                    <label for="radio_two">기한없음</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" id="radio_two" name="radio_group" />
+                                    <label for="radio_two">기한없음</label>
+                                    <input class="input31 width200 marginl10" type="text">
+                                </div>                                
+                            </div>             
+                        </div>
+
+                        <div class="step3" data-bind="fadeVisible: step() == 3, css: {current : step() == 3}, hasfocus: step() == 3">
+                            <div class="pnum">3/5</div>
+                            <p class="tit">전문가가참고할 파일을 올려주세요.(필수)</p>     
+                            <div class="file-upload">
+                                <div class="file-select">
+                                  <div class="file-select-button btn1_3h30 green_b" id="fileName">추가</div>
+                                  <div class="file-select-name" id="noFile">참고 파일을 추가해주세요..</div> 
+                                  <input class="input21 marginl10" type="file" name="chooseFile" id="chooseFile">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step4" data-bind="fadeVisible: step() == 4, css: {current : step() == 4}, hasfocus: step() == 4">
+                            <div class="pnum">4/5</div>
+                            <p class="tit">의뢰인님이 계신곳은 어디인가요?</p>     
+                            <div class="custom-select marginb10">
+                                <lable hidden>셀렉트1</lable>
+                                <select>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                </select>
+                            </div>
+                            <div class="custom-select">
+                                <lable hidden>셀렉트1</lable>
+                                <select>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">3</option>
+                                    <option value="">3</option>
+                                    <option value="">3</option>
+                                    <option value="">3</option>
+                                    <option value="">3</option>
+                                    <option value="">3</option>
+                                </select>
+                            </div>    
+                        </div>
+
+                        <div class="step5" data-bind="fadeVisible: step() == 5, css: {current : step() == 5}, hasfocus: step() == 5">
+                            <div class="pnum">5/5</div>
+                            <p class="tit">의뢰 내용을 입력해주세요.</p>     
+                            <textarea placeholder="작업 내용, 콘셉트, 분량 자세히 입력해주세요">
+
+                           </textarea>      
+                        </div>
+
+                        <div class="step6" data-bind="fadeVisible: step() == 6, css: {current : step() == 6}, hasfocus: step() == 6">                            
+                            <p class="txt">요청이 완료되었습니다.<br>
+                            마이페이지 - 의뢰요청 목록에서 전문가를 확인해보세요!<br>
+                            (최대 48시간 소요)</p> 
+                            <div class="last_btn">
+                                <button class="btn1_2h40 green_bo green" href="index.html">메인으로</button>
+                                <button class="btn1_1h40 green_b" href="mypage.html">마이페이지</button>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="steps-navigation btn_zon">
+                        <button class="prev btn1_2h30 gray_bo3 gray3" data-bind="visible: step() > 1, click: prev">이전으로</button>
+                        <button class="next btn1_2h30 rad_bo2 rad2" data-bind="visible: step() < 6, click: next">다음으로</button>
+                        <button class="btn1_2h30 rad_bo2 rad2" id="done" data-bind="visible: step() == 6, click: next">요청하기</button>
+                        <p class="error">하나이상 선택해주세요!</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="margint30 marginb50">
+            <ul class="step_line">
+                <li>
+                    <span>Step 01</span><br>
+                    로그인 또는 회원가입을합니다.
+                </li>
+                <li>
+                    <span>Step 02</span><br>
+                    서비스가 필요한 내용을 간편 요청서에서 작성해주세요.
+                </li>
+                <li>
+                    <span>Step 03</span><br>
+                    요청서가 전문가들에게 전달됩니다. 전문가들의 이력을 비교해주세요.
+                </li>
+                <li>
+                    <span>Step 04</span><br>
+                    선택한 전문가와의 채팅을 통해 자세한 견적을 받아보세요.
+                </li>
+                <li>
+                    <span>Step 05</span><br>
+                    작업이 완료되면 후기를 작성해주세요.
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<section class="msrvice">
+    <p class="secTit blalck2">BEST <span class="rad1">SERVICE</span></p>
+    <div class="msrvice_list">
+        <div>
+            <div class="msevice_thm"><img src="pro/img/msevice01.png" alt="service"></div>
+            <p class="tit">LOGO Design</p>
+            <div>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+            </div>
+        </div>
+        <div>
+            <div class="msevice_thm"><img src="pro/img/msevice01.png" alt="service"></div>
+            <p class="tit">LOGO Design</p>
+            <div>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+            </div>
+        </div>
+        <div>
+            <div class="msevice_thm"><img src="pro/img/msevice01.png" alt="service"></div>
+            <p class="tit">LOGO Design</p>
+            <div>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+            </div>
+        </div>
+        <div>
+            <div class="msevice_thm"><img src="pro/img/msevice01.png" alt="service"></div>
+            <p class="tit">LOGO Design</p>
+            <div>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+            </div>
+        </div>
+        <div>
+            <div class="msevice_thm"><img src="pro/img/msevice01.png" alt="service"></div>
+            <p class="tit">LOGO Design</p>
+            <div>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+            </div>
+        </div>
+        <div>
+            <div class="msevice_thm"><img src="pro/img/msevice01.png" alt="service"></div>
+            <p class="tit">LOGO Design</p>
+            <div>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+                <p class="tag2">#태그</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbottom">  
+    <div class="mreview _sub">
+        <p class="secTit white">REVIEW</p>
+        <div class="bxslider2">
+            <div class="review_box">
+                <div class="user_pic2"></div>
+                <div>
+                    <p class="review_id">youid</p>
+                    <div class="star">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="half"></span>
+                        <span class="bin"></span>
+                    </div>
+                </div>
+                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+                    웹에 지식이없는 저에게 차근히 설명도
+                    잘해주시고 요청사항 모두 잘 
+                    반영해주셔서 만족합니다. </p>
+                <p class="review_date">2020-07-22</p>
+            </div>
+            <div class="review_box">
+                <div class="user_pic2"></div>
+                <div>
+                    <p class="review_id">youid</p>
+                    <div class="star">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="half"></span>
+                        <span class="bin"></span>
+                    </div>
+                </div>
+                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+                    웹에 지식이없는 저에게 차근히 설명도
+                    잘해주시고 요청사항 모두 잘 
+                    반영해주셔서 만족합니다. </p>
+                <p class="review_date">2020-07-22</p>
+            </div>
+            <div class="review_box">
+                <div class="user_pic2"></div>
+                <div>
+                    <p class="review_id">youid</p>
+                    <div class="star">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="half"></span>
+                        <span class="bin"></span>
+                    </div>
+                </div>
+                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+                    웹에 지식이없는 저에게 차근히 설명도
+                    잘해주시고 요청사항 모두 잘 
+                    반영해주셔서 만족합니다. </p>
+                <p class="review_date">2020-07-22</p>
+            </div>
+            <div class="review_box">
+                <div class="user_pic2"></div>
+                <div>
+                    <p class="review_id">youid</p>
+                    <div class="star">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="half"></span>
+                        <span class="bin"></span>
+                    </div>
+                </div>
+                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+                    웹에 지식이없는 저에게 차근히 설명도
+                    잘해주시고 요청사항 모두 잘 
+                    반영해주셔서 만족합니다. </p>
+                <p class="review_date">2020-07-22</p>
+            </div>
+            <div class="review_box">
+                <div class="user_pic2"></div>
+                <div>
+                    <p class="review_id">youid</p>
+                    <div class="star">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="half"></span>
+                        <span class="bin"></span>
+                    </div>
+                </div>
+                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+                    웹에 지식이없는 저에게 차근히 설명도
+                    잘해주시고 요청사항 모두 잘 
+                    반영해주셔서 만족합니다. </p>
+                <p class="review_date">2020-07-22</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer>
+    <div class="footin">
+        <div class="com_info">
+            <p>(주)아이엠프리랜서</p>
+            <p> 대표 :  김홍도<br>
+                개인정보보호책임 : 신윤복<br>
+                사업자등록번로 : 7777-77-7777<br>
+                통신판매업신고 : 777-77-777<br>
+                주소 : 인천광역시 부평구 삼산로 154번길<br>
+                대표번호 : 1555-5555<br>
+                대표이메일 : test@Test.com
+            </p>
+            <p>Copyright ©IamFreelancer. All Rights Reserved.</p>
+        </div>
+        <div class="callcenter">
+            <p>1555-5555<br>
+             <span>평일 : 10:00~17:00 ( 주말/공휴일 제외 )</span>
+            </p>
+            <a href="">App store</a>
+            <a href="">Play store</a>
+            <ul>
+                <li><a href="">인스타그램</a></li>
+                <li><a href="">페이스북</a></li>
+                <li><a href="">트위터</a></li>
+                <li><a href="">유튜브</a></li>
+            </ul>
+        </div>
+        <div class="fmenu">
+            <ul>
+                <li><a href="">회사소개</a></li>
+                <li>
+                    <a href="">고객안내</a>
+                    <a href="">콘테스트개최</a>
+                    <a href="">이용방법</a>
+                    <a href="">평점후기</a>
+                </li>
+                <li>
+                    <a href="">전문가안내</a>
+                    <a href="">이용안내</a>
+                    <a href="">전문가가입</a>
+                </li>
+                <li>
+                    <a href="">고객센터</a>
+                    <a href="">이용방법</a>
+                    <a href="">전문가가입</a>
+                </li>
+            </ul>
+            <div>
+                <a href="">이용약관</a>
+                <a href="">개인정보취급방침</a>
+            </div>
+            
+        </div>        
+    </div>   
+    <p>(주)회사명 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한의무와 책임은 거래당사자에게 있습니다.</p>
+</footer>
+
+
+
+
+
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src="/pro/js/script.js"></script>
+<script src="js/pro/js/step.js"></script>
+</body>
+</html>

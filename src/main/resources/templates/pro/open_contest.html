@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iam Freelancer</title>
+
+    <link rel="stylesheet" type="text/css" href="pro/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="pro/css/default.css">
+    <link rel="stylesheet" type="text/css" href="pro/css/style.css">
+  
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js'></script>
+
+</head>
+<body>
+    
+<header class="sub">  
+    <div class="svisual _01">
+        <p>Contest</p>   
+    </div>  
+    <div class="top float">
+        <div class="hedmenu">
+            <h1><a href="/"><img src="pro/img/logo.png" alt="Iam Freelancer"></a></h1>
+            <ul class="top_smenu">
+                <li><a href="">로그인</a></li>
+                <li><a href="">전문가 등록</a></li>
+                <li><a href="">회원가입</a></li>
+                <li><a class="lang" href="">언어</li>
+            </ul>
+
+            <nav>
+                <ul class="navi">
+                    <li><a href="">Contest</a>
+                        <ul>                        
+                            <li><a href="">Open Contest</a></li>
+                            <li><a href="">Contest History</a></li>
+                            <li><a href="">Portfolio</a></li>
+                            <li><a href="">Review</a></li>
+                            <li><a href="">Price</a></li>                      
+                        </ul>
+                    </li>
+                    <li><a href="">Design</a></li>
+                    <li><a href="">Digital Marketing</a></li>
+                    <li><a href="">Writing</a></li>
+                    <li><a href="">Video</a></li>
+                    <li><a href="">Audio</a></li>
+                    <li><a href="">Programing</a></li>
+                    <li><a href="">Business</a></li>
+                    <li><a href="">Lifestyle</a></li>               
+                </ul>       
+            </nav>
+        </div> 
+    </div>
+</header>
+
+
+
+<div class="subpage">
+    <div class="container w1280 margin50auto ">
+        <div class="contents marginb100">
+            <h2 class="subtit">콘테스트 개최</h2>
+            <div class="open_contest_option">
+                <form class="steps">
+                    <div class="option">
+                        <div class="step1" data-bind="fadeVisible: step() == 1, css: {current : step() == 1}, hasfocus: step() == 1">  
+                            <div class="open_contest _1">
+                                <p class="tit">1. 카테고리를 선택해주세요.</p>
+                                <ul>
+                                    <li>LOGO / BI</li>
+                                    <li>NAMING / IDEA</li>
+                                    <li>PRODUCT / PACKAGE</li>
+                                    <li>PRINT</li>
+                                    <li>WEB / APP</li>
+                                    <li>OTHER</li>
+                                </ul>
+                            </div>                                             
+                        </div>
+                        
+                        <div class="step2" data-bind="fadeVisible: step() == 2, css: {current : step() == 2}, hasfocus: step() == 2">
+                            <div class="open_contest _2">
+                                <p class="tit">2. 상세 카테고리를 선택해주세요.</p>
+                                <ul>
+                                    <li>                                       
+                                        <p>로고 디자인<br>
+                                        <span>로고 디자인만 제공됩니다.</span>
+                                        </p>
+                                        <p>상금 30만원~</p>                                        
+                                    </li>
+                                    <li>                                       
+                                        <p>로고 + 명함<br>
+                                        <span>로고디자인과 명함디자인을 한번에 받아볼 수 있습니다.</span>
+                                        </p>
+                                        <p>상금 30만원~</p>                                        
+                                    </li>
+                                    <li>                                       
+                                        <p>로고 + 간판<br>
+                                        <span>로고디자인과 간판디자인을 한번에 받아볼 수 있습니다.</span>
+                                        </p>
+                                        <p>상금 30만원~</p>                                        
+                                    </li>
+                                    <li>                                       
+                                        <p>브랜딩 SET<br>
+                                        <span>브랜딩에 필요한 디자인을 한번에 받아볼 수 있습니다.<br>
+                                            로고+명함+간판+서식류</span>
+                                        </p>
+                                        <p>상금 30만원~</p>                                        
+                                    </li>                                    
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="step3" data-bind="fadeVisible: step() == 3, css: {current : step() == 3}, hasfocus: step() == 3">
+                            <div class="open_contest _3">
+                                <p class="tit">3. 브리핑을 작성해주세요.</p>
+                                <div>
+                                    <div class="inputlist">
+                                        <p>콘테스트 제목</p>
+                                        <label hidden>콘테스트 제목</label>
+                                        <input class="input31" type="text">
+                                    </div>
+                                    <div class="inputlist marginb20">
+                                        <p>단체(회사)명</p>
+                                        <label hidden>단체(회사)명</label>
+                                        <input class="input31" type="text">
+                                    </div>
+                                    <div class="inputlist marginb20">
+                                        <p>업종</p>
+                                        <div class="radio_group _1">
+                                            <div class="radio">
+                                                <input type="radio" id="radio1" name="radio" />
+                                                <label for="radio1">공기업/기관</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio2" name="radio" />
+                                                <label for="radio2">일반기업</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio3" name="radio" />
+                                                <label for="radio3">병원</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio4" name="radio" />
+                                                <label for="radio4">IT/미디어</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio5" name="radio" />
+                                                <label for="radio5">교육/육아</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio6" name="radio" />
+                                                <label for="radio6">식당/카페</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio7" name="radio" />
+                                                <label for="radio7">식품/건강</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio8" name="radio" />
+                                                <label for="radio8">애완용품</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio9" name="radio" />
+                                                <label for="radio9">패션/뷰티</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio10" name="radio" />
+                                                <label for="radio10">기타</label>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                    <div class="inputlist">
+                                        <p>선호 컬러</p>
+                                        <label hidden>선호 컬러</label>
+                                        <input class="input31" type="text">
+                                    </div>
+                                    <div class="inputlist marginb20">
+                                        <p>상호명</p>
+                                        <label hidden>상호명</label>
+                                        <input class="input31" type="text">
+                                    </div>
+                                    <div class="inputlist marginb20">
+                                        <p>로고의 성격</p>
+                                        <div class="radio_group _2">
+                                            <div class="radio">
+                                                <input type="radio" id="radio11" name="radio" />
+                                                <label for="radio11">여성</label>       
+                                            </div>    
+                                            <div class="radio">               
+                                                <input type="radio" id="radio12" name="radio" />
+                                                <label for="radio12">남성</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio13" name="radio" />
+                                                <label for="radio13">따스한</label>   
+                                            </div>    
+                                            <div class="radio">                                       
+                                                <input type="radio" id="radio14" name="radio" />
+                                                <label for="radio14">차가운</label>
+                                            </div> 
+                                            <div class="radio">
+                                                <input type="radio" id="radio15" name="radio" />
+                                                <label for="radio15">디테일</label>   
+                                            </div>    
+                                            <div class="radio">                                       
+                                                <input type="radio" id="radio16" name="radio" />
+                                                <label for="radio16">심플</label>
+                                            </div> 
+                                            <div class="radio">
+                                                <input type="radio" id="radio17" name="radio" />
+                                                <label for="radio17">추상적</label>  
+                                            </div>    
+                                            <div class="radio">                                        
+                                                <input type="radio" id="radio18" name="radio" />
+                                                <label for="radio18">구체적</label>
+                                            </div> 
+                                            <div class="radio">
+                                                <input type="radio" id="radio19" name="radio" />
+                                                <label for="radio19">모던</label> 
+                                            </div>    
+                                            <div class="radio">                                         
+                                                <input type="radio" id="radio20" name="radio" />
+                                                <label for="radio20">클래식</label>
+                                            </div> 
+                                            <div class="radio">
+                                                <input type="radio" id="radio21" name="radio" />
+                                                <label for="radio21">둥근</label>  
+                                            </div>    
+                                            <div class="radio">                                        
+                                                <input type="radio" id="radio22" name="radio" />
+                                                <label for="radio22">각진</label>
+                                            </div> 
+                                            <div class="radio">
+                                                <input type="radio" id="radio23" name="radio" />
+                                                <label for="radio23">정적인</label>   
+                                            </div>    
+                                            <div class="radio">                                       
+                                                <input type="radio" id="radio24" name="radio" />
+                                                <label for="radio24">동적인</label>
+                                            </div>   
+                                        </div>                                                                              
+                                    </div>
+                                    <div class="inputlist marginb20">
+                                        <p>참고 스타일</p>
+                                        <div class="reference_img"></div>
+                                        <button class="reference_style">+불러오기</button>
+                                    </div>
+                                    <div class="inputlist marginb20">
+                                        <p>로고 형태<br>(최대 3개)</p>
+                                        <div class="eximg_box">
+                                            <div class="checkbox">
+                                                <div class="eximg _1"></div>
+                                                <input type="checkbox" id="checkbox" class="gr" />
+                                                <label for="checkbox">텍스트로고</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <div class="eximg _2"></div>
+                                                <input type="checkbox" id="checkbox" class="gr" />
+                                                <label for="checkbox">그림로고</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <div class="eximg _3"></div>
+                                                <input type="checkbox" id="checkbox" class="gr" />
+                                                <label for="checkbox">심볼로고</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <div class="eximg _4"></div>
+                                                <input type="checkbox" id="checkbox" class="gr" />
+                                                <label for="checkbox">엠블렘로고</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <div class="eximg _5"></div>
+                                                <input type="checkbox" id="checkbox" class="gr" />
+                                                <label for="checkbox">캐릭터로고</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <div class="eximg _6"></div>
+                                                <input type="checkbox" id="checkbox" class="gr" />
+                                                <label for="checkbox">캘리그라피</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="inputlist marginb20">
+                                        <p>서비스 설명</p>
+                                        <textarea>ex) 상호명의 의마 / 활용범위 / 타켓층 / 선호하는 이미지 / 기업가치 등 원하시는 디자인에대한 상세할 설명을 부탁드립니다.
+                                        </textarea>
+                                    </div>
+                                    <div class="inputlist marginb20">
+                                        <p>태그<br>(최대 5개)</p>
+                                        <div class="sub_tag_box">
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                            <p class="tag3 ncolor">#키워드1</p>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="step4" data-bind="fadeVisible: step() == 4, css: {current : step() == 4}, hasfocus: step() == 4">
+                            <div class="open_contest _4">
+                                <p class="tit">4. 상금과 옵션을 선택해주세요.</p>
+                                <div class="contest_price">
+                                    <p class="open_price">콘테스트 개최 비용 <span>100만원</span></p>
+                                    <div class="class_group">
+                                        <div class="class bronze active">
+                                            <p class="tit">브론즈</p>
+                                            <p class="txt">상금 <span>100만원~</span></p>
+                                            <ul>
+                                                <li>- 상금 환불 불가</li>
+                                            </ul>
+                                            <div class="price_option">
+                                                <p class="tit">상금설정</p>
+                                                <ul>
+                                                    <li>
+                                                        <div class="width60"><p>1위</p></div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="width60 checkbox">
+                                                            <input type="checkbox" id="checkbox" class="gr" />
+                                                            <label>2위</label>
+                                                        </div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="width60 checkbox">
+                                                            <input type="checkbox" id="checkbox" class="gr" />
+                                                            <label class="">3위</label>
+                                                        </div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>                                       
+                                        <div class="class silver">
+                                            <p class="tit">실버</p>
+                                            <p class="txt">상금 <span>200만원~</span></p>
+                                            <ul>
+                                                <li>- 1차 통과작 선정</li>
+                                                <li>- 상금 환불 불가</li>
+                                            </ul>
+                                            <div class="price_option">
+                                                <p class="tit">상금설정</p>
+                                                <ul>
+                                                    <li>
+                                                        <div class="width60"><p>1위</p></div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="width60 checkbox">
+                                                            <input type="checkbox" id="checkbox" class="gr" />
+                                                            <label>2위</label>
+                                                        </div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="width60 checkbox">
+                                                            <input type="checkbox" id="checkbox" class="gr" />
+                                                            <label class="">3위</label>
+                                                        </div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>                                       
+                                        <div class="class gold">
+                                            <p class="tit">골드</p>
+                                            <p class="txt">상금 <span>300만원~</span></p>
+                                            <ul>
+                                                <li>- 1차 통과작 선정</li>
+                                                <li>- 상금 50%환불 가능</li>
+                                                <li>- 리스트 상단 노출</li>
+                                            </ul>
+                                            <div class="price_option">
+                                                <p class="tit">상금설정</p>
+                                                <ul>
+                                                    <li>
+                                                        <div class="width60"><p>1위</p></div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="width60 checkbox">
+                                                            <input type="checkbox" id="checkbox" class="gr" />
+                                                            <label>2위</label>
+                                                        </div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="width60 checkbox">
+                                                            <input type="checkbox" id="checkbox" class="gr" />
+                                                            <label class="">3위</label>
+                                                        </div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>                                      
+                                        <div class="class platinum">
+                                            <p class="tit">플래티넘</p>
+                                            <p class="txt">상금 <span>400만원~</span></p>
+                                            <ul>
+                                                <li>- 상금 환불 불가</li>
+                                                <li>- 상금 50%환불 가능</li>
+                                                <li>- 리스트 상단 노출</li>
+                                                <li>- 메인 노출</li>
+                                            </ul>
+                                            <div class="price_option">
+                                                <p class="tit">상금설정</p>
+                                                <ul>
+                                                    <li>
+                                                        <div class="width60"><p>1위</p></div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="width60 checkbox">
+                                                            <input type="checkbox" id="checkbox" class="gr" />
+                                                            <label>2위</label>
+                                                        </div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="width60 checkbox">
+                                                            <input type="checkbox" id="checkbox" class="gr" />
+                                                            <label class="">3위</label>
+                                                        </div>
+                                                        <input class="input31 width80" type="text">
+                                                        <p class="width30">만원</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                    <div class="term">
+                                        <p>콘테스트 기간 설정</p>
+                                        <div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio1" name="radio_group" checked="checked" />
+                                                <label for="radio1">1주일</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio2" name="radio_group" />
+                                                <label for="radio2">2주 (100만원 추가)</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio3" name="radio_group" />
+                                                <label for="radio3">3주 (300만원 추가)</label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" id="radio4" name="radio_group" />
+                                                <label for="radio4">4주 (400만원 추가)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="class_opt">
+                                        <p>옵션</p>
+                                        <div>
+                                            <div class="checkbox">
+                                                <input type="checkbox" id="checkbox" />
+                                                <label for="checkbox">상금 100% 지급(수수료 의뢰자 부담)</label>
+                                            </div>
+                                            <p class="error">라우드소싱은 표시된 상금의 20%를(우승자 세금 포함) 수수료로 공제한 후 80%가 디자이너에게 지급됩니다.위 옵션을 체크하시면 수수료를 고객님이 대신 부담하여 
+                                                상금의 100%가 디자이너에게 지급됩니다.디자이너 참여도를 높일 수 있는 옵션입니다</p>
+                                        </div>
+                                    </div>
+                                    <div class="cost_list">
+                                        <p>TOTAL</p>
+                                        <ul>
+                                            <li>
+                                                <p>콘테스트 상금</p>
+                                                <p>5,000,000원</p>
+                                            </li>
+                                            <li>
+                                                <p>개최 비용</p>
+                                                <p>1,000,000원</p>
+                                            </li>
+                                            <li>
+                                                <p>2위 상금</p>
+                                                <p>1,000,000원</p>
+                                            </li>
+                                            <li>
+                                                <p>3위 상금</p>
+                                                <p>0원</p>
+                                            </li>
+                                            <li>
+                                                <p>상금 수수료</p>
+                                                <p>0</p>
+                                            </li>
+                                            <li>
+                                                <p>부가세</p>
+                                                <p>1,000,000원</p>
+                                            </li>
+                                        </ul>
+                                        <div>
+                                            <p>총 금액</p>
+                                            <p><span>7,000,000</span>원</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                          </div>
+                        </div>    
+                        <div class="step5" data-bind="fadeVisible: step() == 5, css: {current : step() == 5}, hasfocus: step() == 5">
+                            <div class="open_contest _5">
+                                <p class="tit">5. 콘테스트 개최를 위한 마지막 단계입니다.</p>
+                                <div class="open_last_step">
+                                    <p class="open_refund">로고디자인 플래티넘<span>(환불50%가능)</span></p>                                   
+                                    <div class="cost_list">
+                                        <p>TOTAL</p>
+                                        <ul>
+                                            <li>
+                                                <p>콘테스트 상금</p>
+                                                <p>5,000,000원</p>
+                                            </li>
+                                            <li>
+                                                <p>개최 비용</p>
+                                                <p>1,000,000원</p>
+                                            </li>
+                                            <li>
+                                                <p>2위 상금</p>
+                                                <p>1,000,000원</p>
+                                            </li>
+                                            <li>
+                                                <p>3위 상금</p>
+                                                <p>0원</p>
+                                            </li>
+                                            <li>
+                                                <p>상금 수수료</p>
+                                                <p>0</p>
+                                            </li>
+                                            <li>
+                                                <p>부가세</p>
+                                                <p>1,000,000원</p>
+                                            </li>
+                                        </ul>
+                                        <div>
+                                            <p>총 금액</p>
+                                            <p><span>7,000,000</span>원</p>
+                                        </div>
+                                    </div>            
+                                    <div class="payment">
+                                       <p>결제수단 </p>
+                                       <div class="custom-select _2 width200">
+                                            <select>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                            </select>
+                                        </div> 
+                                    </div>
+                                    <div class="terms">
+                                        <p>환불정책 및 약관동의</p>   
+                                        <div>
+                                            <textarea></textarea>
+                                            <div class="checkbox">
+                                                <input type="checkbox" id="checkbox" />
+                                                <label for="checkbox">위 내용을 확인하였으며 결제에 동의합니다.</label>
+                                            </div>
+                                        </div>
+                                    </div>                     
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step1" data-bind="fadeVisible: step() == 6, css: {current : step() == 6}, hasfocus: step() == 6">
+
+                        </div>
+                    </div>   
+                    <div class="steps-navigation btn_zon">
+                        <button class="prev btn1_2h40 gray_bo3 gray3" data-bind=" visible: step() > 1, click: prev">이전으로</button>
+                        <button class="next btn1_2h40 rad_bo2 rad2" data-bind="visible: step() < 5, click: next">다음으로</button>
+                        <button class="btn1_1h40 rad_b2" id="done" data-bind="visible: step() == 5, click: next">요청하기</button>
+                        <button class="btn1_2h40 green_bo green" id="done" data-bind="visible: step() == 6, click: next">메인으로</button>
+                        <button class="btn1_1h40 green_b" id="done" data-bind="visible: step() == 6, click: next">마이페이지</button>
+                        <p class="error">하나이상 선택해주세요!</p>
+                    </div>
+                </form>
+            </div>                        
+        </div>
+    
+        <div class="right">        
+            <div class="categories">
+                <p class="tit">Categories</p>
+                <ul>
+                    <li><a href="" class="active">Open Contest</a></li>
+                    <li><a href="">Contest History</a></li>
+                    <li><a href="">Portfolio</a></li>
+                    <li><a href="">Review</a></li>
+                    <li><a href="">Price</a></li>
+                </ul>
+            </div>
+            <div class="tag margint80">
+                <p class="tit">인기태그</p>
+                <p class="tag3">#키워드</p>
+                <p class="tag3">#이런키워드</p>
+                <p class="tag3">#태그</p>
+                <p class="tag3">#태그그</p>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+<footer>
+    <div class="footin">
+        <div class="com_info">
+            <p>(주)아이엠프리랜서</p>
+            <p> 대표 :  김홍도<br>
+                개인정보보호책임 : 신윤복<br>
+                사업자등록번로 : 7777-77-7777<br>
+                통신판매업신고 : 777-77-777<br>
+                주소 : 인천광역시 부평구 삼산로 154번길<br>
+                대표번호 : 1555-5555<br>
+                대표이메일 : test@Test.com
+            </p>
+            <p>Copyright ©IamFreelancer. All Rights Reserved.</p>
+        </div>
+        <div class="callcenter">
+            <p>1555-5555<br>
+             <span>평일 : 10:00~17:00 ( 주말/공휴일 제외 )</span>
+            </p>
+            <a href="">App store</a>
+            <a href="">Play store</a>
+            <ul>
+                <li><a href="">인스타그램</a></li>
+                <li><a href="">페이스북</a></li>
+                <li><a href="">트위터</a></li>
+                <li><a href="">유튜브</a></li>
+            </ul>
+        </div>
+        <div class="fmenu">
+            <ul>
+                <li><a href="">회사소개</a></li>
+                <li>
+                    <a href="">고객안내</a>
+                    <a href="">콘테스트개최</a>
+                    <a href="">이용방법</a>
+                    <a href="">평점후기</a>
+                </li>
+                <li>
+                    <a href="">전문가안내</a>
+                    <a href="">이용안내</a>
+                    <a href="">전문가가입</a>
+                </li>
+                <li>
+                    <a href="">고객센터</a>
+                    <a href="">이용방법</a>
+                    <a href="">전문가가입</a>
+                </li>
+            </ul>
+            <div>
+                <a href="">이용약관</a>
+                <a href="">개인정보취급방침</a>
+            </div>
+            
+        </div>        
+    </div>   
+    <p>(주)회사명 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한의무와 책임은 거래당사자에게 있습니다.</p>
+</footer>
+
+
+
+
+
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src="/pro/js/script.js"></script>
+<script src="js/pro/js/step.js"></script>
+</body>
+</html>

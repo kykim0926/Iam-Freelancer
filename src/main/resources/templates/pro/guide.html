@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iam Freelancer</title>
+
+    <link rel="stylesheet" type="text/css" href="pro/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="pro/css/default.css">
+    <link rel="stylesheet" type="text/css" href="pro/css/style.css">
+
+  
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js'></script>   
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+
+    <style>
+        
+        .colorbox {display:inline-block; width:50px; height:50px; margin-right:5px; }
+        .btween {clear:both; width:100%; margin:30px 0; border-bottom:solid 1px #ddd;}
+        .ex_btn {float: left; margin-right:50px;}
+        .ex_btn button {display:block; margin:10px 0; }
+        .ico_group div {display: inline-block;}
+        .ico_group div img {margin:10px 10px 0 0;}
+
+
+
+
+    </style>
+    
+</head>
+<body>
+<div class="search_main">
+    <div class="title-container">
+        <div class="title">
+            <ul class="tabs _st002">
+                <li class="tab-link current" data-tab="search_tab1">인기검색어</li>
+                <li class="tab-link" data-tab="search_tab2">최근 검색</li>      
+            </ul>
+            <div id="search_tab1" class="tab-content current">
+                <ul>
+                    <li><a href="">검색어1</a></li>
+                    <li><a href="">검색어2</a></li>
+                    <li><a href="">검색어3</a></li>
+                    <li><a href="">검색어4</a></li>
+                    <li><a href="">검색어5</a></li>
+                    <li><a href="">검색어6</a></li>
+                    <li><a href="">검색어7</a></li>
+                    <li><a href="">검색어8</a></li>
+                    <li><a href="">검색어9</a></li>
+                    <li><a href="">검색어10</a></li>
+                </ul>
+            </div>
+            <div id="search_tab2" class="tab-content">
+                <ul>
+                    <li><a href="">최근검색어1</a></li>
+                    <li><a href="">최근검색어2</a></li>
+                    <li><a href="">최근검색어3</a></li>
+                    <li><a href="">최근검색어4</a></li>
+                    <li><a href="">최근검색어5</a></li>
+                    <li><a href="">최근검색어6</a></li>
+                    <li><a href="">최근검색어7</a></li>
+                    <li><a href="">최근검색어8</a></li>
+                    <li><a href="">최근검색어9</a></li>
+                    <li><a href="">최근검색어10</a></li>
+                </ul>
+            </div>
+        </div>    
+    </div>
+
+    <fieldset class="field-container">
+        <input type="text" class="field" placeholder="전문가를 찾고 계세요?" />
+        <div class="icons-container">
+            <div class="icon-search"></div>
+            <div class="icon-close">
+            <div class="x-up"></div>
+            <div class="x-down"></div>       
+        </div>
+    </fieldset>  
+</div>
+
+<div class="search2 class="star_t"">
+    <lable hidden>검색</lable>
+    <input class="search_txt" type="search" placeholder="전문가를 찾고 계세요?">
+    <button class="search_btn">Search</button>
+</div>
+
+
+    <a data-toggle="modal" href="#myModal" class="btn btn-primary">Launch modal</a>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Modal title</h4>
+            </div><div class="container"></div>
+            <div class="modal-body">
+              Content for the dialog / modal goes here.
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <a data-toggle="modal" href="#myModal2" class="btn btn-primary">Launch modal</a>
+            </div>
+            <div class="modal-footer">
+              <a href="#" data-dismiss="modal" class="btn">Close</a>
+              <a href="#" class="btn btn-primary">Save changes</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal2" data-backdrop="static">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Second Modal title</h4>
+            </div><div class="container"></div>
+            <div class="modal-body">
+              Content for the dialog / modal goes here.
+            </div>
+            <div class="modal-footer">
+              <a href="#" data-dismiss="modal" class="btn">Close</a>
+              <a href="#" class="btn btn-primary">Save changes</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+<div class="group">
+    <div class="colorbox blalck_b1"></div>
+    <div class="colorbox blalck_b2"></div>
+    <div class="colorbox gray_b1"></div>
+    <div class="colorbox gray_b2"></div>
+    <div class="colorbox gray_b3"></div>
+    <div class="colorbox gray_b4"></div>
+    <div class="colorbox gray_b5"></div>
+    <div class="colorbox rad_b1"></div>
+    <div class="colorbox rad_b2"></div>
+    <div class="colorbox blue_b"></div>
+    <div class="colorbox green_b"></div>
+    <div class="colorbox yellow_b"></div>
+    <div class="colorbox purple_b"></div>
+    <div class="colorbox brown_b"></div>
+</div>
+
+<div class="btween"></div>
+
+<div class="group">
+    <p class="txt40BB blalck1">제목입니다.</p>
+    <p class="txt40B blalck2">제목입니다.</p>
+    <p class="txt40M blalck3">제목입니다.</p>
+    <p class=""></p>
+    <p class=""></p>   
+    <p class="tag1">#태그</p>
+    <p class="tag2">#태그</p>
+    <p class="tag3">#태그</p>
+</div>
+
+<div class="btween"></div>
+
+<div class="group">
+    <lable hidden>인풋스타일1</lable>
+    <input class="input1" type="text" placeholder="인풋스타일1">
+    <input class="input2" type="text" placeholder="인풋스타일2">
+    <input class="input3" type="text" placeholder="인풋스타일3">
+
+    <input class="input21" type="text" placeholder="인풋스타일21">
+    <input class="input31" type="text" placeholder="인풋스타일31">
+</div>
+
+<div class="file-upload">
+    <div class="file-select">
+      <div class="file-select-button btn1_3h30 green_b" id="fileName">추가</div>
+      <div class="file-select-name" id="noFile">참고 파일을 추가해주세요..</div> 
+      <input class="input21 marginl10" type="file" name="chooseFile" id="chooseFile">
+    </div>
+</div>
+
+<div class="btween"></div>
+
+<div class="group">
+    <div class="custom-select _1">
+        <lable hidden>셀렉트1</lable>
+        <select>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+    <div class="custom-select _1">
+        <lable hidden>셀렉트1</lable>
+        <select>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+    <div class="custom-select _1">
+        <lable hidden>셀렉트1</lable>
+        <select>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+    <div class="custom-select _2">
+        <lable hidden>셀렉트1</lable>
+        <select>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+</div>
+
+<div class="btween"></div>
+
+<div class="search1">
+    <lable hidden>검색</lable>
+    <input class="search_txt widtp class="star_t"00" type="search" placeholder="검색해주세요.">
+    <button class="search_btn">Search</button>
+</div>
+<div class="search2 class="star_t"">
+    <lable hidden>검색</lable>
+    <input class="search_txt" type="search" placeholder="전문가를 찾고 계세요?">
+    <button class="search_btn">Search</button>
+</div>
+<div class="search3">
+    <lable hidden>검색</lable>
+    <input class="search_txt" type="search" placeholder="전문가를 찾고 계세요?.">
+    <button class="search_btn" onclick="">Search</button>
+</div>
+<div class="btween"></div>
+<div class="date">
+    <label hidden> 초기날짜 </label>
+    <input class="date_input" type="text" id="datepicker_init_day" placeholder=""> ~ 
+    <label hidden> 날짜 넣기 </label>
+    <input class="date_input" type="text" id="datepicker" placeholder="">       
+</div>
+
+<div class="btween"></div>
+
+<div class='checkboxes'>
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox_one" checked="checked" />
+        <label for="checkbox_one">Default Checkbox</label>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox_two" />
+        <label for="checkbox_two">Default Checkbox</label>
+    </div>
+    <div class="checkbox" style="width: 300px">
+        <input type="checkbox" id="checkbox_five" />
+        <label for="checkbox_five">Default Checkbox with a very long label text which doesn't fit in one line</label>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox_three" disabled />
+        <label for="checkbox_three">Disabled Checkbox</label>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox_four"  disabled checked="checked" />
+        <label for="checkbox_four">Disabled Checkbox</label>
+    </div>
+</div>
+
+<div class="btween"></div>
+
+<div class='radios'>
+    <div class="radio">
+        <input type="radio" id="radio_one" name="radio_group" checked="checked" />
+        <label for="radio_one">Default Radio Button</label>
+    </div>
+    <div class="radio">
+        <input type="radio" id="radio_two" name="radio_group" />
+        <label for="radio_two">Default Radio Button</label>
+    </div>
+    <div class="radio" style="width: 300px">
+        <input type="radio" id="radio_five" name="radio_group" />
+        <label for="radio_five">Default Checkbox with a very long label text which doesn't fit in one line</label>
+    </div>
+    <div class="radio">
+        <input type="radio" id="radio_three" disabled name="disabled" />
+        <label for="radio_three">Disabled Radio Button</label>
+    </div>
+    <div class="radio">
+        <input type="radio" id="radio_four" checked="checked" disabled name="disabled" />
+        <label for="radio_four">Disabled Radio Button</label>
+    </div>
+</div>
+
+<div class="btween"></div>
+
+<div class="ex_btn">
+    <button class="btn1_1h50 blalck_b1">타입1-1</button>
+    <button class="btn1_1h40 gray_b2">타입1-1</button>
+    <button class="btn1_1h30 rad_b2">타입1-1</button>
+</div>
+<div class="ex_btn">
+    <button class="btn1_2h50 green_bo green">타입2-1</button>
+    <button class="btn1_2h40 blue_bo blue">타입2-2</button>
+    <button class="btn1_2h30 brown_bo brown">타입2-3</button>
+    <button class="btn1_2h60 rad1_bo rad1">타입2-4</button>
+</div>
+<div class="ex_btn">
+    <button class="btn1_3h40 blalck_b1">타입3-1</button>
+    <button class="btn1_3h32 gray_b2">타입3-1</button>
+    <button class="btn1_3h30 rad_b2">타입3-1</button>
+</div>
+<div class="ex_btn">
+    <button class="btn1_4h50">타입4-1</button>
+    <button class="btn1_4h40">타입4-2</button>
+    <button class="btn1_5h502">타입4-2</button>
+</div>
+<button class="btn_more"><span>more Service</span></button>
+<button class="btn_del">삭제</button>
+<button class="btn_chat">채팅</button>
+
+
+
+
+<div class="btween"></div>
+ 
+<div class="paging">    
+    <p class="first"><a href="">first</a></p>
+    <p class="prev"><a href="">prev</a></p>
+    <ul>
+        <li><a href="" class="active">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li><a href="">5</a></li>
+    </ul>
+    <p class="next"><a href="">next</a></p>
+    <p class="end"><a href="">end</a></p>
+    
+</div>
+
+<div class="btween"></div>
+
+<div>
+    <ul class="tab_menu _1 tab_line">
+        <li><a href="" class="active">소개</a></li>
+        <li><a href="">서비스</a></li>
+        <li><a href="">포트폴리오</a></li>
+        <li><a href="">후기</a></li>
+    </ul>
+    <ul class="tab_menu _2">
+        <li><a href="" class="active">진행</a></li>
+        <li><a href="">심사</a></li>
+        <li><a href="">종료</a></li>
+    </ul>
+    <ul class="tab_menu _3">
+        <li><a href="" class="active"><span>전체보기</span></a></li>
+        <li><a href=""><span>LOGO/BI</span></a></li>
+        <li><a href=""><span>NAMING/IDEA</span></a></li>
+        <li><a href=""><span>PRODUCT/<br>PACKGE</span></a></li>
+        <li><a href=""><span>PRINT</span></a></li>
+        <li><a href=""><span>WEB/APP</span></a></li>
+        <li><a href=""><span>OTHER</span></a></li>
+    </ul>
+
+</div>
+
+<div class="btween"></div>
+
+
+<div class="btween"></div>
+
+<div>
+    <p>별점</p>
+    <div class="star-rating">
+        <fieldset>
+          <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Outstanding">5 stars</label>
+          <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Very Good">4 stars</label>
+          <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Good">3 stars</label>
+          <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Poor">2 stars</label>
+          <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Very Poor">1 star</label>
+        </fieldset>
+      </div>
+</div>
+
+<div class="btween"></div>
+
+<div class="ico_group">
+    <p>아이콘</p>
+    <div>
+        <img src="pro/img/step_01.png">
+        <img src="pro/img/step_02.png">
+        <img src="pro/img/step_03.png">
+        <img src="pro/img/step_04.png">
+        <img src="pro/img/step_05.png">
+    </div>
+    <div>
+        <img src="pro/img/medal_bronze.png">
+        <img src="pro/img/medal_silver.png">
+        <img src="pro/img/medal_gold.png">
+        <img src="pro/img/medal_vvip.png">
+    </div>
+    <div>
+        <img src="pro/img/icon_trophy.png">
+        <img src="pro/img/icon_victory.png">
+        <img src="pro/img/user.png">      
+    </div> 
+    <div>
+        <div class="user_pic1"></div>
+        <div class="user_pic2"></div>
+        <div class="user_pic3"></div>
+        <div class="user_pic4"></div>
+        <div class="user_pic5"></div>
+    </div> 
+
+</div>
+
+<div class="btween"></div>
+
+<div>
+    <div class="talk_me">
+        <div class="user_pic3"></div>
+        <div class="chat_talkbox">
+            <div class="me">궁금한점 물어보기</div>
+        </div>
+        <p>2020.06.06 15:01</p>
+    </div>
+
+    <div class="talk_you">
+        <div class="user_pic3"></div>
+        <div class="chat_talkbox">
+            <div class="you">궁금한점 대답해주기</div>
+        </div>
+        <p>2020.06.06 15:01</p>
+    </div>
+</div>
+
+<div class="btween"></div>
+<div class="group"></div>
+<div class="group"></div>
+
+<div class="bxslider mvisual">
+    <div><img src="pro/img/vsual01.png"></div>
+    <div><img src="pro/img/vsual01.png"></div>
+    <div><img src="pro/img/vsual01.png"></div>
+</div>
+
+
+<div class="bxslider2">
+    <div class="review_box">
+        <div class="user_pic2"></div>
+        <div>
+            <p class="review_id">youid</p>
+            <div class="star">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="half"></span>
+                <span class="bin"></span>
+            </div>
+        </div>
+        <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+            웹에 지식이없는 저에게 차근히 설명도
+            잘해주시고 요청사항 모두 잘 
+            반영해주셔서 만족합니다. </p>
+        <p class="review_date">2020-07-22</p>
+    </div>
+    <div class="review_box">
+        <div class="user_pic2"></div>
+        <div>
+            <p class="review_id">youid</p>
+            <div class="star">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="half"></span>
+                <span class="bin"></span>
+            </div>
+        </div>
+        <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+            웹에 지식이없는 저에게 차근히 설명도
+            잘해주시고 요청사항 모두 잘 
+            반영해주셔서 만족합니다. </p>
+        <p class="review_date">2020-07-22</p>
+    </div>
+    <div class="review_box">
+        <div class="user_pic2"></div>
+        <div>
+            <p class="review_id">youid</p>
+            <div class="star">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="half"></span>
+                <span class="bin"></span>
+            </div>
+        </div>
+        <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+            웹에 지식이없는 저에게 차근히 설명도
+            잘해주시고 요청사항 모두 잘 
+            반영해주셔서 만족합니다. </p>
+        <p class="review_date">2020-07-22</p>
+    </div>
+    <div class="review_box">
+        <div class="user_pic2"></div>
+        <div>
+            <p class="review_id">youid</p>
+            <div class="star">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="half"></span>
+                <span class="bin"></span>
+            </div>
+        </div>
+        <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+            웹에 지식이없는 저에게 차근히 설명도
+            잘해주시고 요청사항 모두 잘 
+            반영해주셔서 만족합니다. </p>
+        <p class="review_date">2020-07-22</p>
+    </div>
+    <div class="review_box">
+        <div class="user_pic2"></div>
+        <div>
+            <p class="review_id">youid</p>
+            <div class="star">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="half"></span>
+                <span class="bin"></span>
+            </div>
+        </div>
+        <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
+            웹에 지식이없는 저에게 차근히 설명도
+            잘해주시고 요청사항 모두 잘 
+            반영해주셔서 만족합니다. </p>
+        <p class="review_date">2020-07-22</p>
+    </div>
+</div>
+
+<div class="btween"></div>
+
+<div>
+    <input type="checkbox" id="toggle" class="input-toggler">   
+    <label for="toggle" class="menu-toggler">
+        <span class="menu-toggler-line"></span>
+        <span class="menu-toggler-line"></span>
+        <span class="menu-toggler-line"></span>
+    </label>
+    <aside class="sidebar">
+    <ul class="menu">
+      <li><a class="menu-link" href="#">Home</a></li>
+      <li><a class="menu-link" href="#">Blog</a></li>
+      <li><a class="menu-link" href="#">Portfolio</a></li>
+      <li><a class="menu-link" href="#">About</a></li>
+      <li><a class="menu-link" href="#">Contact</a></li>
+    </ul>
+    </aside>
+
+</div>
+
+
+<div class="condition">
+
+
+<form class="steps">
+    <div>
+        <div class="step1" data-bind="fadeVisible: step() == 1, css: {current : step() == 1}, hasfocus: step() == 1">
+            <div class="step01">
+                <div class="pnum">1/5</div>
+                <p class="tit">원하시는 항목을 선택해주세요.</p>                    
+                <div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox_two" />
+                        <label for="checkbox_two">배경/삽화</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox_two" />
+                        <label for="checkbox_two">인물/동물</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox_two" />
+                        <label for="checkbox_two">캐릭터</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox_two" />
+                        <label for="checkbox_two">캐리커쳐</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox_two" />
+                        <label for="checkbox_two">인물/동물</label>
+                    </div>
+                </div>
+                <div class="btn_zon">
+                    <button class="btn1_2h30 rad_bo2 rad2">다음으로</button>
+                    <p class="error">하나이상 선택해주세요!</p>
+                </div>
+            </div>
+        </div>
+        <div class="step2" data-bind="fadeVisible: step() == 2, css: {current : step() == 2}, hasfocus: step() == 2">
+            <label>What's your e-mail?</label>
+            <input type="email" name="email" data-bind="value: email">
+        </div>
+        <div class="step3" data-bind="fadeVisible: step() == 3, css: {current : step() == 3}, hasfocus: step() == 3">
+            <label>Can I call you?</label>
+            <input type="phone" name="phone" data-bind="value: phone">
+        </div>
+        <div class="step4" data-bind="fadeVisible: step() == 4, css: {current : step() == 4}, hasfocus: step() == 4">
+            <label>What do you want to talk about?</label>
+            <input type="text" name="subject" data-bind="value: subject">
+        </div>
+        <div class="step5" data-bind="fadeVisible: step() == 5, css: {current : step() == 5}, hasfocus: step() == 5">
+            <label>Thank you, <span data-bind="text: name"></span>!<br>
+            Soon we'll be in touch. </label>           
+        </div>
+    </div>   
+    <div class="steps-navigation">
+        <button class="prev" data-bind="visible: step() > 1, click: prev">previous</button>
+        <button class="next" data-bind="visible: step() < 4, click: next">next</button>
+        <button id="done" data-bind="visible: step() == 4, click: next">done</button>
+    </div>
+</form>
+</div>
+
+
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src="/pro/js/script.js"></script>
+<script src="js/pro/js/step.js"></script>
+</body>
+</html>

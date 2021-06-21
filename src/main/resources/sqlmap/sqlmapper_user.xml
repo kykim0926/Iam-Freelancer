@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="iamFreelancer.login.mapper.LoginMapper">
+
+	<select id="findByLoginId" resultType="iamFreelancer.login.vo.UserVO">
+		SELECT *
+		  FROM tb_member m LEFT OUTER JOIN TB_MEMBER_ROLE r ON m.login_id = r.login_id
+		 WHERE m.login_id = #{login_id}
+    </select>
+	
+	<insert id="memberSave" parameterType="iamFreelancer.login.vo.UserVO">
+	    INSERT INTO tb_member
+        (
+            login_id,
+			login_pwd,
+			name,
+			email,
+			phone_num,
+			mobile_num,
+			addr,
+			post_num,
+			user_type,
+			bank,
+			bank_account,
+			regist_route,
+			user_kind
+        )
+        VALUES
+        (
+            #{login_id},
+			#{login_pwd},
+			#{name},
+			#{email},
+			#{phone_num},
+			#{mobile_num},
+			#{addr},
+			#{post_num},
+			#{user_type},
+			#{bank},
+			#{bank_account},
+			#{regist_route},
+			#{user_kind}
+        )
+	</insert>
+
+	<insert id="memberRoleSave">
+		INSERT INTO tb_member_role
+        (
+            login_id,
+            role_id
+        )
+        VALUES
+        (
+            #{login_id},
+            #{role_id}
+        )
+	</insert>
+	
+	<select id="existYnByLoginId" parameterType="iamFreelancer.login.vo.UserVO" resultType="Integer">
+			SELECT count(1)
+			  FROM tb_member
+			 WHERE login_id = #{login_id}
+	</select>
+</mapper>

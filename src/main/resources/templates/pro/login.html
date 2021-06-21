@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+	
+    <title>Iam Freelancer</title>
+    <link rel="stylesheet" type="text/css" href="/pro/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/pro/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/pro/css/style.css">
+  
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+
+	<script src="/pro/js/memberJoin.js" ></script>
+	<script src="/pro/js/util/csrf.js"></script>
+</head>
+
+<body class="login">
+<form action="/pro/login" method="post">
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+	<div class="loginbox _1">
+	    <h1><img src="/pro/img/logo.png" alt="Iam Freelancer"></h1>
+	    <div class="top_btn">
+	        <a class="btn1_1h40 green_b txt18R" href="pro/main.html">전문가</a>
+	        <a class="btn1_1h40 gray_b1 txt18R" href="user/main.html">의뢰인</a>
+	    </div>    
+	    <div class="login_in">
+	        <ul class="left">
+	            <li><a href="login.html" class="active">로그인</a></li>
+	            <li><a href="findid.html">아이디 찾기</a></li>
+	            <li><a href="findpw.html">비밀번호 찾기</a></li>
+	        </ul>
+	        <div>            
+	            <input class="input1" type="text" name="username" placeholder="아이디">
+	
+	            <input class="input1" type="text" name="password" placeholder="비밀번호">
+	
+				<p class="error" th:if="${param.error}" th:text="${exception}"></p>
+				<button type="submit" class="btn1_1h50 blalck_b1">로그인</button>
+	
+	            <div>
+	                <div class="checkbox">
+	                    <input type="checkbox" id="auto_login" />
+	                    <label for="auto_login">자동 로그인</label>
+	                </div>
+	                <div class="checkbox">
+	                    <input type="checkbox" id="save_id" />
+	                    <label for="save_id">아이디 저장</label>
+	                </div>
+	                <a class="btn1_2h50 gray_bo1 gray1" href="firstJoinStep">회원가입</a>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</form>
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src="/pro/js/script.js"></script>
+
+</body>
+</html>

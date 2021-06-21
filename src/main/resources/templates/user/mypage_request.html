@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iam Freelancer</title>
+
+    <link rel="stylesheet" type="text/css" href="user/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="user/css/default.css">
+    <link rel="stylesheet" type="text/css" href="user/css/style.css">
+    
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js'></script>  
+</head>
+<body>
+    
+<header class="sub">    
+    <div class="svisual _01">
+        <p>MY PAge</p>   
+    </div>
+    <div class="top float">
+        <div class="hedmenu">
+            <h1><a href="/"><img src="user/img/logo.png" alt="Iam Freelancer"></a></h1>
+            <ul class="top_smenu">
+                <li><a href="">로그인</a></li>
+                <li><a href="">전문가 등록</a></li>
+                <li><a href="">회원가입</a></li>
+                <li><a class="lang" href="">언어</li>
+            </ul>
+
+            <nav>
+                <ul class="navi">
+                    <li><a href="">Contest</a>
+                        <ul>                        
+                            <li><a href="">Open Contest</a></li>
+                            <li><a href="">Contest History</a></li>
+                            <li><a href="">Portfolio</a></li>
+                            <li><a href="">Review</a></li>
+                            <li><a href="">Price</a></li>                      
+                        </ul>
+                    </li>
+                    <li><a href="">Design</a></li>
+                    <li><a href="">Digital Marketing</a></li>
+                    <li><a href="">Writing</a></li>
+                    <li><a href="">Video</a></li>
+                    <li><a href="">Audio</a></li>
+                    <li><a href="">Programing</a></li>
+                    <li><a href="">Business</a></li>
+                    <li><a href="">Lifestyle</a></li>               
+                </ul>                    
+            </nav>
+        </div>        
+    </div>
+</header>
+
+<div class="subpage marginb80">
+    <div class="container w1280 margin50auto ">
+        <div class="contents"> 
+            <div class="mypage request">
+                <p class="title">의뢰요청</p>
+                <div class="search">
+                    <div class="custom-select _2 width160">
+                        <lable hidden>셀렉트1</lable>
+                        <select>
+                            <option value="">업종 전체</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                        </select>
+                    </div>
+                    <div class="search1">
+                        <lable hidden>검색</lable>
+                        <input class="search_txt widtp class="star_t" type="search" placeholder="검색해주세요.">
+                        <button class="search_btn">Search</button>
+                    </div>
+                </div>  
+                <div class="request_in margint30">
+                    <ul class="tabs ptab">
+                        <li class="tab-link current" data-tab="request_tab1">전문가찾기</li>
+                        <li class="tab-link" data-tab="request_tab2">직접의뢰</li>
+                    </ul>
+                    <div id="request_tab1" class="tab-content current">
+                        <div class="bxslider4">
+                            <div class="prolist">
+                                <p>
+                                    <span>2020.01.01 11:11</span><br>
+                                    웹 개발
+                                </p>
+                                <p>내 의뢰요청서</p>
+                                <p>추천 전문가<span>(5)</span></p>
+                            </div>
+                            <div class="prolist">
+                                <p>
+                                    <span>2020.01.01 11:11</span><br>
+                                    웹 개발
+                                </p>
+                                <p>내 의뢰요청서</p>
+                                <p>추천 전문가<span>(5)</span></p>
+                            </div>
+                            <div class="prolist">
+                                <p>
+                                    <span>2020.01.01 11:11</span><br>
+                                    웹 개발
+                                </p>
+                                <p>내 의뢰요청서</p>
+                                <p>추천 전문가<span>(5)</span></p>
+                            </div>
+                            <div class="prolist">
+                                <p>
+                                    <span>2020.01.01 11:11</span><br>
+                                    웹 개발
+                                </p>
+                                <p>내 의뢰요청서</p>
+                                <p>추천 전문가<span>(5)</span></p>
+                            </div>
+                            <div class="prolist">
+                                <p>
+                                    <span>2020.01.01 11:11</span><br>
+                                    웹 개발
+                                </p>
+                                <p>내 의뢰요청서</p>
+                                <p>추천 전문가<span>(5)</span></p>
+                            </div>
+                        </div>
+                        <!-- list -->
+                        <div class="pro_rec">
+                            <p class="tit">추천 전문가</p>
+                            <div class="pro_reclist">
+                                <p class="cat_mark _f">전문가<br>찾기</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->
+                            <div class="pro_reclist">
+                                <p class="cat_mark _f">전문가<br>찾기</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->
+                            <div class="pro_reclist">
+                                <p class="cat_mark _f">전문가<br>찾기</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->
+                            <div class="pro_reclist">
+                                <p class="cat_mark _f">전문가<br>찾기</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->
+                            <div class="pro_reclist">
+                                <p class="cat_mark _f">전문가<br>찾기</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->
+                        </div>
+                    </div>
+                    <div id="request_tab2" class="tab-content">
+                        <ul class="status">
+                            <li class="on">의뢰완료  <span>20</span>건</li>
+                            <li>의뢰요청  <span>20</span>건</li>
+                            <li>의뢰진행중  <span>20</span>건</li>
+                            <li>의뢰취소  <span>20</span>건</li>
+                        </ul>
+                        <div class="pro_rec">
+                            <p class="tit">추천 전문가</p>
+                            <div class="pro_reclist">
+                                <!-- <p class="cat_mark _f">전문가<br>찾기</p> -->
+                                <p class="cat_mark _my">직접<br>의뢰</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <p class="price">230,000원</p>
+                                        <a class="btn1_1h30 gray_b2 modal_btn" data-modal="#receipt">의뢰명세서</a>
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->
+                            <div class="pro_reclist">
+                                <!-- <p class="cat_mark _f">전문가<br>찾기</p>                     -->
+                                <p class="cat_mark _my">직접<br>의뢰</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <p class="price">230,000원</p>
+                                        <a class="btn1_1h30 gray_b2 modal_btn" data-modal="#receipt">의뢰명세서</a>
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->
+                            <div class="pro_reclist">
+                                <!-- <p class="cat_mark _f">전문가<br>찾기</p>                     -->
+                                <p class="cat_mark _my">직접<br>의뢰</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <p class="price">230,000원</p>
+                                        <a class="btn1_1h30 gray_b2 modal_btn" data-modal="#receipt">의뢰명세서</a>
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->
+                            <div class="pro_reclist">
+                                <!-- <p class="cat_mark _f">전문가<br>찾기</p>                     -->
+                                <p class="cat_mark _my">직접<br>의뢰</p>                    
+                                <div class="pro_name">
+                                    <div class="user_pic1-1"></div>                           
+                                </div>
+                                <div class="pro_rec_txt">
+                                    <p class="tit">
+                                        <span class="pro_id">testid111</span> <span>일러스트 디자인</span><br>
+                                        서비스 제목을 나타냅니다.~디자인 해드립니다
+                                    </p>
+                                    <p class="state">전문가 찾는 중</p>
+                                    <div class="btn_zon">
+                                        <p class="price">230,000원</p>
+                                        <a class="btn1_1h30 gray_b2 modal_btn" data-modal="#receipt">의뢰명세서</a>
+                                        <a class="btn1_2h30 green green_bo modal_btn" data-modal="#expert">전문가 프로필</a>
+                                        <a class="btn1_1h30 green_b">의뢰요청 보내기</a>
+                                    </div>
+                                </div>
+                            </div><!-- 1줄 -->        
+                            <div class="paging">    
+                                <p class="first"><a href="">first</a></p>
+                                <p class="prev"><a href="">prev</a></p>
+                                <ul>
+                                    <li><a href="" class="active">1</a></li>
+                                    <li><a href="">2</a></li>
+                                    <li><a href="">3</a></li>
+                                    <li><a href="">4</a></li>
+                                    <li><a href="">5</a></li>
+                                </ul>
+                                <p class="next"><a href="">next</a></p>
+                                <p class="end"><a href="">end</a></p>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>    
+        <div class="right">        
+            <div class="categories">
+                <p class="tit">Categories</p>
+                <ul>
+                    <li><a href="" class="active">Open Contest</a></li>
+                    <li><a href="">Contest History</a></li>
+                    <li><a href="">Portfolio</a></li>
+                    <li><a href="">Review</a></li>
+                    <li><a href="">Price</a></li>
+                </ul>
+            </div>
+            <div class="tag margint80">
+                <p class="tit">인기태그</p>
+                <p class="tag3">#키워드</p>
+                <p class="tag3">#이런키워드</p>
+                <p class="tag3">#태그</p>
+                <p class="tag3">#태그그</p>
+            </div>
+        </div>       
+    </div>
+</div>
+
+<footer>
+    <div class="footin">
+        <div class="com_info">
+            <p>(주)아이엠프리랜서</p>
+            <p> 대표 :  김홍도<br>
+                개인정보보호책임 : 신윤복<br>
+                사업자등록번로 : 7777-77-7777<br>
+                통신판매업신고 : 777-77-777<br>
+                주소 : 인천광역시 부평구 삼산로 154번길<br>
+                대표번호 : 1555-5555<br>
+                대표이메일 : test@Test.com
+            </p>
+            <p>Copyright ©IamFreelancer. All Rights Reserved.</p>
+        </div>
+        <div class="callcenter">
+            <p>1555-5555<br>
+             <span>평일 : 10:00~17:00 ( 주말/공휴일 제외 )</span>
+            </p>
+            <a href="">App store</a>
+            <a href="">Play store</a>
+            <ul>
+                <li><a href="">인스타그램</a></li>
+                <li><a href="">페이스북</a></li>
+                <li><a href="">트위터</a></li>
+                <li><a href="">유튜브</a></li>
+            </ul>
+        </div>
+        <div class="fmenu">
+            <ul>
+                <li><a href="">회사소개</a></li>
+                <li>
+                    <a href="">고객안내</a>
+                    <a href="">콘테스트개최</a>
+                    <a href="">이용방법</a>
+                    <a href="">평점후기</a>
+                </li>
+                <li>
+                    <a href="">전문가안내</a>
+                    <a href="">이용안내</a>
+                    <a href="">전문가가입</a>
+                </li>
+                <li>
+                    <a href="">고객센터</a>
+                    <a href="">이용방법</a>
+                    <a href="">전문가가입</a>
+                </li>
+            </ul>
+            <div>
+                <a href="">이용약관</a>
+                <a href="">개인정보취급방침</a>
+            </div>
+            
+        </div>        
+    </div>   
+    <p>(주)회사명 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한의무와 책임은 거래당사자에게 있습니다.</p>
+</footer>
+
+
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src="user/js/script.js"></script>
+</body>
+</html>

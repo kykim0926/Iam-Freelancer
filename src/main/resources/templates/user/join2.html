@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iam Freelancer</title>
+
+    <link rel="stylesheet" type="text/css" href="user/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="user/css/default.css">
+    <link rel="stylesheet" type="text/css" href="user/css/style.css">
+    
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js'></script>  
+</head>
+<body class="join">
+
+<div class="joinbox _1">
+    <h1><img src="user/img/logo.png" alt="Iam Freelancer"></h1>
+    <div class="top_btn">
+        <a class="btn1_1h40 green_b txt18R" href="">전문가</a>
+        <a class="btn1_1h40 gray_b1 txt18R" href="">의뢰인</a>
+    </div>    
+    <div class="join_in">        
+        <div class="join_info">
+            <p class="tit">회원정보</p>
+            <div>
+                <label>이름</label> 
+                <input class="input2 width200" type="text" >
+            </div>
+            <div>
+                <label>아이디</label> 
+                <input class="input2 width200" type="text" >
+                <p class="error">이미 사용중이거나 탈퇴한 아이디입니다.</p>
+            </div>
+            <div>
+                <label>비밀번호</label> 
+                <input class="input2 width200" type="text" >
+            </div>
+            <div>
+                <label>비밀번호 확인</label> 
+                <input class="input2 width200" type="text" >
+                <p class="error">비밀번호가 일치하지 않습니다.</p>
+            </div>
+            <div>
+                <label>이메일</label> 
+                <input class="input2 width200" type="text" ><span>@</span> 
+                <input class="input2 width200" type="text" >
+                <div class="custom-select _1 width200">
+                    <lable hidden>메일선택</lable>
+                    <select>
+                        <option value="">직접입력</option>
+                        <option value="">daum.net</option>
+                        <option value="">gmail.com</option>
+                    </select>
+                </div>
+                <p class="noti">입력하신 이메일은 아이디/비밀번호 찾기에 이용됩니다.</p>
+            </div>
+            <div>
+                <label>전화번호</label>                 
+                <div class="custom-select _1 width80">
+                    <lable hidden>전화번호 앞자리</lable>
+                    <select>
+                        <option value="">010</option>
+                        <option value="">02</option>
+                        <option value="">032</option>
+                    </select>
+                </div>
+                <span>-</span>
+                <input class="input2 width60" type="text">
+                <span>-</span>
+                <input class="input2 width60" type="text">
+            </div>
+            <div>
+                <label>휴대폰 번호</label>                 
+                <div class="custom-select _1 width80">
+                    <lable hidden>전화번호 앞자리</lable>
+                    <select>
+                        <option value="">010</option>
+                        <option value="">02</option>
+                        <option value="">032</option>
+                    </select>
+                </div>
+                <span>-</span>
+                <input class="input2 width60" type="text">
+                <span>-</span>
+                <input class="input2 width60" type="text">
+                <button class="btn1_4h40 gray_bo2 gray2 txt14R">휴대폰 인증</button>
+                <div class="sms_cert">
+                    <input type="text" class="cnum"><div id="time">2:59</div>
+                </div>
+                <button class="btn1_4h40 gray_bo2 gray2 txt14R">인증확인</button>
+                <button class="btn1_4h40 green_bo green txt14R">인증완료</button>
+            </div>
+            <div>
+                <label>주소</label>
+                <input class="input2 width80" type="text">
+                <button class="btn1_4h40 gray_bo2 gray2 txt14R">우편번호 찾기</button>
+                <input class="input2 width400 clearboth marginl150 margint10" type="text">
+                <input class="input2 width400 margint10" type="text" placeholder="나머지 주소를 입력해주세요.">
+            </div>
+            <div>
+                <label>구분</label>
+                <div class="radio">
+                    <input type="radio" id="radio_one" name="radio_group" checked="checked" />
+                    <label for="radio_one">개인</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="radio_two" name="radio_group" />
+                    <label for="radio_two">기업</label>
+                </div>
+            </div>
+            <div>
+                <label>수익금 출금 은행</label>                 
+                <div class="custom-select _1 widtp width100">
+                    <lable hidden>은행선택</lable>
+                    <select>
+                        <option value="">기업</option>
+                        <option value="">신한</option>
+                        <option value="">032</option>
+                    </select>                
+                </div>
+               
+                <input class="input2 width180" type="text">
+                <button class="btn1_4h40 gray_bo2 gray2 txt14R">계좌 인증</button>               
+            </div>
+            <div>
+                <label>가입경로</label>
+                <div class="radio">
+                    <input type="radio" id="radio_1" name="radio_group" checked="checked" />
+                    <label for="radio_1">인터넷검색</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="radio_2" name="radio_group" />
+                    <label for="radio_2">SNS</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="radio_2" name="radio_group" />
+                    <label for="radio_3">SNS</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="join_bottom _2">            
+            <a class="btn1_1h50 gray_b2" href="main.html">취소</a>
+            <a class="btn1_1h50 blalck_b1" href="join3.html">가입</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src="user/js/script.js"></script>
+
+
+</body>
+</html>

@@ -1,8 +1,12 @@
 package iamFreelancer.login.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,7 +16,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import iamFreelancer.login.mapper.LoginMapper;
-import iamFreelancer.login.vo.UserPrincipalVO;
 import iamFreelancer.login.vo.UserVO;
 
 /**
@@ -34,13 +37,12 @@ public class LoginService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		ArrayList<UserVO> userAuthes = loginMapper.findByLoginId(username);
+		UserVO userAuthes = loginMapper.findByLoginId(username);
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		
-		if(userAuthes.size() == 0) {
-			throw new UsernameNotFoundException("User "+username+" Not Found!");
-		}
+		authorities.add(new SimpleGrantedAuthority(userAuthes.getRole_id()));
 		
-		return new UserPrincipalVO(userAuthes);
+		return new User(userAuthes.getLogin_id(), userAuthes.getLogin_pwd(), authorities);
 	}
 	
 	/* 회원 저장

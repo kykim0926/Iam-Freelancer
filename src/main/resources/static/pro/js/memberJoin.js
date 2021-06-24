@@ -207,7 +207,7 @@ $(function() {
 				user_type: $('#user_type').val(),
 				regist_route: $('#regist_route').val(),
 				user_kind: $('#user_kind').val()
-				, role_id: 'MEMBER'
+				, role_id: 'ROLE_MEMBER'
 			};
 			
 			$.ajax({

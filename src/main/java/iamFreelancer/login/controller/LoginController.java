@@ -1,9 +1,13 @@
 package iamFreelancer.login.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import iamFreelancer.login.util.LoginUserDetailHelper;
+import iamFreelancer.login.vo.UserVO;
 
 /**
  * @description : 로그인과 회원 가입 처리
@@ -13,8 +17,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 	
+	@Autowired
+	public LoginUserDetailHelper loginUserDetailHelper;
+	
 	@GetMapping("/")
 	public String freeLancerMain(ModelMap model) throws Exception{
+		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
+		
+		model.addAttribute("userVO", userVO);
 		return "pro/main";
 	}
 	

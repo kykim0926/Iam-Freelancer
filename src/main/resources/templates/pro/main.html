@@ -2,816 +2,802 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8">	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="_csrf_header" content="${_csrf.headerName}" />
-    <meta name="_csrf" content="${_csrf.token}" />
-    
-    <title>Iam Freelancer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<meta name="_csrf" content="${_csrf.token}" />
 
-    <link rel="stylesheet" type="text/css" href="/pro/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/pro/css/default.css">
-    <link rel="stylesheet" type="text/css" href="/pro/css/style.css">
-  
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
-    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+<title>Iam Freelancer</title>
+<link rel="stylesheet" type="text/css" href="/pro/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/pro/css/default.css">
+<link rel="stylesheet" type="text/css" href="/pro/css/style.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
 </head>
 <body>
-    
-<header class="marginb50">    
-    <div class="mvisual">메인비주얼</div>
-    
-    <div class="top">
-        <div class="hedmenu">
-            <h1><a href="/"><img src="/pro/img/logo.png" alt="Iam Freelancer"></a></h1>
-            <ul class="top_smenu">
-            	<li><a style="background:none;"><span sec:authentication="name"></span>님</a></li>
-                <li><a sec:authorize="isAnonymous()" th:href="@{/loginPage}">로그인</a></li>
-                <li><a sec:authorize="isAuthenticated()" th:href="@{/pro/logout}">로그아웃</a></li>
-                <li><a href="">전문가 등록</a></li>
-                <li><a sec:authorize="isAnonymous()" th:href="@{/firstJoinStep}">회원가입</a></li>
-                <li><a class="lang" sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/info}">내정보</a></li>
-            </ul>
+	<header class="marginb50">
+		<div class="mvisual">메인비주얼</div>
+		<div class="top">
+			<div class="hedmenu">
+				<h1>
+					<a href="/"><img src="/pro/img/logo.png" alt="Iam Freelancer"></a>
+				</h1>
+				<ul class="top_smenu">
+					<li sec:authorize="isAuthenticated()"><a style="background: none;"><span sec:authentication="name">님</span></a></li>
+					<li><a sec:authorize="isAnonymous()" th:href="@{/loginPage}">로그인</a></li>
+					<li><a sec:authorize="isAuthenticated()" th:href="@{/pro/logout}">로그아웃</a></li>
+					<li><a href="">전문가 등록</a></li>
+					<li><a sec:authorize="isAnonymous()" th:href="@{/firstJoinStep}">회원가입</a></li>
+					<li><a class="lang" sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/info}">내정보</a></li>
+				</ul>
 
-            <nav>
-                <ul class="navi">
-                    <li><a href="">Contest</a>
-                        <ul>                        
-                            <li><a href="">Open Contest</a></li>
-                            <li><a href="">Contest History</a></li>
-                            <li><a href="">Portfolio</a></li>
-                            <li><a href="">Review</a></li>
-                            <li><a href="">Price</a></li>                      
-                        </ul>
-                    </li>
-                    <li><a href="">Design</a></li>
-                    <li><a href="">Digital Marketing</a></li>
-                    <li><a href="">Writing</a></li>
-                    <li><a href="">Video</a></li>
-                    <li><a href="">Audio</a></li>
-                    <li><a href="">Programing</a></li>
-                    <li><a href="">Business</a></li>
-                    <li><a href="">Lifestyle</a></li>               
-                </ul>                          
-            </nav>
-        </div>
-    </div>
-<div class="main_con">    
-    <div class="msearch">
-        <p class="aling_center">Ready experts await you</p>
-        <div class="search_main">
-            <div class="title-container">
-                <div class="title">
-                    <ul class="tabs _st002">
-                        <li class="tab-link current" data-tab="search_tab1">인기검색어</li>
-                        <li class="tab-link" data-tab="search_tab2">최근 검색</li>      
-                    </ul>
-                    <div id="search_tab1" class="tab-content current">
-                        <ul>
-                            <li><a href="">검색어1</a></li>
-                            <li><a href="">검색어2</a></li>
-                            <li><a href="">검색어3</a></li>
-                            <li><a href="">검색어4</a></li>
-                            <li><a href="">검색어5</a></li>
-                            <li><a href="">검색어6</a></li>
-                            <li><a href="">검색어7</a></li>
-                            <li><a href="">검색어8</a></li>
-                            <li><a href="">검색어9</a></li>
-                            <li><a href="">검색어10</a></li>
-                        </ul>
-                    </div>
-                    <div id="search_tab2" class="tab-content">
-                        <ul>
-                            <li><a href="">최근검색어1</a></li>
-                            <li><a href="">최근검색어2</a></li>
-                            <li><a href="">최근검색어3</a></li>
-                            <li><a href="">최근검색어4</a></li>
-                            <li><a href="">최근검색어5</a></li>
-                            <li><a href="">최근검색어6</a></li>
-                            <li><a href="">최근검색어7</a></li>
-                            <li><a href="">최근검색어8</a></li>
-                            <li><a href="">최근검색어9</a></li>
-                            <li><a href="">최근검색어10</a></li>
-                        </ul>
-                    </div>
-                </div>    
-            </div>
-        
-            <fieldset class="field-container">
-                <input type="text" class="field" placeholder="전문가를 찾고 계세요?" />
-                <div class="icons-container">
-                    <div class="icon-search"></div>
-                    <div class="icon-close">
-                    <div class="x-up"></div>
-                    <div class="x-down"></div>       
-                </div>
-            </fieldset>  
-        </div>
-    </div>    
-    <div class="mcount">
-        <div>
-            <p>진행된 콘테스트</p>
-            <p>110,000</p>
-        </div>
-        <div>
-            <p>등록된 전문가</p>
-            <p>110,000</p>
-        </div>
-        <div>
-            <p>전체 포트폴리오</p>
-            <p>110,000</p>
-        </div>
-        <div>
-            <p>진행된 의뢰 수</p>
-            <p>110,000</p>
-        </div>
-    </div>
-</div>
-</header>
+				<nav>
+					<ul class="navi">
+						<li><a href="">Contest</a>
+							<ul>
+								<li><a href="">Open Contest</a></li>
+								<li><a href="">Contest History</a></li>
+								<li><a href="">Portfolio</a></li>
+								<li><a href="">Review</a></li>
+								<li><a href="">Price</a></li>
+							</ul></li>
+						<li><a href="">Design</a></li>
+						<li><a href="">Digital Marketing</a></li>
+						<li><a href="">Writing</a></li>
+						<li><a href="">Video</a></li>
+						<li><a href="">Audio</a></li>
+						<li><a href="">Programing</a></li>
+						<li><a href="">Business</a></li>
+						<li><a href="">Lifestyle</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="main_con">
+			<div class="msearch">
+				<p class="aling_center">Ready experts await you</p>
+				<div class="search_main">
+					<div class="title-container">
+						<div class="title">
+							<ul class="tabs _st002">
+								<li class="tab-link current" data-tab="search_tab1">인기검색어</li>
+								<li class="tab-link" data-tab="search_tab2">최근 검색</li>
+							</ul>
+							<div id="search_tab1" class="tab-content current">
+								<ul>
+									<li><a href="">검색어1</a></li>
+									<li><a href="">검색어2</a></li>
+									<li><a href="">검색어3</a></li>
+									<li><a href="">검색어4</a></li>
+									<li><a href="">검색어5</a></li>
+									<li><a href="">검색어6</a></li>
+									<li><a href="">검색어7</a></li>
+									<li><a href="">검색어8</a></li>
+									<li><a href="">검색어9</a></li>
+									<li><a href="">검색어10</a></li>
+								</ul>
+							</div>
+							<div id="search_tab2" class="tab-content">
+								<ul>
+									<li><a href="">최근검색어1</a></li>
+									<li><a href="">최근검색어2</a></li>
+									<li><a href="">최근검색어3</a></li>
+									<li><a href="">최근검색어4</a></li>
+									<li><a href="">최근검색어5</a></li>
+									<li><a href="">최근검색어6</a></li>
+									<li><a href="">최근검색어7</a></li>
+									<li><a href="">최근검색어8</a></li>
+									<li><a href="">최근검색어9</a></li>
+									<li><a href="">최근검색어10</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
 
-<section class="main_sec">
-    <div class="contest_mbox">
-        <p class="contest_mbox_tit">(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span></p>
-        <div class="contest_mbox_info">
-            <div class="img">콘테스트이미지</div>
-            <div>
-                <ul>
-                    <li>상금 : 5,000,000원</li>
-                    <li>2020.07.24 (D-10)</li>
-                    <li>150명 지원</li>
-                </ul>
-                <p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가 좋겠습니다.)</p>
-                <div>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                </div>
-            </div>            
-        </div>
-        <div class="pin_point">
-            <p class="pin green_b">상금100%</p>
-            <p class="pin purple_b">플래티넘</p>
-        </div> 
-    </div>
-    <div class="contest_mbox">
-        <p class="contest_mbox_tit">(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span></p>
-        <div class="contest_mbox_info">
-            <div class="img">콘테스트이미지</div>
-            <div>
-                <ul>
-                    <li>상금 : 5,000,000원</li>
-                    <li>2020.07.24 (D-10)</li>
-                    <li>150명 지원</li>
-                </ul>
-                <p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가 좋겠습니다.)</p>
-                <div>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                </div>
-            </div>            
-        </div>
-        <div class="pin_point">
-            <p class="pin green_b">상금100%</p>
-            <p class="pin purple_b">플래티넘</p>
-        </div> 
-    </div>
-    <div class="contest_mbox">
-        <p class="contest_mbox_tit">(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span></p>
-        <div class="contest_mbox_info">
-            <div class="img">콘테스트이미지</div>
-            <div>
-                <ul>
-                    <li>상금 : 5,000,000원</li>
-                    <li>2020.07.24 (D-10)</li>
-                    <li>150명 지원</li>
-                </ul>
-                <p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가 좋겠습니다.)</p>
-                <div>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                </div>
-            </div>            
-        </div>
-        <div class="pin_point">
-            <p class="pin green_b">상금100%</p>
-            <p class="pin yellow_b">골드</p>
-        </div> 
-    </div>
-    <div class="contest_mbox">
-        <p class="contest_mbox_tit">(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span></p>
-        <div class="contest_mbox_info">
-            <div class="img">콘테스트이미지</div>
-            <div>
-                <ul>
-                    <li>상금 : 5,000,000원</li>
-                    <li>2020.07.24 (D-10)</li>
-                    <li>150명 지원</li>
-                </ul>
-                <p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가 좋겠습니다.)</p>
-                <div>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                </div>
-            </div>            
-        </div>
-        <div class="pin_point">
-            <p class="pin green_b">상금100%</p>
-            <p class="pin purple_b">플래티넘</p>
-        </div> 
-    </div>
-    <div class="contest_mbox">
-        <p class="contest_mbox_tit">(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span></p>
-        <div class="contest_mbox_info">
-            <div class="img">콘테스트이미지</div>
-            <div>
-                <ul>
-                    <li>상금 : 5,000,000원</li>
-                    <li>2020.07.24 (D-10)</li>
-                    <li>150명 지원</li>
-                </ul>
-                <p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가 좋겠습니다.)</p>
-                <div>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                </div>
-            </div>            
-        </div>
-        <div class="pin_point">
-            <p class="pin green_b">상금100%</p>
-            <p class="pin brown_b">브론즈</p>
-        </div> 
-    </div>
-    <div class="contest_mbox">
-        <p class="contest_mbox_tit">(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span></p>
-        <div class="contest_mbox_info">
-            <div class="img">콘테스트이미지</div>
-            <div>
-                <ul>
-                    <li>상금 : 5,000,000원</li>
-                    <li>2020.07.24 (D-10)</li>
-                    <li>150명 지원</li>
-                </ul>
-                <p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가 좋겠습니다.)</p>
-                <div>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                    <p class="tag1">#태그</p>
-                </div>
-            </div>            
-        </div>
-        <div class="pin_point">
-            <p class="pin green_b">상금100%</p>
-            <p class="pin purple_b">프리미어</p>
-        </div> 
-    </div>
-</section>
+					<fieldset class="field-container">
+						<input type="text" class="field" placeholder="전문가를 찾고 계세요?" />
+						<div class="icons-container">
+							<div class="icon-search"></div>
+							<div class="icon-close">
+								<div class="x-up"></div>
+								<div class="x-down"></div>
+							</div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="mcount">
+				<div>
+					<p>진행된 콘테스트</p>
+					<p>110,000</p>
+				</div>
+				<div>
+					<p>등록된 전문가</p>
+					<p>110,000</p>
+				</div>
+				<div>
+					<p>전체 포트폴리오</p>
+					<p>110,000</p>
+				</div>
+				<div>
+					<p>진행된 의뢰 수</p>
+					<p>110,000</p>
+				</div>
+			</div>
+		</div>
+	</header>
 
-<section class="msrvice">
-    <p class="secTit blalck2">BEST <span class="rad1">SERVICE</span></p>
-    <div class="msrvice_list">
-        <div>
-            <div class="msevice_thm"><img src="/pro/img/msevice01.png" alt="service"></div>
-            <p class="tit">LOGO Design</p>
-            <div>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-            </div>
-        </div>
-        <div>
-            <div class="msevice_thm"><img src="/pro/img/msevice01.png" alt="service"></div>
-            <p class="tit">LOGO Design</p>
-            <div>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-            </div>
-        </div>
-        <div>
-            <div class="msevice_thm"><img src="/pro/img/msevice01.png" alt="service"></div>
-            <p class="tit">LOGO Design</p>
-            <div>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-            </div>
-        </div>
-        <div>
-            <div class="msevice_thm"><img src="/pro/img/msevice01.png" alt="service"></div>
-            <p class="tit">LOGO Design</p>
-            <div>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-            </div>
-        </div>
-        <div>
-            <div class="msevice_thm"><img src="/pro/img/msevice01.png" alt="service"></div>
-            <p class="tit">LOGO Design</p>
-            <div>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-            </div>
-        </div>
-        <div>
-            <div class="msevice_thm"><img src="/pro/img/msevice01.png" alt="service"></div>
-            <p class="tit">LOGO Design</p>
-            <div>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-                <p class="tag2">#태그</p>
-            </div>
-        </div>
-    </div>
-</section>
+	<section class="main_sec">
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin purple_b">플래티넘</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin purple_b">플래티넘</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin yellow_b">골드</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin purple_b">플래티넘</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin brown_b">브론즈</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin purple_b">프리미어</p>
+			</div>
+		</div>
+	</section>
 
-<section class="mbottom">
-    <div class="mbest">
-        <div class="best_group">
-            <p class="best_cate01 rad_b1">Design</p>
-            <p>Logo Design<br>
-            <span>BEST expert</span>
-            </p>
+	<section class="msrvice">
+		<p class="secTit blalck2">
+			BEST <span class="rad1">SERVICE</span>
+		</p>
+		<div class="msrvice_list">
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <div class="list _1">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-        </div>
+	<section class="mbottom">
+		<div class="mbest">
+			<div class="best_group">
+				<p class="best_cate01 rad_b1">Design</p>
+				<p>
+					Logo Design<br> <span>BEST expert</span>
+				</p>
 
-        <div class="best_group">
-            <p class="best_cate01 green_b">Design</p>
-            <p>Logo Design<br>
-            <span>BEST expert</span>
-            </p>
+				<div class="list _1">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+			</div>
 
-            <div class="list _1">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-        </div>
+			<div class="best_group">
+				<p class="best_cate01 green_b">Design</p>
+				<p>
+					Logo Design<br> <span>BEST expert</span>
+				</p>
 
-        <div class="best_group">
-            <p class="best_cate01 blue_b">Design</p>
-            <p>Logo Design<br>
-            <span>BEST expert</span>
-            </p>
+				<div class="list _1">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+			</div>
 
-            <div class="list _1">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-            <div class="list">
-                <div>
-                    <div class="user_pic3"></div>
-                    <div>
-                        <p class="list_id">youid</p>
-                        <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                        </div>
-                        <p class="star_point">5.0 (80)</p>
-                    </div>
-                    <p class="num1">1,200<span>만원</span></p>
-                </div>            
-            </div>
-        </div>
-    </div>
+			<div class="best_group">
+				<p class="best_cate01 blue_b">Design</p>
+				<p>
+					Logo Design<br> <span>BEST expert</span>
+				</p>
+
+				<div class="list _1">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
-    <div class="mreview">
-        <p class="secTit white">REVIEW</p>
-        <div class="bxslider2">
-            <div class="review_box">
-                <div class="user_pic2"></div>
-                <div>
-                    <p class="review_id">youid</p>
-                    <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                    </div>
-                </div>
-                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
-                    웹에 지식이없는 저에게 차근히 설명도
-                    잘해주시고 요청사항 모두 잘 
-                    반영해주셔서 만족합니다. </p>
-                <p class="review_date">2020-07-22</p>
-            </div>
-            <div class="review_box">
-                <div class="user_pic2"></div>
-                <div>
-                    <p class="review_id">youid</p>
-                    <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                    </div>
-                </div>
-                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
-                    웹에 지식이없는 저에게 차근히 설명도
-                    잘해주시고 요청사항 모두 잘 
-                    반영해주셔서 만족합니다. </p>
-                <p class="review_date">2020-07-22</p>
-            </div>
-            <div class="review_box">
-                <div class="user_pic2"></div>
-                <div>
-                    <p class="review_id">youid</p>
-                    <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                    </div>
-                </div>
-                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
-                    웹에 지식이없는 저에게 차근히 설명도
-                    잘해주시고 요청사항 모두 잘 
-                    반영해주셔서 만족합니다. </p>
-                <p class="review_date">2020-07-22</p>
-            </div>
-            <div class="review_box">
-                <div class="user_pic2"></div>
-                <div>
-                    <p class="review_id">youid</p>
-                    <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                    </div>
-                </div>
-                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
-                    웹에 지식이없는 저에게 차근히 설명도
-                    잘해주시고 요청사항 모두 잘 
-                    반영해주셔서 만족합니다. </p>
-                <p class="review_date">2020-07-22</p>
-            </div>
-            <div class="review_box">
-                <div class="user_pic2"></div>
-                <div>
-                    <p class="review_id">youid</p>
-                    <div class="star">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span class="half"></span>
-                        <span class="bin"></span>
-                    </div>
-                </div>
-                <p class="review_txt"><span>#웹디자인 #홈페이지 #기업홈페이지</span><br>
-                    웹에 지식이없는 저에게 차근히 설명도
-                    잘해주시고 요청사항 모두 잘 
-                    반영해주셔서 만족합니다. </p>
-                <p class="review_date">2020-07-22</p>
-            </div>
-        </div>
-    </div>
-</section>
+		<div class="mreview">
+			<p class="secTit white">REVIEW</p>
+			<div class="bxslider2">
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<footer>
-    <div class="footin">
-        <div class="com_info">
-            <p>(주)아이엠프리랜서</p>
-            <p> 대표 :  김홍도<br>
-                개인정보보호책임 : 신윤복<br>
-                사업자등록번로 : 7777-77-7777<br>
-                통신판매업신고 : 777-77-777<br>
-                주소 : 인천광역시 부평구 삼산로 154번길<br>
-                대표번호 : 1555-5555<br>
-                대표이메일 : test@Test.com
-            </p>
-            <p>Copyright ©IamFreelancer. All Rights Reserved.</p>
-        </div>
-        <div class="callcenter">
-            <p>1555-5555<br>
-             <span>평일 : 10:00~17:00 ( 주말/공휴일 제외 )</span>
-            </p>
-            <a href="">App store</a>
-            <a href="">Play store</a>
-            <ul>
-                <li><a href="">인스타그램</a></li>
-                <li><a href="">페이스북</a></li>
-                <li><a href="">트위터</a></li>
-                <li><a href="">유튜브</a></li>
-            </ul>
-        </div>
-        <div class="fmenu">
-            <ul>
-                <li><a href="">회사소개</a></li>
-                <li>
-                    <a href="">고객안내</a>
-                    <a href="">콘테스트개최</a>
-                    <a href="">이용방법</a>
-                    <a href="">평점후기</a>
-                </li>
-                <li>
-                    <a href="">전문가안내</a>
-                    <a href="">이용안내</a>
-                    <a href="">전문가가입</a>
-                </li>
-                <li>
-                    <a href="">고객센터</a>
-                    <a href="">이용방법</a>
-                    <a href="">전문가가입</a>
-                </li>
-            </ul>
-            <div>
-                <a href="">이용약관</a>
-                <a href="">개인정보취급방침</a>
-            </div>
-            
-        </div>        
-    </div>   
-    <p>(주)회사명 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한의무와 책임은 거래당사자에게 있습니다.</p>
-</footer>
+	<footer>
+		<div class="footin">
+			<div class="com_info">
+				<p>(주)아이엠프리랜서</p>
+				<p>
+					대표 : 김홍도<br> 개인정보보호책임 : 신윤복<br> 사업자등록번로 : 7777-77-7777<br>
+					통신판매업신고 : 777-77-777<br> 주소 : 인천광역시 부평구 삼산로 154번길<br>
+					대표번호 : 1555-5555<br> 대표이메일 : test@Test.com
+				</p>
+				<p>Copyright ©IamFreelancer. All Rights Reserved.</p>
+			</div>
+			<div class="callcenter">
+				<p>
+					1555-5555<br> <span>평일 : 10:00~17:00 ( 주말/공휴일 제외 )</span>
+				</p>
+				<a href="">App store</a> <a href="">Play store</a>
+				<ul>
+					<li><a href="">인스타그램</a></li>
+					<li><a href="">페이스북</a></li>
+					<li><a href="">트위터</a></li>
+					<li><a href="">유튜브</a></li>
+				</ul>
+			</div>
+			<div class="fmenu">
+				<ul>
+					<li><a href="">회사소개</a></li>
+					<li><a href="">고객안내</a> <a href="">콘테스트개최</a> <a href="">이용방법</a>
+						<a href="">평점후기</a></li>
+					<li><a href="">전문가안내</a> <a href="">이용안내</a> <a href="">전문가가입</a>
+					</li>
+					<li><a href="">고객센터</a> <a href="">이용방법</a> <a href="">전문가가입</a>
+					</li>
+				</ul>
+				<div>
+					<a href="">이용약관</a> <a href="">개인정보취급방침</a>
+				</div>
+
+			</div>
+		</div>
+		<p>(주)회사명 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항
+			등과 관련한의무와 책임은 거래당사자에게 있습니다.</p>
+	</footer>
 
 
 
 
 
-<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
-<script src="/pro/js/script.js"></script>
+	<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+	<script src="/pro/js/script.js"></script>
 </body>
 </html>

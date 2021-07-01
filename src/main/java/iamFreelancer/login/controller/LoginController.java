@@ -25,7 +25,7 @@ public class LoginController {
 		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
 		
 		model.addAttribute("userVO", userVO);
-		return "pro/main";
+		return "pro/main/iamFreeLancerMain";
 	}
 	
 	@GetMapping("/access-denied")

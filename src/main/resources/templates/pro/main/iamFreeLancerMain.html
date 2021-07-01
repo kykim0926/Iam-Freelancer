@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+<title>Iam Freelancer</title>
+<link rel="stylesheet" type="text/css" href="/pro/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/pro/css/default.css">
+<link rel="stylesheet" type="text/css" href="/pro/css/style.css">
+
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+
+<script type="text/javascript" src="/pro/js/util/csrf.js"></script>
+</head>
+<script type="text/javascript">
+	$(function() {
+		// 메인 상단의 메뉴 로드
+		$("#mainTopMenu").load("/pro/mainTopMenu","", function(){});
+	});
+</script>
+<body>
+	<div id="mainTopMenu"></div>
+</body>
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+</html>

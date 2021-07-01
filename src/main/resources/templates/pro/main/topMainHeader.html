@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="_csrf_header" content="${_csrf.headerName}" />
+	<meta name="_csrf" content="${_csrf.token}" />
+	
+	<title>Iam Freelancer</title>
+	<link rel="stylesheet" type="text/css" href="/pro/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/pro/css/default.css">
+	<link rel="stylesheet" type="text/css" href="/pro/css/style.css">
+	
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+	<link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="/pro/js/util/mainHeader.js"></script>
+	<script type="text/javascript" src="/pro/js/util/csrf.js"></script>
+</head>
+<body>
+	<header class="marginb50">
+		<div class="mvisual">메인비주얼</div>
+		<div class="top">
+			<div class="hedmenu">
+				<h1>
+					<a href="/"><img src="/pro/img/logo.png" alt="Iam Freelancer"></a>
+				</h1>
+				<ul class="top_smenu">
+					<li class="notFrame" sec:authorize="isAuthenticated()"><a style="background: none;"><span sec:authentication="name">님</span></a></li>
+					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/loginPage}">로그인</a></li>
+					<li class="notFrame"><a sec:authorize="isAuthenticated()" th:href="@{/pro/logout}">로그아웃</a></li>
+<!-- 					<li><a sec:authorize="isAuthenticated()" th:href="@{/pro/myPage}">마이페이지</a></li> -->
+					<li class="isFrame" folder="myPage" page="mypage_myinfo"><a sec:authorize="isAuthenticated()">마이페이지</a></li>
+					<li class="notFrame"><a>전문가 등록</a></li>
+					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/firstJoinStep}">회원가입</a></li>
+					<li class="notFrame"><a class="lang" sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/info}">내정보</a></li>
+				</ul>
+
+				<nav>
+					<ul class="navi">
+						<li class="topFirstMenu">
+							<a>Contest</a>
+							<ul>
+								<li class="isFrame" folder="contest" page="open_contest"><a>Open Contest</a></li>
+								<li class="isFrame" folder="contest" page="contest_history"><a>Contest History</a></li>
+								<li class="isFrame" folder="topSubMenu" page="Portfolio"><a>Portfolio</a></li>
+								<li class="isFrame" folder="topSubMenu" page="Review"><a>Review</a></li>
+								<li class="isFrame" folder="topSubMenu" page="Price"><a>Price</a></li>
+							</ul>
+						</li>
+						<li class="isFrame" folder="topSubMenu" value="Design"><a>Design</a></li>
+						<li class="isFrame" folder="topSubMenu" value="DigitalMarketing"><a>Digital Marketing</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Writing"><a>Writing</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Video"><a>Video</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Audio"><a>Audio</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Programing"><a>Programing</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Business"><a>Business</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Lifestyle"><a>Lifestyle</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<div id="contentBody"></div>
+	<footer>
+		<div class="footin">
+			<div class="com_info">
+				<p>(주)아이엠프리랜서</p>
+				<p>
+					대표 : 김홍도<br> 개인정보보호책임 : 신윤복<br> 사업자등록번로 : 7777-77-7777<br>
+					통신판매업신고 : 777-77-777<br> 주소 : 인천광역시 부평구 삼산로 154번길<br>
+					대표번호 : 1555-5555<br> 대표이메일 : test@Test.com
+				</p>
+				<p>Copyright ©IamFreelancer. All Rights Reserved.</p>
+			</div>
+			<div class="callcenter">
+				<p>
+					1555-5555<br> <span>평일 : 10:00~17:00 ( 주말/공휴일 제외 )</span>
+				</p>
+				<a>App store</a> <a>Play store</a>
+				<ul>
+					<li><a>인스타그램</a></li>
+					<li><a>페이스북</a></li>
+					<li><a>트위터</a></li>
+					<li><a>유튜브</a></li>
+				</ul>
+			</div>
+			<div class="fmenu">
+				<ul>
+					<li><a>회사소개</a></li>
+					<li><a>고객안내</a> <a>콘테스트개최</a> <a>이용방법</a>
+						<a>평점후기</a></li>
+					<li><a>전문가안내</a> <a>이용안내</a> <a>전문가가입</a>
+					</li>
+					<li><a>고객센터</a> <a>이용방법</a> <a>전문가가입</a>
+					</li>
+				</ul>
+				<div>
+					<a>이용약관</a> <a>개인정보취급방침</a>
+				</div>
+
+			</div>
+		</div>
+		<p>(주)회사명 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항
+			등과 관련한의무와 책임은 거래당사자에게 있습니다.</p>
+	</footer>
+</body>
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src="/pro/js/script.js"></script>
+</html>

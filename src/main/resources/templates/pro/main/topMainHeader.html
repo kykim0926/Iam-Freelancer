@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="_csrf_header" content="${_csrf.headerName}" />
 	<meta name="_csrf" content="${_csrf.token}" />
+	<meta name="_csrf_header" content="${_csrf.headerName}" />
 	
 	<title>Iam Freelancer</title>
 	<link rel="stylesheet" type="text/css" href="/pro/css/reset.css">
@@ -21,6 +21,10 @@
 	
 	<script type="text/javascript" src="/pro/js/util/mainHeader.js"></script>
 	<script type="text/javascript" src="/pro/js/util/csrf.js"></script>
+	<script type="text/javascript" src="/pro/js/memberJoin.js" ></script>
+	<script type="text/javascript" src="/pro/js/member.js" ></script>
+	<script type="text/javascript" src="/pro/js/util/otherSystemUtil.js"></script>
+	<script type="text/javascript" src="/pro/js/util/stringUtil.js"></script>
 </head>
 <body>
 	<header class="marginb50">
@@ -40,7 +44,6 @@
 					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/firstJoinStep}">회원가입</a></li>
 					<li class="notFrame"><a class="lang" sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/info}">내정보</a></li>
 				</ul>
-
 				<nav>
 					<ul class="navi">
 						<li class="topFirstMenu">

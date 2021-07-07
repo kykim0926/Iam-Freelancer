@@ -15,4 +15,7 @@ public interface LoginMapper {
 	
 	int existYnByLoginId(UserVO userVO);
 	
+	int memberInfoUpdate(UserVO userVO);
+	
+	int memberLoginPwdUpdate(UserVO userVO);
 }

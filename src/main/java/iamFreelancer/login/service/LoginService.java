@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import iamFreelancer.login.mapper.LoginMapper;
 import iamFreelancer.login.vo.UserVO;
+import iamFreelancer.util.crypt.CryptUtil;
 
 /**
  * @description : 회원 가입 DB처리 및 조회
@@ -45,8 +46,11 @@ public class LoginService implements UserDetailsService{
 		return new User(userAuthes.getLogin_id(), userAuthes.getLogin_pwd(), authorities);
 	}
 	
-	/* 회원 저장
+	/* *
+	 * 회원 저장
 	 * 롤백 설정
+	 * @param userVO
+	 * @return
 	 * */
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
 	public String insertUser(UserVO userVO) {
@@ -61,19 +65,61 @@ public class LoginService implements UserDetailsService{
 		return "fail";
 	}
 	
-	/*
+	/**
+	 * 회원정보 수정
+	 * @param userVO
+	 * @return
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
+	public String memberInfoUpdate(UserVO userVO) {
+		
+		int flag = loginMapper.memberInfoUpdate(userVO);		
+		if (flag > 0) {
+			return "success";
+		}
+		
+		return "fail";
+	}
+	
+	/**
 	 * login_id 중복 체크
+	 * @param userVO
+	 * @return
 	 */
 	public boolean existYnByLoginId(UserVO userVO) {
 
 		boolean bResult = false;
 		
 		int userCnt = loginMapper.existYnByLoginId(userVO);
-		
 		if (userCnt > 0) {
 			bResult = true;
 		}
 		
 		return bResult;
+	}
+	
+	/**
+	 * 현재 사용자의 로그인 패스워드 변경
+	 * @param userVO
+	 * @return
+	 */
+	public String memberLoginPwdUpdate(UserVO userVO) {
+
+		UserVO userInfoVO = loginMapper.findByLoginId(userVO.getLogin_id()); // 사용자 정보
+		userVO.setLogin_pwd(bCryptPasswordEncoder.encode(userVO.getLogin_pwd())); // 변경하려는 비밀번호 암호화
+		
+		boolean bCompaperResult = CryptUtil.loginPwdEncryptCompare(userVO.getCur_login_pwd(), userInfoVO.getLogin_pwd());
+		
+		if (bCompaperResult) {
+			int result = loginMapper.memberLoginPwdUpdate(userVO);
+			if (result > 0) {
+				return "sucess";	
+			} else {
+				return "fail";
+			}
+			
+		} else {
+			return "inconsistent";
+		}
 	}
 }

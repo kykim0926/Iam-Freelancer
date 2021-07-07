@@ -1,6 +1,3 @@
-var token = $("meta[name='_csrf']").attr("content");
-var header = $("meta[name='_csrf_header']").attr("content"); // X-CSRF-TOKEN
-
 // SMS 발송
 var tid;
 var SetTime = 0; // 설정시간(기본 : 초)
@@ -41,6 +38,7 @@ function sendSMS(mobileNum) {
 			console.log('sendSMS error : ', error);
 		},
 		error:function(xhr,status,error){
+			alert('인증번호 발송에 실패하였습니다. 관리자에게 문의하세요.');
 			console.log('xhr:'+xhr.responseText);
 		}
 	});
@@ -136,8 +134,8 @@ function fnZipCode() {
     new daum.Postcode({
         oncomplete: function (data) {
             $('#post_num ').val(data.zonecode);
-            $('#addr_1').val(data.roadAddress);
-            $('#addr_2').focus();
+            $('#addr').val(data.roadAddress);
+            $('#addr_detail').focus();
         }
     }).open({popupName: 'postcodePopup'});
 }

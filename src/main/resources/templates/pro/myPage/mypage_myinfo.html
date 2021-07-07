@@ -1,199 +1,221 @@
-<!DOCTYPE html>
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">	
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="_csrf" th:content="${_csrf.token}"/>
-		<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
-        <title>Iam Freelancer</title>
-    
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
-        <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
-    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
-    
-    	<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js'></script>   
-</head>
-<body>
-<div class="sub">
-    <div class="container w1280 margin50auto ">
-        <div class="contents"> 
-            <div class="mypage myinfo">
-                <p class="title">내 정보 변경</p>                
-                <div>
-                    <div class="myinfo_in">        
-                        <div class="myinfo_modi">                            
-                            <div>
-                                <label>*이름</label> 
-                                <input class="input31 width160" type="text" >
-                            </div>
-                            <div>
-                                <label>*아이디</label> 
-                                <input class="input31 width160" type="text" >
-                                <p class="error">이미 사용중이거나 탈퇴한 아이디입니다.</p>
-                            </div>
-                            <div>
-                                <label>*비밀번호</label> 
-                                <input class="input31 width160" type="text" >
-                            </div>
-                            <div>
-                                <label>*비밀번호 확인</label> 
-                                <input class="input31 width160" type="text" >
-                                <p class="error">비밀번호가 일치하지 않습니다.</p>
-                            </div>
-                            <div>
-                                <label>*이메일</label> 
-                                <input class="input31 width160" type="text" ><span>@</span> 
-                                <input class="input31 width160" type="text" >
-                                <div class="custom-select _21 width160">
-                                    <lable hidden>메일선택</lable>
-                                    <select>
-                                        <option value="">직접입력</option>
-                                        <option value="">daum.net</option>
-                                        <option value="">gmail.com</option>
-                                    </select>
-                                </div>                                
-                            </div>
-                            <div>
-                                <label>전화번호</label>                 
-                                <div class="custom-select _21 width80">
-                                    <lable hidden>전화번호 앞자리</lable>
-                                    <select>
-                                        <option value="">010</option>
-                                        <option value="">02</option>
-                                        <option value="">032</option>
-                                    </select>
-                                </div>
-                                <span>-</span>
-                                <input class="input31 width60" type="text">
-                                <span>-</span>
-                                <input class="input31 width60" type="text">
-                            </div>
-                            <div>
-                                <label>*휴대폰 번호</label>                 
-                                <div class="custom-select _21 width80">
-                                    <lable hidden>전화번호 앞자리</lable>
-                                    <select>
-                                        <option value="">010</option>
-                                        <option value="">02</option>
-                                        <option value="">032</option>
-                                    </select>
-                                </div>
-                                <span>-</span>
-                                <input class="input31 width60" type="text">
-                                <span>-</span>
-                                <input class="input31 width60" type="text">
-                                <button class="btn1_4h32 green_bo green txt14R">휴대폰 인증</button>
-                                <div class="sms_cert">
-                                    <input type="text" class="cnum"><div id="time">2:59</div>
-                                </div>
-                                <button class="btn1_3h32 green_b txt14R">인증</button>
-                                <button class="btn1_3h32 rad_b2 txt14R">인증완료</button>
-                            </div>
-                            <div>
-                                <label>*주소</label>
-                                <input class="input31 width80" type="text">
-                                <button class="btn1_3h32 blalck_b1 txt14R">우편번호</button>
-                                <input class="input31 w280 clearboth marginl150 margint10" type="text">
-                                <input class="input31 w280 margint10" type="text" placeholder="나머지 주소를 입력해주세요.">
-                            </div>
-                            <div>
-                                <label>구분</label>
-                                <div class="radio">
-                                    <input type="radio" id="radio_one" name="radio_group" checked="checked" />
-                                    <label for="radio_one">개인</label>
-                                </div>
-                                <div class="radio">
-                                    <input type="radio" id="radio_two" name="radio_group" />
-                                    <label for="radio_two">기업</label>
-                                </div>
-                            </div>
-                            <div>
-                                <label>수익금 출금 은행</label>                 
-                                <div class="custom-select _21 widtp width100">
-                                    <lable hidden>은행선택</lable>
-                                    <select>
-                                        <option value="">기업</option>
-                                        <option value="">신한</option>
-                                        <option value="">032</option>
-                                    </select>                
-                                </div>
-                                <input class="input31 width280" type="text" placeholder="계좌번호를 입력해주세요.">                                          
-                            </div>  
-                        </div>
-                        <div class="btn_zon">            
-                            <a class="modal_btn" data-modal="#out">회원탈퇴</a>
-                            <a href="main.html">수정</a>
-                            <p class="noti">입력하신 이메일은 아이디/비밀번호 찾기에 이용됩니다.</p>
-                        </div>                        
-                    </div>               
-                </div>
-                
-            </div>
-        </div>
-        <div class="right">        
-            <div class="categories">
-                <p class="tit">Categories</p>
-                <ul>
-                    <li><a href="" class="active">Open Contest</a></li>
-                    <li><a href="">Contest History</a></li>
-                    <li><a href="">Portfolio</a></li>
-                    <li><a href="">Review</a></li>
-                    <li><a href="">Price</a></li>
-                </ul>
-            </div>
-            <div class="tag margint80">
-                <p class="tit">인기태그</p>
-                <p class="tag3">#키워드</p>
-                <p class="tag3">#이런키워드</p>
-                <p class="tag3">#태그</p>
-                <p class="tag3">#태그그</p>
-            </div>
-        </div>
-       
-    </div>
-</div>
-<!-- 모달시작 -->
-<div class="modal" id="out">
-    <div class="modal__content">
-        <div class="modal__body">	
-            <div class="pop_out">
-                <p>탈퇴하시겠습니까?</p>  
-                <div class="custom-select _21 width400">
-                    <lable hidden>탈퇴사유</lable>
-                    <select>
-                        <option value="">탈퇴사유1</option>
-                        <option value="">탈퇴사유1</option>
-                        <option value="">탈퇴사유1</option>
-                    </select>                
-                </div>
-                <textarea class="reason" name="" id=""></textarea>
-                <div class="fzon">
-                    <button class="btn_close">취소</button>
-                    <button class="modal_btn out" data-modal="#out_error">탈퇴</button>
-                </div>  
-            </div> 
-        </div>                                 
-    </div>
-</div>
 
-<!-- 모달시작 -->
-<div class="modal" id="out_error">
-    <div class="modal__content">
-        <div class="modal__body">	
-            <div class="pop_out">
-                <p>보유 캐시 잔액이 있어<br>
-                    탈퇴가 불가능합니다.
-                </p> 
-                <div class="fzon _2">
-                    <button class="btn_close">확인</button>                   
-                </div>  
-            </div> 
-        </div>                                 
-    </div>
-</div>
+	<div id="modMemberPage" class="sub">
+		<div class="container w1280 margin0auto ">
+			<div class="contents">
+				<div class="contest_tab margint30">
+					<ul class="tabs _st01">
+						<li class="tab-link current" data-tab="tab-1">내정보 변경</li>
+						<li class="tab-link" data-tab="tab-2">비밀번호 변경</li>
+					</ul>
+					<div id="tab-1" class="tab-content current margint30">
+						<div class="myinfo_in">
+							<div class="myinfo_modi">
+								<div>
+									<label>*이름</label> <input id="name" name="name" class="input31 width160" type="text" th:value="${userVO.name}">
+								</div>
+								<div style="display:none;">
+									<label>*아이디</label> <input id="login_id" name="login_id" class="input31 width160 regNecessary" type="text" th:value="${userVO.login_id}">
+									<p class="error idExistChk" style="display: none;">이미
+										사용중이거나 탈퇴한 아이디입니다.</p>
+									<p class="error idValidChk" style="display: none;">영문자, 숫자,
+										특수문자를 사용하세요.</p>
+								</div>
+								<div>
+									<label>*이메일</label> <input class="input31 width160" id="email_user" type="text" th:value="${#strings.substring(userVO.email, 0, #strings.indexOf(userVO.email, '@'))}">
+									<span id="at">@</span> <input class="input31 width160" id="email_domain" type="text" th:value="${#strings.substring(userVO.email, #strings.indexOf(userVO.email, '@')+1, #strings.length(userVO.email))}">
+									<div class="custom-select _21 width160">
+										<lable hidden>메일선택</lable>
+										<select id="search_email_domain">
+											<option value="">선택</option>
+											<option value="daum.net">daum.net</option>
+											<option value="gmail.com">gmail.com</option>
+											<option value="">직접입력</option>
+										</select>
+									</div>
+								</div>
+								<div>
+									<label>전화번호</label>
+									<div class="custom-select _21 width80 divPhone" id="">
+										<lable hidden>전화번호 앞자리</lable>
+										<select id="phone_exchange_num">
+											<option value="">선택</option>
+											<option value="010">010</option>
+											<option value="02">02</option>
+											<option value="032">032</option>
+										</select>
+									</div>
+									<span>-</span> <input class="input31 width80" id="phone_first_num" type="text" th:value="${#strings.arraySplit(userVO.phone_num, '-')[#arrays.length(#strings.arraySplit(userVO.phone_num, '-')) - 2]}">
+								    <span>-</span> 
+								    <input class="input31 width80" id="phone_second_num" type="text" th:value="${#strings.arraySplit(userVO.phone_num, '-')[#arrays.length(#strings.arraySplit(userVO.phone_num, '-')) - 1]}">
+								</div>
+								<div>
+									<label>*휴대폰 번호</label>
+									<div class="custom-select _21 width80 divMobile">
+										<lable hidden>전화번호 앞자리</lable>
+										<select id="mobile_exchange_num">
+											<option value="">선택</option>
+											<option value="010">010</option>
+											<option value="02">02</option>
+											<option value="032">032</option>
+										</select>
+									</div>
+									<span>-</span> <input class="input31 width80" id="mobile_first_num" type="text" th:value="${#strings.arraySplit(userVO.mobile_num, '-')[#arrays.length(#strings.arraySplit(userVO.mobile_num, '-')) - 2]}" onkeyup="numChk(this)">
+									<span>-</span> <input class="input31 width80" id="mobile_second_num" type="text" th:value="${#strings.arraySplit(userVO.mobile_num, '-')[#arrays.length(#strings.arraySplit(userVO.mobile_num, '-')) - 1]}" onkeyup="numChk(this)">
+									<button class="btn1_4h32 green_bo green txt14R" id="mobileCert">휴대폰 인증</button>
+									<div class="sms_cert">
+										<input type="text" class="cnum" style="padding:6px 0 0 0"><div id="time"><span id="ViewTimer"></span></div>
+									</div>
+									<button class="btn1_3h32 green_b txt14R" type="button" id="mobileCertComplete">인증</button>
+								</div>
+								<div>
+									<label>*주소</label> <input id="post_num" name="post_num" class="input31 width80" type="text" th:value="${userVO.post_num}">
+									<button id="addrSearch" class="btn1_3h32 blalck_b1 txt14R">우편번호</button>
+									<input class="input31 w280 clearboth marginl150 margint10" type="text" id="addr" name="addr" th:value="${userVO.addr}" readonly> 
+									<input class="input31 w280 margint10" type="text" id="addr_detail" name="addr_detail" th:value="${userVO.addr_detail}" placeholder="나머지 주소를 입력해주세요.">
+								</div>
+								<div>
+									<label>구분</label>
+									<div class="radio">
+										<input type="radio" id="radio_one" name="user_type_group" value="I" th:checked="${#strings.equals(userVO.user_type, 'I')}"/> <label for="radio_one">개인</label>
+									</div>
+									<div class="radio">
+										<input type="radio" id="radio_two" value="C" name="user_type_group" th:checked="${#strings.equals(userVO.user_type, 'C')}"/> <label for="radio_two">기업</label>
+									</div>
+								</div>
+								<!--                             <div> -->
+								<!--                                 <label>수익금 출금 은행</label>                  -->
+								<!--                                 <div class="custom-select _21 widtp width100"> -->
+								<!--                                     <lable hidden>은행선택</lable> -->
+								<!--                                     <select> -->
+								<!--                                         <option value="">기업</option> -->
+								<!--                                         <option value="">신한</option> -->
+								<!--                                         <option value="">032</option> -->
+								<!--                                     </select>                 -->
+								<!--                                 </div> -->
+								<!--                                 <input class="input31 width280" type="text" placeholder="계좌번호를 입력해주세요.">                                           -->
+								<!--                             </div>   -->
+							</div>
+							<div class="btn_zon" style="margin-bottom: 30px;">
+								<a class="modal_btn" data-modal="#out">회원탈퇴</a> <a id="memberInfoModify">수정</a>
+								<p class="noti">입력하신 이메일은 아이디/비밀번호 찾기에 이용됩니다.</p>
+							</div>
+						</div>
+					</div>
+					<div id="tab-2" class="tab-content margint30">
+						<div class="myinfo_in">
+							<div class="myinfo_modi">
+								<div>
+									<label>*현재 비밀번호</label> <input class="input31 width160" id="cur_login_pwd" name="cur_login_pwd" type="password">
+								</div>
+								<div>
+									<label>*변경할 비밀번호</label> <input class="input31 width160 loginPwd regNecessary" id="login_pwd" name="login_pwd" type="password">
+									<p class="error validMsg" style="display: none;">8~16자 영문자, 숫자, 특수문자를 사용하세요.</p>
+								</div>
+								<div>
+									<label>*변경할 비밀번호 확인</label> <input class="input31 width160 regNecessary" id="login_pwd_confirm" type="password">
+									<span style="color:#f2270c;padding-top:10px;" class="error pwdMatchChk">비밀번호가 일치하지 않습니다.</span>
+								</div>
+							</div>
+							<div class="btn_zon" style="margin-bottom: 30px;">
+								<a id="memberPwdModify" style="background: #0ac195;">수정</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="categories">
+					<p class="tit">Categories</p>
+					<ul>
+						<li><a href="" class="active">Open Contest</a></li>
+						<li><a href="">Contest History</a></li>
+						<li><a href="">Portfolio</a></li>
+						<li><a href="">Review</a></li>
+						<li><a href="">Price</a></li>
+					</ul>
+				</div>
+				<div class="tag margint80">
+					<p class="tit">인기태그</p>
+					<p class="tag3">#키워드</p>
+					<p class="tag3">#이런키워드</p>
+					<p class="tag3">#태그</p>
+					<p class="tag3">#태그그</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- 모달시작 -->
+	<div class="modal" id="out">
+		<div class="modal__content">
+			<div class="modal__body">
+				<div class="pop_out">
+					<p>탈퇴하시겠습니까?</p>
+					<div class="custom-select _21 width400">
+						<lable hidden>탈퇴사유</lable>
+						<select>
+							<option value="">탈퇴사유1</option>
+							<option value="">탈퇴사유1</option>
+							<option value="">탈퇴사유1</option>
+						</select>
+					</div>
+					<textarea class="reason" name="" id=""></textarea>
+					<div class="fzon">
+						<button class="btn_close">취소</button>
+						<button class="modal_btn out" data-modal="#out_error">탈퇴</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 모달시작 -->
+	<div class="modal" id="out_error">
+		<div class="modal__content">
+			<div class="modal__body">
+				<div class="pop_out">
+					<p>
+						보유 캐시 잔액이 있어<br> 탈퇴가 불가능합니다.
+					</p>
+					<div class="fzon _2">
+						<button class="btn_close">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<input type="hidden" id="email" name="email">
+<input type="hidden" id="mobile_num" name="mobile_num">
+<input type="hidden" id="phone_num" name="phone_num">
+<input type="hidden" id="user_type" name="user_type">
+<input type="hidden" id="regist_route" name="regist_route">
+<input type="hidden" id="user_kind" name="user_kind">
+
+<script type="text/javascript" src="/pro/js/memberJoin.js" ></script>
+<script type="text/javascript" src="/pro/js/util/otherSystemUtil.js"></script>
 <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
-</body>
-</html>
+<script src="/pro/js/scriptCustom.js"></script>
+<script th:inline="javascript">
+	// 사용자 정보 로드
+	var userVO = JSON.parse('[[${userVO}]]');
+
+	// 전화번호 맨 앞자리 셋팅
+	var phoneNum = userVO.phone_num.substring(0, userVO.phone_num.indexOf('-'));
+	var phoneSelectItem = $('.divPhone .select-items div');
+	
+ 	for(var i = 0; i < phoneSelectItem.length; i++){
+ 		if(phoneSelectItem[i].innerText === phoneNum){
+ 			phoneSelectItem[i].click();
+ 		}
+	}
+
+ 	// 모바일 맨 앞자리 셋팅
+ 	var mobileNum = userVO.mobile_num.substring(0, userVO.mobile_num.indexOf('-'));
+	var mobileSelectItem = $('.divMobile .select-items div');
+	
+ 	for(var i = 0; i < mobileSelectItem.length; i++){
+ 		if(mobileSelectItem[i].innerText === mobileNum){
+ 			mobileSelectItem[i].click();
+ 		}
+	}
+</script>

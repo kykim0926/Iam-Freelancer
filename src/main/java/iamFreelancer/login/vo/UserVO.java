@@ -19,11 +19,13 @@ public class UserVO implements Serializable{
 	
 	private String login_id;      // 아이디
 	private String login_pwd;     // 로그인 암호
+	private String cur_login_pwd; // 현재 로그인 암호
 	private String name;
 	private String email;         // 이메일
 	private String phone_num;     // 전화번호
 	private String mobile_num;    // 핸드폰 번호
 	private String addr;          // 주소
+	private String addr_detail;          // 주소
 	private String post_num;      // 우편 번호
 	private String user_type;     // 기업:C 개인:I 
 	private String bank;          // 은행

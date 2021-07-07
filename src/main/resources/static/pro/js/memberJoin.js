@@ -32,18 +32,23 @@ var loginHdlr = {
 			} else {
 				$('.idValidChk').hide();
 			}
-			
+
 			// 로그인 ID 중복 체크	
 			var idExistChk = false;
-			idExistChk = memberHdlr.memberIdExistChk($('#login_id').val());
+
+			if (userVO != null) { // 내 정보 수정일 경우
+				idExistChk = 'false';	
+			} else { // 회원 가입일 경우
+				idExistChk = memberHdlr.memberIdExistChk($('#login_id').val());
+			}
 			
-			if (idExistChk == 'true') {
+			if (idExistChk == 'true') { // 중복
 				this.bIdValidateChk = false;
 				$('.idExistChk').show();					
-			} else {
+			} else { // 중복아님
 				this.bIdValidateChk = true;
 				$('.idExistChk').hide();
-			}			
+			} 
 		}
 		
 		// 비밀번호 및 비밀번호 확인란 체크
@@ -102,6 +107,35 @@ var loginHdlr = {
 	registValidateChk : function(evt) {
 		loginHdlr.pwdInputValidChk(evt);
 		
+		var bRegInfoChk = false;
+		var bRegPwdChk = false;
+		
+		bRegInfoChk = loginHdlr.memberInfoValidateChk();
+		bRegPwdChk = loginHdlr.memberPwdValidateChk();
+
+		if (bRegInfoChk && bRegPwdChk) {
+			return true;			
+		} else {
+			return false;
+		}
+	},
+	
+	// 개인정보 수정 항목 체크
+	modifyValidateChk : function() {
+		var bModInfoChk = false;
+		bModInfoChk = loginHdlr.memberInfoValidateChk();
+		
+		if (bModInfoChk) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	
+	// 회원 정보 체크
+	memberInfoValidateChk : function(evt) {
+		loginHdlr.pwdInputValidChk(evt);
+		
 		if ($('#name').val() == '') {
 			alert('이름을 입력해주세요.');
 			return false;
@@ -116,27 +150,6 @@ var loginHdlr = {
 				return false;	
 			}
 		}
-		
-		if ($('#login_pwd').val() == '') {
-			alert('비밀번호를 입력해주세요.');
-			return false;
-		} else {
-			if (!this.bPwdValidateChk) {
-				alert('비밀번호가 올바르지 않습니다.');
-				return false;	
-			}
-		}
-		
-		if ($('#login_pwd').val() == '') {
-			alert('비밀번호를 확인해 주세요.');
-			return false;
-		} else {
-			if (!this.bPwdMatchValidateChk) {
-				alert('비밀번호가 일치하지 않습니다.');
-				return false;	
-			}
-		}
-		
 		if (!this.bCertificateCompleteYn) {
 			alert('휴대폰 인증을 해주십시요.');
 			return false;	
@@ -149,15 +162,38 @@ var loginHdlr = {
 		}
 		
 		return true;
+	},
+	
+	// 회원 비밀번호 체크
+	memberPwdValidateChk : function() {
+		var bPwdResult = true;
+		
+		if ($('#login_pwd').val() == '') {
+			alert('비밀번호를 입력해주세요.');
+			bPwdResult = false;
+		} else {
+			if (!this.bPwdValidateChk) {
+				alert('비밀번호가 올바르지 않습니다.');
+				bPwdResult =false;	
+			}
+		}
+		
+		if ($('#login_pwd').val() == '') {
+			alert('비밀번호를 확인해 주세요.');
+			bPwdResult =false;
+		} else {
+			if (!this.bPwdMatchValidateChk) {
+				alert('비밀번호가 일치하지 않습니다.');
+				bPwdResult =false;	
+			}
+		}
+		
+		return bPwdResult;
 	}
 }
 
 $(function() {
-	// kykim : $(this)
 	// 이부분의 $(this)는 전체 DOM을 가져온다. 
-	// 예시) $(this).context.documentElement : 전체
-	// 예시) $(this).find('.join_in').html() : .join_in 하위의 DOM 
-	// 아래의 $(this)는 해당 #all_agrees의 DOM을 가져온다
 	$('#all_agrees').on('change',function() {
 		if ($("input:checkbox[id='all_agrees']").is(':checked') == true) {
 			$("input[id$='_agree']").prop('checked', true);			
@@ -184,17 +220,16 @@ $(function() {
 	
 	// 회원가입
 	$('#memberRegist').click(function(evt) {
-		var bCheckComplete = loginHdlr.registValidateChk(evt);
+		var bRegCheckComplete = loginHdlr.registValidateChk(evt);
 		
-		if (bCheckComplete) {
+		if (bRegCheckComplete) {
 			// 나눠져 있는 정보를 조합
-			$('#mobile_num').val($("#mobile_exchange_num option:selected").val() + $("#mobile_first_num").val() + $("#mobile_second_num").val()); // 핸드폰
-			$('#phone_num').val($("#phone_exchange_num option:selected").val() + $("#phone_first_num").val() + $("#phone_second_num").val()); // 전화
+			$('#mobile_num').val($("#mobile_exchange_num option:selected").val() + '-' + $("#mobile_first_num").val() + '-' + $("#mobile_second_num").val()); // 핸드폰
+			$('#phone_num').val($("#phone_exchange_num option:selected").val() + '-' + $("#phone_first_num").val() + '-' + $("#phone_second_num").val()); // 전화
 			$('#email').val($('#email_user').val() + $('#at').text() + $('#email_domain').val() + $('#search_email_domain').val()); // 이메일
-			$('#addr').val($('#addr_1').val() + $('#addr_2').val()); // 주소
+//			$('#addr').val($('#addr_1').val() + $('#addr_2').val()); // 주소
 			$('#user_type').val($('input:radio[name="user_type_group"]:checked').val()); // 구분
 			$('#regist_route').val($('input:radio[name=regRoute_group]:checked').val()); // 가입경로
-			// $('#memberForm').attr('action', '/member/regist').submit();
 
 			var jsonData = {
 				name: $('#name').val(),
@@ -203,7 +238,9 @@ $(function() {
 				mobile_num: $('#mobile_num').val(),
 				phone_num: $('#phone_num').val(),
 				email: $('#email').val(),
+				post_num: $('#post_num').val(),
 				addr: $('#addr').val(),
+				addr_detail: $('#addr_detail').val(),
 				user_type: $('#user_type').val(),
 				regist_route: $('#regist_route').val(),
 				user_kind: $('#user_kind').val()
@@ -224,11 +261,107 @@ $(function() {
 					alert("성공적으로 가입되었습니다");
 					$(location).attr('href', 'http://localhost:8080/pro/join3');
 				},
-				fail: function() {
+				fail: function(error) {
+					console.log("[fali]/member/regist", error);
+					alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
+					
+				},
+				error:function(xhr,status,error){
+					console.log("[fali]/member/regist",xhr.responseText);
 					alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
 				}
-				 
 			});
+		}
+	});
+	
+	// 회원정보 수정
+	$('#memberInfoModify').click(function() {
+		var bModCheckComplete = loginHdlr.modifyValidateChk();
+		
+		if (bModCheckComplete) {
+			$('#mobile_num').val($("#mobile_exchange_num option:selected").val() + '-' + $("#mobile_first_num").val() + '-' + $("#mobile_second_num").val()); // 핸드폰
+			$('#phone_num').val($("#phone_exchange_num option:selected").val() + '-' + $("#phone_first_num").val() + '-' + $("#phone_second_num").val()); // 전화
+			$('#email').val($('#email_user').val() + $('#at').text() + $('#email_domain').val() + $('#search_email_domain').val()); // 이메일
+			$('#user_type').val($('input:radio[name="user_type_group"]:checked').val()); // 구분
+			$('#regist_route').val($('input:radio[name=regRoute_group]:checked').val()); // 가입경로
+			
+			var jsonData = {
+				name: $('#name').val(),
+				login_id: $('#login_id').val(),
+				mobile_num: $('#mobile_num').val(),
+				phone_num: $('#phone_num').val(),
+				email: $('#email').val(),
+				post_num: $('#post_num').val(),
+				addr: $('#addr').val(),
+				addr_detail: $('#addr_detail').val(),
+				user_type: $('#user_type').val()
+			};
+			
+			$.ajax({
+				url: '/member/memberInfoUpdate',
+				dataType:'text',
+				type: 'POST',
+				asycn: false,
+				contentType: 'application/json',
+				data: JSON.stringify(jsonData),
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader(CSRF_HEADER, CSRF_TOKEN);
+				},
+				success: function(data) {
+					alert("성공적으로 수정되었습니다.");
+				},
+				fail: function(error) {
+					console.log('[fail]/member/memberInfoUpdate ::: ', error);
+					alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
+				},
+				error: function(xhr, status, error) {
+					console.log("[error]/member/regist ::: ",xhr.responseText);
+					alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
+				}
+			});
+			
+		}
+	})
+	
+	// 회원 비밀번호 수정
+	$('#memberPwdModify').click(function(evt) {
+		loginHdlr.pwdInputValidChk(evt);
+		var bModPwdChk = loginHdlr.memberPwdValidateChk();
+		
+		if (bModPwdChk) {
+			var jsonData = {
+				login_id: userVO.login_id,
+				cur_login_pwd: $('#cur_login_pwd').val(),
+				login_pwd: $('#login_pwd').val()
+			}
+			
+			$.ajax({
+				url: '/member/memberLoginPwdUpdate',
+				dataType: 'text',
+				type: 'POST',
+				async: false,
+				contentType: 'application/json',
+				data: JSON.stringify(jsonData),
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader(CSRF_HEADER, CSRF_TOKEN);
+				},
+				success: function(data) {
+					console.log("비밀전호 수정 : ", data);
+					if(data == 'inconsistent' ){
+						alert("비밀번호가 일치하지 않습니다.");
+					} else {
+						alert("성공적으로 수정되었습니다.");						
+					}
+				},
+				fail: function(error) {
+					alert("오류가 발생하였습니다. 관리자에게 문의하세요1.");
+					console.log('[fail]/member/memberLoginPwdUpdate ::: ', error);
+				},
+				error: function(xhr, status, error) {
+					alert("오류가 발생하였습니다. 관리자에게 문의하세요2.");
+					console.log('[error]/member/memberLoginPwdUpdate ::: ', xhr.responseText)
+				}
+			})
 		}
 	});
 	
@@ -309,12 +442,12 @@ $(function() {
 		$('.pwdMatchChk').hide();
 	});
 	
-	// 비밀번호 패턴 체크 : 회원가입상세화면에서만 동작
-	$('html').click(function(evt) {
-		if (window.location.href.indexOf('joinDetailRegist') > -1) {
+	// 비밀번호 패턴 체크 : 회원가입상세 화면과 개인정수정 화면에서만 동작
+	if (window.location.href.indexOf('joinDetailRegist') > -1 || $('#modMemberPage').length > 0) {
+		$('html').click(function(evt) {
 			loginHdlr.pwdInputValidChk(evt);			
-		}
-	});	
+		});	
+	}
 	
 	// form 태그안의 input박스의 엔터키 이벤트 제거
 	$("input:text, input:password").keydown(function(evt) {

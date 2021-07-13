@@ -1,4 +1,6 @@
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+<div layout:fragment="content">
 	<div id="modMemberPage" class="sub">
 		<div class="container w1280 margin0auto ">
 			<div class="contents">
@@ -23,7 +25,7 @@
 								<div>
 									<label>*이메일</label> <input class="input31 width160" id="email_user" type="text" th:value="${#strings.substring(userVO.email, 0, #strings.indexOf(userVO.email, '@'))}">
 									<span id="at">@</span> <input class="input31 width160" id="email_domain" type="text" th:value="${#strings.substring(userVO.email, #strings.indexOf(userVO.email, '@')+1, #strings.length(userVO.email))}">
-									<div class="custom-select _21 width160">
+									<div class="custom-select _21 width160 divEmail">
 										<lable hidden>메일선택</lable>
 										<select id="search_email_domain">
 											<option value="">선택</option>
@@ -35,7 +37,7 @@
 								</div>
 								<div>
 									<label>전화번호</label>
-									<div class="custom-select _21 width80 divPhone" id="">
+									<div class="custom-select _21 width80 divPhone">
 										<lable hidden>전화번호 앞자리</lable>
 										<select id="phone_exchange_num">
 											<option value="">선택</option>
@@ -82,18 +84,6 @@
 										<input type="radio" id="radio_two" value="C" name="user_type_group" th:checked="${#strings.equals(userVO.user_type, 'C')}"/> <label for="radio_two">기업</label>
 									</div>
 								</div>
-								<!--                             <div> -->
-								<!--                                 <label>수익금 출금 은행</label>                  -->
-								<!--                                 <div class="custom-select _21 widtp width100"> -->
-								<!--                                     <lable hidden>은행선택</lable> -->
-								<!--                                     <select> -->
-								<!--                                         <option value="">기업</option> -->
-								<!--                                         <option value="">신한</option> -->
-								<!--                                         <option value="">032</option> -->
-								<!--                                     </select>                 -->
-								<!--                                 </div> -->
-								<!--                                 <input class="input31 width280" type="text" placeholder="계좌번호를 입력해주세요.">                                           -->
-								<!--                             </div>   -->
 							</div>
 							<div class="btn_zon" style="margin-bottom: 30px;">
 								<a class="modal_btn" data-modal="#out">회원탈퇴</a> <a id="memberInfoModify">수정</a>
@@ -184,38 +174,47 @@
 			</div>
 		</div>
 	</div>
-<input type="hidden" id="email" name="email">
-<input type="hidden" id="mobile_num" name="mobile_num">
-<input type="hidden" id="phone_num" name="phone_num">
-<input type="hidden" id="user_type" name="user_type">
-<input type="hidden" id="regist_route" name="regist_route">
-<input type="hidden" id="user_kind" name="user_kind">
+</div>
 
-<script type="text/javascript" src="/pro/js/memberJoin.js" ></script>
-<script type="text/javascript" src="/pro/js/util/otherSystemUtil.js"></script>
-<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
-<script src="/pro/js/scriptCustom.js"></script>
-<script th:inline="javascript">
+<th:block layout:fragment="script">
+	<script type="text/javascript" th:src="@{/pro/js/scriptCustom.js}"></script>
+	<script th:inline="javascript">
 	// 사용자 정보 로드
 	var userVO = JSON.parse('[[${userVO}]]');
-
-	// 전화번호 맨 앞자리 셋팅
-	var phoneNum = userVO.phone_num.substring(0, userVO.phone_num.indexOf('-'));
-	var phoneSelectItem = $('.divPhone .select-items div');
 	
- 	for(var i = 0; i < phoneSelectItem.length; i++){
- 		if(phoneSelectItem[i].innerText === phoneNum){
- 			phoneSelectItem[i].click();
- 		}
-	}
-
- 	// 모바일 맨 앞자리 셋팅
- 	var mobileNum = userVO.mobile_num.substring(0, userVO.mobile_num.indexOf('-'));
-	var mobileSelectItem = $('.divMobile .select-items div');
+	$(document).ready(function(){	
+		// 전화번호 맨 앞자리 셋팅
+		var phoneNum = userVO.phone_num.substring(0, userVO.phone_num.indexOf('-'));
+		var phoneSelectItem = $('.divPhone .select-items div');
+		
+	 	for(var i = 0; i < phoneSelectItem.length; i++){
+	 		if(phoneSelectItem[i].innerText === phoneNum){
+	 			phoneSelectItem[i].click();
+	 		}
+		}
 	
- 	for(var i = 0; i < mobileSelectItem.length; i++){
- 		if(mobileSelectItem[i].innerText === mobileNum){
- 			mobileSelectItem[i].click();
- 		}
-	}
-</script>
+	 	// 모바일 맨 앞자리 셋팅
+	 	var mobileNum = userVO.mobile_num.substring(0, userVO.mobile_num.indexOf('-'));
+		var mobileSelectItem = $('.divMobile .select-items div');
+		
+	 	for(var i = 0; i < mobileSelectItem.length; i++){
+	 		if(mobileSelectItem[i].innerText === mobileNum){
+	 			mobileSelectItem[i].click();
+	 		}
+		}
+	 	
+		$('.divEmail .select-items div').on('click', function() {
+			alert("!");
+			if ($("#search_email_domain option:selected").val() == '') {
+				$('#email_domain').attr('disabled', false); // 직접입력란 활성화
+				$('#email_domain').css('background', '#f5f5f8');
+			} else {
+				$('#email_domain').attr('disabled', true); // 직접입력란 비활성화
+				$('#email_domain').css('background', '#a9a9c1');
+				$('#email_domain').val(''); // 직접입력란 비활성화
+			}
+		});
+ 	});
+	</script>
+</th:block>
+</html>

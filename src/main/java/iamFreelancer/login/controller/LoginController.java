@@ -20,12 +20,12 @@ public class LoginController {
 	@Autowired
 	public LoginUserDetailHelper loginUserDetailHelper;
 	
-	@GetMapping("/")
+	@GetMapping("/main")
 	public String freeLancerMain(ModelMap model) throws Exception{
 		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
 		
 		model.addAttribute("userVO", userVO);
-		return "pro/main/iamFreeLancerMain";
+		return "index";
 	}
 	
 	@GetMapping("/access-denied")

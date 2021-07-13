@@ -58,12 +58,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.and() // 로그인 설정
 				.formLogin()
 				.loginPage("/pro/login")
-				.defaultSuccessUrl("/") // 로그인이 성공했을 때 이동되는 페이지이며, 마찬가지로 컨트롤러에서 URL 매핑
+				.defaultSuccessUrl("/main") // 로그인이 성공했을 때 이동되는 페이지이며, 마찬가지로 컨트롤러에서 URL 매핑
 				.permitAll()
 			.and() // 로그아웃 설정
 				.logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/pro/logout"))
-				.logoutSuccessUrl("/")
+				.logoutSuccessUrl("/main")
 				.invalidateHttpSession(true)
 			.and()
 				// 403 예외처리 핸들링

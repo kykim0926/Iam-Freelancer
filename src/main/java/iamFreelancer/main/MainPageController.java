@@ -53,11 +53,33 @@ public class MainPageController {
 	 * @return
 	 */
 	@GetMapping("/pro/moveMenu/myPage/mypage_myinfo")
-	public String moveMainMenu(@RequestParam("param") String param, Model model) {
+	public String moveMainMenu(Model model) {
 		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
 		
 		model.addAttribute("userVO", userVO);
 		
 		return "/pro/myPage/mypage_myinfo";
 	}
+	
+	@GetMapping("/pro/moveMenu/contest/contest_history")
+	public String moveContestHistoryMenu() {
+		return "/pro/contest/contest_history";
+	}
+	
+	@GetMapping("/pro/moveMenu/contest/open_contest")
+	public String moveOpenContestMenu() {
+		return "/pro/contest/open_contest";
+	}
+	
+	/* 테스트용
+	@GetMapping("/main2")
+	public String index() {
+		return "index";
+	}
+	
+	@GetMapping("/hello")
+	public String hello() {
+		return "hellow";
+	}
+	*/
 }

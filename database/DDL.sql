@@ -7,6 +7,7 @@ CREATE TABLE TB_MEMBER (
 	PHONE_NUM NVARCHAR(50), /* 사무실 전화번호 */
 	MOBILE_NUM NVARCHAR(50), /* 핸드폰번호 */
 	ADDR NVARCHAR(500), /* 주소 */
+	ADDR_DETAIL NVARCHAR(500), /* 상세주소 */
 	POST_NUM NVARCHAR(50), /* 우편번호 */
 	USER_TYPE CHAR(1), /* 기업:C 개인:I */
 	BANK NVARCHAR(100) NOT NULL, /* 은행 */
@@ -34,6 +35,8 @@ EXEC   sp_addextendedproperty 'MS_Description', '전화 번호', 'user', dbo, 'table
 EXEC   sp_addextendedproperty 'MS_Description', '핸드폰 번호', 'user', dbo, 'table', TB_MEMBER, 'column', MOBILE_NUM;
 
 EXEC   sp_addextendedproperty 'MS_Description', '주소', 'user', dbo, 'table', TB_MEMBER, 'column', ADDR;
+
+EXEC   sp_addextendedproperty 'MS_Description', '주소', 'user', dbo, 'table', TB_MEMBER, 'column', ADDR_DETAIL;
 
 EXEC   sp_addextendedproperty 'MS_Description', '우편 번호', 'user', dbo, 'table', TB_MEMBER, 'column', POST_NUM;
 

@@ -279,22 +279,16 @@ $(function() {
 		var bModCheckComplete = loginHdlr.modifyValidateChk();
 		
 		if (bModCheckComplete) {
-			$('#mobile_num').val($("#mobile_exchange_num option:selected").val() + '-' + $("#mobile_first_num").val() + '-' + $("#mobile_second_num").val()); // 핸드폰
-			$('#phone_num').val($("#phone_exchange_num option:selected").val() + '-' + $("#phone_first_num").val() + '-' + $("#phone_second_num").val()); // 전화
-			$('#email').val($('#email_user').val() + $('#at').text() + $('#email_domain').val() + $('#search_email_domain').val()); // 이메일
-			$('#user_type').val($('input:radio[name="user_type_group"]:checked').val()); // 구분
-			$('#regist_route').val($('input:radio[name=regRoute_group]:checked').val()); // 가입경로
-			
 			var jsonData = {
 				name: $('#name').val(),
 				login_id: $('#login_id').val(),
-				mobile_num: $('#mobile_num').val(),
-				phone_num: $('#phone_num').val(),
-				email: $('#email').val(),
+				mobile_num: $("#mobile_exchange_num option:selected").val() + '-' + $("#mobile_first_num").val() + '-' + $("#mobile_second_num").val(),
+				phone_num: $("#phone_exchange_num option:selected").val() + '-' + $("#phone_first_num").val() + '-' + $("#phone_second_num").val(),
+				email: $('#email_user').val() + $('#at').text() + $('#email_domain').val() + $('#search_email_domain').val(),
 				post_num: $('#post_num').val(),
 				addr: $('#addr').val(),
 				addr_detail: $('#addr_detail').val(),
-				user_type: $('#user_type').val()
+				user_type: $('input:radio[name="user_type_group"]:checked').val()
 			};
 			
 			$.ajax({
@@ -315,7 +309,7 @@ $(function() {
 					alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
 				},
 				error: function(xhr, status, error) {
-					console.log("[error]/member/regist ::: ",xhr.responseText);
+					console.log("[error]/member/memberInfoUpdate ::: ",xhr.responseText);
 					alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
 				}
 			});

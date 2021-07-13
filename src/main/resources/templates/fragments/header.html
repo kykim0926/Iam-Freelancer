@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="headerFragment">
+	<div class="mvisual">메인비주얼</div>
+		<div class="top">
+			<div class="hedmenu">
+				<h1>
+					<a href="/"><img src="/pro/img/logo.png" alt="Iam Freelancer"></a>
+				</h1>
+				<ul class="top_smenu">
+					<li class="notFrame" sec:authorize="isAuthenticated()"><a style="background: none;"><span sec:authentication="name">님</span></a></li>
+					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/loginPage}">로그인</a></li>
+					<li class="notFrame"><a sec:authorize="isAuthenticated()" th:href="@{/pro/logout}">로그아웃</a></li>
+<!-- 					<li><a sec:authorize="isAuthenticated()" th:href="@{/pro/myPage}">마이페이지</a></li> -->
+					<li class="isFrame" folder="myPage" page="mypage_myinfo"><a th:href="@{/pro/moveMenu/myPage/mypage_myinfo}" sec:authorize="isAuthenticated()">마이페이지</a></li>
+					<li class="notFrame"><a>전문가 등록</a></li>
+					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/firstJoinStep}">회원가입</a></li>
+					<li class="notFrame"><a class="lang" sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/info}">내정보</a></li>
+				</ul>
+				<nav>
+					<ul class="navi">
+						<li class="topFirstMenu">
+							<a>Contest</a>
+							<ul>
+								<li class="isFrame" folder="contest" page="open_contest"><a th:href="@{/pro/moveMenu/contest/open_contest}">Open Contest</a></li>
+								<li class="isFrame" folder="contest" page="contest_history"><a th:href="@{/pro/moveMenu/contest/contest_history}">Contest History</a></li>
+								<li class="isFrame" folder="topSubMenu" page="Portfolio"><a>Portfolio</a></li>
+								<li class="isFrame" folder="topSubMenu" page="Review"><a>Review</a></li>
+								<li class="isFrame" folder="topSubMenu" page="Price"><a>Price</a></li>
+							</ul>
+						</li>
+						<li class="isFrame" folder="topSubMenu" value="Design"><a>Design</a></li>
+						<li class="isFrame" folder="topSubMenu" value="DigitalMarketing"><a>Digital Marketing</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Writing"><a>Writing</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Video"><a>Video</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Audio"><a>Audio</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Programing"><a>Programing</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Business"><a>Business</a></li>
+						<li class="isFrame" folder="topSubMenu" value="Lifestyle"><a>Lifestyle</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+</header>
+
+</html>

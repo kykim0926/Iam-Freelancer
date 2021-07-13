@@ -27,7 +27,6 @@ public final class LoginUserDetailHelper {
 	private LoginMapper loginMapper;
     /**
      * 인증된 사용자객체를 VO형식으로 가져온다.
-     * 
      * @return 사용자 ValueObject
      */
 	public UserVO getAuthenticatedUser() {
@@ -38,7 +37,7 @@ public final class LoginUserDetailHelper {
         if (authentication.getPrincipal() instanceof User) {
         	UserDetails details = (UserDetails) authentication.getPrincipal();
         	
-        	log.debug("## EgovUserDetailsHelper.getAuthenticatedUser : AuthenticatedUser is {}", details.getUsername());
+        	log.debug("## LoginUserDetailsHelper.getAuthenticatedUser : AuthenticatedUser is {}", details.getUsername());
 
 			userVO = loginMapper.findByLoginId(details.getUsername());
 	        return userVO;
@@ -47,7 +46,7 @@ public final class LoginUserDetailHelper {
         	String userRole = authRole.toString();
         	userVO.setRole_id(userRole);
         	
-        	log.debug("## EgovUserDetailsHelper.getAuthenticatedUser : AuthenticatedUser is {}", userRole);
+        	log.debug("## LoginUserDetailsHelper.getAuthenticatedUser : AuthenticatedUser is {}", userRole);
         	
         	return userVO;
         }

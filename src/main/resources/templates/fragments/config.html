@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="configFragment">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+	
+    <!-- start 공통으로 쓰이는 css파일을넣는다.-->
+    <link rel="stylesheet" type="text/css" href="/pro/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/pro/css/default.css">
+	<link rel="stylesheet" type="text/css" href="/pro/css/style.css">
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+	<link rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css'>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+	<!-- end 공통 css영역 -->
+    
+    <!-- 컨텐츠페이지의 CSS 영역이 들어감. 즉 contents페이지에 설정된 css를 역으로 받아와서 설정-->
+    <th:block layout:fragment="css"></th:block>
+
+    <!-- start 공통으로 쓰이는 script파일 영역.-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="/pro/js/util/mainHeader.js"></script>
+	<script type="text/javascript" src="/pro/js/util/csrf.js"></script>
+	<script type="text/javascript" src="/pro/js/memberJoin.js" ></script>
+	<script type="text/javascript" src="/pro/js/member.js" ></script>
+	<script type="text/javascript" src="/pro/js/util/otherSystemUtil.js"></script>
+	<script type="text/javascript" src="/pro/js/util/stringUtil.js"></script>
+	<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+    <!-- end 공통 script영역 -->
+    
+	<!-- 컨텐츠페이지의 script 영역이 들어감. 즉 contents페이지에 설정된 script를 역으로 받아와서 설정-->
+    <th:block layout:fragment="script">
+    </th:block>
+</head>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+  <!-- hello.html ���� CSS �߰� -->
+  <th:block layout:fragment="css"> </th:block>
+
+  <!-- hello.html ���� ��ũ��Ʈ �߰� -->
+  <th:block layout:fragment="script">
+    <script>
+//       alert("hello.html");
+    </script>
+  </th:block>
+
+  <div layout:fragment="content">
+    <div style="border: 1px solid red">
+      hello.html
+    </div>
+  </div>
+</html>

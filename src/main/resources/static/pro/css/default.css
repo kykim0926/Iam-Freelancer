@@ -98,11 +98,15 @@
 .marginl130 {margin-left:130px;}
 .marginl10 {margin-left:10px;}
 
+.paddingt50 {padding-top:50px;}
+.paddingt70 {padding-top:70px;}
+.headerRadius {border-radius:0 0 0 300px;}
 
 /*정렬*/
 .aling_center {text-align: center;}
 .margin0auto {margin:0 auto;}
 .margin50auto {margin:50px auto;}
+.margint50auto {margin:50px auto 0 auto;}
 .marginb50auto {margin:0 auto 50px auto;}
 
 .floatl {float:left;}

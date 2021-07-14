@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
 <div layout:fragment="content">
 	<div id="modMemberPage" class="sub">
-		<div class="container w1280 margin0auto ">
+		<div class="container w1280 margint50auto">
 			<div class="contents">
 				<div class="contest_tab margint30">
 					<ul class="tabs _st01">
@@ -113,26 +113,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="right">
-				<div class="categories">
-					<p class="tit">Categories</p>
-					<ul>
-						<li><a href="" class="active">Open Contest</a></li>
-						<li><a href="">Contest History</a></li>
-						<li><a href="">Portfolio</a></li>
-						<li><a href="">Review</a></li>
-						<li><a href="">Price</a></li>
-					</ul>
-				</div>
-				<div class="tag margint80">
-					<p class="tit">인기태그</p>
-					<p class="tag3">#키워드</p>
-					<p class="tag3">#이런키워드</p>
-					<p class="tag3">#태그</p>
-					<p class="tag3">#태그그</p>
-				</div>
-			</div>
-
+			<!-- 우측메뉴 fragment 삽입 -->
+	        <div th:replace="fragments/right :: rightFragment"></div>
 		</div>
 	</div>
 	<!-- 모달시작 -->
@@ -214,6 +196,8 @@
 				$('#email_domain').val(''); // 직접입력란 비활성화
 			}
 		});
+		
+		$('header').addClass('sub').addClass('headerRadius');
  	});
 	</script>
 </th:block>

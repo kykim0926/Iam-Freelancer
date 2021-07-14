@@ -7,13 +7,698 @@
 
 <!-- index.html 고유 스크립트 추가 -->
 <th:block layout:fragment="script">
+	<script type="text/javascript" th:src="@{/pro/js/script.js}"></script>
 </th:block>
 
 <div layout:fragment="content">
+	<div class="main_con">
+		<div class="msearch">
+			<p class="aling_center">Ready experts await you</p>
+			<div class="search_main">
+				<div class="title-container">
+					<div class="title">
+						<ul class="tabs _st002">
+							<li class="tab-link current" data-tab="search_tab1">인기검색어</li>
+							<li class="tab-link" data-tab="search_tab2">최근 검색</li>
+						</ul>
+						<div id="search_tab1" class="tab-content current">
+							<ul>
+								<li><a href="">검색어1</a></li>
+								<li><a href="">검색어2</a></li>
+								<li><a href="">검색어3</a></li>
+								<li><a href="">검색어4</a></li>
+								<li><a href="">검색어5</a></li>
+								<li><a href="">검색어6</a></li>
+								<li><a href="">검색어7</a></li>
+								<li><a href="">검색어8</a></li>
+								<li><a href="">검색어9</a></li>
+								<li><a href="">검색어10</a></li>
+							</ul>
+						</div>
+						<div id="search_tab2" class="tab-content">
+							<ul>
+								<li><a href="">최근검색어1</a></li>
+								<li><a href="">최근검색어2</a></li>
+								<li><a href="">최근검색어3</a></li>
+								<li><a href="">최근검색어4</a></li>
+								<li><a href="">최근검색어5</a></li>
+								<li><a href="">최근검색어6</a></li>
+								<li><a href="">최근검색어7</a></li>
+								<li><a href="">최근검색어8</a></li>
+								<li><a href="">최근검색어9</a></li>
+								<li><a href="">최근검색어10</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 
-    <div style="border: 1px solid red">
-        index.html 입니다.
-    </div>
+				<fieldset class="field-container">
+					<input type="text" class="field" placeholder="전문가를 찾고 계세요?" />
+					<div class="icons-container">
+						<div class="icon-search"></div>
+						<div class="icon-close">
+							<div class="x-up"></div>
+							<div class="x-down"></div>
+						</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="mcount">
+			<div>
+				<p>진행된 콘테스트</p>
+				<p>110,000</p>
+			</div>
+			<div>
+				<p>등록된 전문가</p>
+				<p>110,000</p>
+			</div>
+			<div>
+				<p>전체 포트폴리오</p>
+				<p>110,000</p>
+			</div>
+			<div>
+				<p>진행된 의뢰 수</p>
+				<p>110,000</p>
+			</div>
+		</div>
+	</div>
+	
+	<section class="main_sec paddingt70">
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin purple_b">플래티넘</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin purple_b">플래티넘</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin yellow_b">골드</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin purple_b">플래티넘</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin brown_b">브론즈</p>
+			</div>
+		</div>
+		<div class="contest_mbox">
+			<p class="contest_mbox_tit">
+				(주)맛있는 치킨 <span>치킨 프랜차이즈 로고 Design</span>
+			</p>
+			<div class="contest_mbox_info">
+				<div class="img">콘테스트이미지</div>
+				<div>
+					<ul>
+						<li>상금 : 5,000,000원</li>
+						<li>2020.07.24 (D-10)</li>
+						<li>150명 지원</li>
+					</ul>
+					<p class="info_txt">요청사항이 들어갈 부분입니다.(ex 치킨 그림이 그려져 있는 로고가
+						좋겠습니다.)</p>
+					<div>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+						<p class="tag1">#태그</p>
+					</div>
+				</div>
+			</div>
+			<div class="pin_point">
+				<p class="pin green_b">상금100%</p>
+				<p class="pin purple_b">프리미어</p>
+			</div>
+		</div>
+	</section>
 
+	<section class="msrvice">
+		<p class="secTit blalck2">
+			BEST <span class="rad1">SERVICE</span>
+		</p>
+		<div class="msrvice_list">
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+			<div>
+				<div class="msevice_thm">
+					<img src="/pro/img/msevice01.png" alt="service">
+				</div>
+				<p class="tit">LOGO Design</p>
+				<div>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+					<p class="tag2">#태그</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mbottom">
+		<div class="mbest">
+			<div class="best_group">
+				<p class="best_cate01 rad_b1">Design</p>
+				<p>
+					Logo Design<br> <span>BEST expert</span>
+				</p>
+
+				<div class="list _1">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="best_group">
+				<p class="best_cate01 green_b">Design</p>
+				<p>
+					Logo Design<br> <span>BEST expert</span>
+				</p>
+
+				<div class="list _1">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="best_group">
+				<p class="best_cate01 blue_b">Design</p>
+				<p>
+					Logo Design<br> <span>BEST expert</span>
+				</p>
+
+				<div class="list _1">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+				<div class="list">
+					<div>
+						<div class="user_pic3"></div>
+						<div>
+							<p class="list_id">youid</p>
+							<div class="star">
+								<span></span> <span></span> <span></span> <span class="half"></span>
+								<span class="bin"></span>
+							</div>
+							<p class="star_point">5.0 (80)</p>
+						</div>
+						<p class="num1">
+							1,200<span>만원</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mreview">
+			<p class="secTit white">REVIEW</p>
+			<div class="bxslider2">
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+				<div class="review_box">
+					<div class="user_pic2"></div>
+					<div>
+						<p class="review_id">youid</p>
+						<div class="star">
+							<span></span> <span></span> <span></span> <span class="half"></span>
+							<span class="bin"></span>
+						</div>
+					</div>
+					<p class="review_txt">
+						<span>#웹디자인 #홈페이지 #기업홈페이지</span><br> 웹에 지식이없는 저에게 차근히 설명도
+						잘해주시고 요청사항 모두 잘 반영해주셔서 만족합니다.
+					</p>
+					<p class="review_date">2020-07-22</p>
+				</div>
+			</div>
+		</div>
+	</section>
 </div>
 </html>

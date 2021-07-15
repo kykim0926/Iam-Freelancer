@@ -21,12 +21,12 @@ public class MainPageController {
 	 * @param model
 	 * @return
 	 */
-	@GetMapping("/pro/myPage")
-	public String memberMyPage(Model model) {
-		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
-		
-		return "/pro/myPage/mypage_myinfo";
-	}
+//	@GetMapping("/pro/myPage")
+//	public String memberMyPage(Model model) {
+//		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
+//		
+//		return "/pro/myPage/mypage_myinfo";
+//	}
 	
 	/**
 	 * 메인 상단의 메뉴

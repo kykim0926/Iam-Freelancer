@@ -36,9 +36,9 @@ public class LoginController {
 	/*
 	 * 로그인 페이지 이동
 	 */
-	@GetMapping("loginPage")
+	@GetMapping("/pro/login/loginPage")
 	public String login() {
-		return "pro/login";
+		return "pro/login/login";
 	}
 	
 	/*
@@ -73,7 +73,7 @@ public class LoginController {
 	public String loginComplete(Model model) {
 		model.addAttribute("exception","가입하지 않은 아이디이거나, 잘못된 비밀번호입니다");
 		
-		return "pro/login";
+		return "pro/login/login";
 	}
 	
 	/*

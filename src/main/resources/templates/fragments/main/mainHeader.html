@@ -9,7 +9,7 @@
 				</h1>
 				<ul class="top_smenu">
 					<li class="notFrame" sec:authorize="isAuthenticated()"><a style="background: none;"><span sec:authentication="name">님</span></a></li>
-					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/loginPage}">로그인</a></li>
+					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/pro/login/loginPage}">로그인</a></li>
 					<li class="notFrame"><a sec:authorize="isAuthenticated()" th:href="@{/pro/logout}">로그아웃</a></li>
 <!-- 					<li><a sec:authorize="isAuthenticated()" th:href="@{/pro/myPage}">마이페이지</a></li> -->
 					<li class="isFrame" folder="myPage" page="mypage_myinfo"><a th:href="@{/pro/moveMenu/myPage/mypage_myinfo}" sec:authorize="isAuthenticated()">마이페이지</a></li>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<ul th:fragment="loginLeftFragment(liActive)" class="left loginLi">
-	    <li><a th:href="@{/loginPage}" th:classappend="${liActive} == 'loginLi' ? active">로그인</a></li>
+	    <li><a th:href="@{/pro/login/loginPage}" th:classappend="${liActive} == 'loginLi' ? active">로그인</a></li>
 	    <li><a th:href="@{/pro/login/findLoginId}" th:classappend="${liActive} == 'findIdLi' ? active">아이디 찾기</a></li>
 	    <li><a th:href="@{/pro/login/findLoginPw}" th:classappend="${liActive} == 'findPwLi' ? active">비밀번호 찾기</a></li>
 	    

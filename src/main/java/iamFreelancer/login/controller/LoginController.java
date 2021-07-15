@@ -16,7 +16,7 @@ import iamFreelancer.login.vo.UserVO;
  */
 @Controller
 public class LoginController {
-	
+	// TODO:로그인 관련 html페이지는 login폴더로 이동시키고 소스 수정할 것
 	@Autowired
 	public LoginUserDetailHelper loginUserDetailHelper;
 	
@@ -74,6 +74,22 @@ public class LoginController {
 		model.addAttribute("exception","가입하지 않은 아이디이거나, 잘못된 비밀번호입니다");
 		
 		return "pro/login";
+	}
+	
+	/*
+	 * 로그인 ID 찾기 페이지
+	 */
+	@GetMapping("/pro/login/findLoginId")
+	public String findLoginId(Model model) {
+		return "pro/login/findid";
+	}
+	
+	/*
+	 * 로그인 Password 찾기 페이지
+	 */
+	@GetMapping("/pro/login/findLoginPw")
+	public String findLoginPw(Model model) {
+		return "pro/login/findpw";
 	}
 }
 

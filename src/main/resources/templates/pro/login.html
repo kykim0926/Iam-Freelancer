@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />
 	
     <title>Iam Freelancer</title>
     <link rel="stylesheet" type="text/css" href="/pro/css/reset.css">
@@ -30,17 +31,13 @@
 	    <div class="top_btn">
 	        <a class="btn1_1h40 green_b txt18R" href="pro/main.html">전문가</a>
 	        <a class="btn1_1h40 gray_b1 txt18R" href="user/main.html">의뢰인</a>
-	    </div>    
+	    </div>
 	    <div class="login_in">
-	        <ul class="left">
-	            <li><a href="login.html" class="active">로그인</a></li>
-	            <li><a href="findid.html">아이디 찾기</a></li>
-	            <li><a href="findpw.html">비밀번호 찾기</a></li>
-	        </ul>
+	        <div th:replace="/fragments/loginLeft :: loginLeftFragment('loginLi')"></div>
 	        <div>            
-	            <input class="input1" type="text" name="username" placeholder="아이디">
+	             <input class="input1" type="text" name="username" placeholder="아이디" value="test01">
 	
-	            <input class="input1" type="text" name="password" placeholder="비밀번호">
+	            <input class="input1" type="text" name="password" placeholder="비밀번호" value="!qweqwe2">
 	
 				<p class="error" th:if="${param.error}" th:text="${exception}"></p>
 				<button type="submit" class="btn1_1h50 blalck_b1">로그인</button>
@@ -61,7 +58,7 @@
 	</div>
 </form>
 <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
-<script src="/pro/js/script.js"></script>
+<script src="/pro/js/scriptCustom.js"></script>
 
 </body>
 </html>

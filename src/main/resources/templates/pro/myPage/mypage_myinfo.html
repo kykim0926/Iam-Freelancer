@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/mainLayout">
 <div layout:fragment="content">
 	<div id="modMemberPage" class="sub">
 		<div class="container w1280 margint50auto">
@@ -114,7 +114,7 @@
 				</div>
 			</div>
 			<!-- 우측메뉴 fragment 삽입 -->
-	        <div th:replace="fragments/right :: rightFragment"></div>
+	        <div th:replace="fragments/main/mainRight :: rightFragment"></div>
 		</div>
 	</div>
 	<!-- 모달시작 -->

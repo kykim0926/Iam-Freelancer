@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/mainLayout">
 <div layout:fragment="content">
 	<div class="subpage marginb80">
 	    <div class="container w1280 margin50auto ">
@@ -131,7 +131,7 @@
 	            </div><!-- 콘테스트 끝 --> 
 	        </div>
 	   		<!-- 우측메뉴 fragment 삽입 -->
-	        <div th:replace="fragments/right :: rightFragment"></div>
+	        <div th:replace="fragments/main/mainRight :: rightFragment"></div>
 	    </div>
 	</div>
 </div>

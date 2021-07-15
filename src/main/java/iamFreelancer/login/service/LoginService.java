@@ -122,4 +122,19 @@ public class LoginService implements UserDetailsService{
 			return "inconsistent";
 		}
 	}
+	
+	/**
+	 * 이름과 이메일로 로그인 아이디 조회
+	 * @param userVO
+	 * @return
+	 */
+	public String findByNameAndEmail(UserVO userVO) {
+		String loginId = loginMapper.findByNameAndEmail(userVO.getName(), userVO.getEmail());
+		
+		if (loginId == null || ("").equals(loginId)) {
+			return "";
+		} else {
+			return loginId;			
+		}
+	}
 }

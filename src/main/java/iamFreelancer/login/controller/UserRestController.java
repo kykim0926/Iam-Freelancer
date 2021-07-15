@@ -51,12 +51,22 @@ public class UserRestController {
 	}
 	
 	/**
-	 * ql
+	 * 로그인 비밀번호 update
 	 * @param userVO
 	 * @return
 	 */
 	@PostMapping("/member/memberLoginPwdUpdate")
 	public String memberLoginPwdUpdate(@RequestBody UserVO userVO) {
 		return loginService.memberLoginPwdUpdate(userVO);
+	}
+	
+	/**
+	 * 이름과 이메일로 로그인 아이디 조회
+	 * @param userVO
+	 * @return
+	 */
+	@PostMapping("/login/findByNameAndEmail")
+	public String findByNameAndEmail(@RequestBody UserVO userVO) {
+		return loginService.findByNameAndEmail(userVO);
 	}
 }

@@ -26,14 +26,16 @@
 	        </div>
 	    </div>
 	</div>
-	
-	<!-- findpw.html 고유의 script -->
-	<th:block layout:fragment="script">
-		<script type="text/javascript">
-			$(function() {
-				$('.login').height(window.innerHeight);
-			});
-		</script>
-	</th:block>
 </div>
+
+<!-- findpw.html 고유의 script -->
+<th:block layout:fragment="script">
+	<script type="text/javascript" th:src="@{/pro/js/login/login.js}"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 아래 코드가 없으면 아이디 찾기 화면에서 하단의 회색이 짤린다.
+			$('.login').height(window.innerHeight);
+		});
+	</script>
+</th:block>
 </html>

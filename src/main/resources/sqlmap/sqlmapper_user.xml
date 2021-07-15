@@ -8,7 +8,15 @@
 		  FROM tb_member m LEFT OUTER JOIN TB_MEMBER_ROLE r ON m.login_id = r.login_id
 		 WHERE m.login_id = #{login_id}
     </select>
-	
+    
+    <!-- 이름과 이메일로 로그인 아이디 찾기 -->
+   	<select id="findByNameAndEmail" resultType="String">
+		SELECT m.login_id
+		  FROM tb_member m LEFT OUTER JOIN TB_MEMBER_ROLE r ON m.login_id = r.login_id
+		 WHERE m.name = #{name}
+		   AND m.email= #{email}
+    </select>
+    
 	<!-- 회원 저장 -->
 	<insert id="memberSave" parameterType="iamFreelancer.login.vo.UserVO">
 	    INSERT INTO tb_member

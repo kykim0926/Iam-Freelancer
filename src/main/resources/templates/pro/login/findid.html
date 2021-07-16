@@ -12,14 +12,12 @@
 	        <div> 
 	            <p class="noti marginb10 marginl10">가입하신 이메일 주소로 아이디를 찾을 수 있습니다.</p>                    
 	            <lable hidden>이름</lable>
-	            <input class="input1" type="text" placeholder="이름">
+	            <input class="input1" type="text" placeholder="이름" name="name" id="name" th:value="${name}">
 	
 	            <lable hidden>이메일</lable>
-	            <input class="input1" type="text" placeholder="이메일">
-	                      
-	            <button class="btn1_1h50 blalck_b1">확인</button>     
+	            <input class="input1" type="text" placeholder="이메일" name="email" id="email" th:value="${email}">
+	            <button id="findId" class="btn1_1h50 blalck_b1">확인</button>     
 	            <p class="result_id">회원님의 아이디는 <span>qwe****</span>입니다.</p>
-	            
 	        </div>
 	    </div>
 	</div>
@@ -27,7 +25,6 @@
 
 <!-- findid.html 고유의 script -->
 <th:block layout:fragment="script">
-	<script type="text/javascript" th:src="@{/pro/js/login/login.js}"></script>
 	<script type="text/javascript">
 		$(function() {
 			// 아래 코드가 없으면 아이디 찾기 화면에서 하단의 회색이 짤린다.

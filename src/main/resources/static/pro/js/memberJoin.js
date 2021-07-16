@@ -189,6 +189,37 @@ var loginHdlr = {
 		}
 		
 		return bPwdResult;
+	}, 
+	
+	// 아이디 찾기
+	findByNameAndEmail : function() {
+		var jsonData = {
+			name : $('#name').val(),
+			email: $('#email').val()
+		}
+	
+		$.ajax({
+			url: '/login/findByNameAndEmail',
+			dataType: 'text',
+			type: 'POST',
+			contentType: 'application/json',
+			async: false,
+			data: JSON.stringify(jsonData),
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(CSRF_HEADER, CSRF_TOKEN);
+			},
+			success: function(data) {
+				console.log('[/login/findByNameAndEmail success] :: ', data);
+			},
+			fail: function(xhr,status,error) {
+				console.log('[/login/findByNameAndEmail fail] ::: '+xhr.responseText);
+				alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
+			},
+			error: function(xhr,status,error) {
+				console.log('/login/findByNameAndEmail error] :::'+xhr.responseText);
+				alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
+			}
+		});
 	}
 }
 
@@ -464,5 +495,10 @@ $(function() {
 		}else {
 			$('#user_kind').val('S');
 		}
+	});
+	
+	// 아이디 찾기
+	$('#findId').unbind().on('click', function(){
+		loginHdlr.findByNameAndEmail();			
 	});
 });	

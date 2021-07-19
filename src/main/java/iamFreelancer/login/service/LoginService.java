@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import iamFreelancer.login.mapper.LoginMapper;
 import iamFreelancer.login.vo.UserVO;
+import iamFreelancer.mail.service.MailService;
 import iamFreelancer.util.crypt.CryptUtil;
 
 /**
@@ -31,6 +32,9 @@ public class LoginService implements UserDetailsService{
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	@Autowired
+	private MailService mailService;
 	
 	/* DB에서 유저정보를 불러온다.
 	 * Custom한 Userdetails 클래스를 리턴 해주면 된다.
@@ -132,9 +136,10 @@ public class LoginService implements UserDetailsService{
 		String loginId = loginMapper.findByNameAndEmail(userVO.getName(), userVO.getEmail());
 		
 		if (loginId == null || ("").equals(loginId)) {
-			return "";
+			return "not Exsit User Email";
 		} else {
-			return loginId;			
+			userVO.setLogin_id(loginId);
+			return mailService.mailSend(userVO);			
 		}
 	}
 }

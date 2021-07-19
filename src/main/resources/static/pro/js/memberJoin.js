@@ -210,6 +210,13 @@ var loginHdlr = {
 			},
 			success: function(data) {
 				console.log('[/login/findByNameAndEmail success] :: ', data);
+				if (data == 'not Exsit User Email') {
+					alert("사용자의 아이디가 존재하지 않습니다.");
+				} else if (data == 'Mail Send Error') {
+					alert("메일 전송에 실패하였습니다. 관리자에게 문의하세요.");
+				} else {
+					alert("메일이 발송되었습니다. 메일을 확인하세요.");
+				}
 			},
 			fail: function(xhr,status,error) {
 				console.log('[/login/findByNameAndEmail fail] ::: '+xhr.responseText);

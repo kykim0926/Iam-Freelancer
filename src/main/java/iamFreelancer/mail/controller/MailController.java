@@ -13,8 +13,8 @@ public class MailController {
     private final MailService mailService;
 
     @GetMapping("/mailSend")
-    public void mailSend(UserVO userVO) {
-        mailService.mailSend(userVO);
+    public void mailSend(UserVO userVO, String mailTempletePath, String mailSubject) {
+        mailService.mailSend(userVO, mailTempletePath, mailSubject);
     }
 }
 

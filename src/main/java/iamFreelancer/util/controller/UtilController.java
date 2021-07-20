@@ -22,6 +22,6 @@ public class UtilController {
 	 */
 	@RequestMapping("/mobile/certNum")
 	public @ResponseBody String mobileCert(ModelMap model, HttpServletRequest request, HttpServletResponse response)  throws Exception{
-		return StringUtil.getRandomSpecialEnglishNumberStr(Integer.parseInt(request.getParameter("landomLength")));
+		return StringUtil.getRandomNumberStr(Integer.parseInt(request.getParameter("landomLength")));
 	}
 }

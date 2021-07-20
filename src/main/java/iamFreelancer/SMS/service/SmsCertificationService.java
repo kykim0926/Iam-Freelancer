@@ -30,7 +30,7 @@ public class SmsCertificationService {
 
     // sms로 인증번호 발송하고, 발송 정보를 세션에 저장
     public void sendSms(String phone) {
-    	String randomNumber = StringUtil.getRandomSpecialEnglishNumberStr(6);
+    	String randomNumber = StringUtil.getRandomNumberStr(6);
     	
         // TODO : 이 부분에 SMS발송처리 로직을 구현 필요
     	

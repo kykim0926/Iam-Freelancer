@@ -2,6 +2,7 @@ package iamFreelancer.login.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,6 +20,7 @@ import iamFreelancer.login.mapper.LoginMapper;
 import iamFreelancer.login.vo.UserVO;
 import iamFreelancer.mail.service.MailService;
 import iamFreelancer.util.crypt.CryptUtil;
+import iamFreelancer.util.string.StringUtil;
 
 /**
  * @description : 회원 가입 DB처리 및 조회
@@ -139,7 +141,35 @@ public class LoginService implements UserDetailsService{
 			return "not Exsit User Email";
 		} else {
 			userVO.setLogin_id(loginId);
-			return mailService.mailSend(userVO);			
+			return mailService.mailSend(userVO, "email/findLoginIdTemplete", "[Iam Freelancer] 아이디를 알려드립니다.");			
+		}
+	}
+	
+	/**
+	 * 이름과 이메일로 로그인 아이디 조회
+	 * @param userVO
+	 * @return
+	 */
+	public String findPwdByIdAndNameAndEmail(UserVO userVO) {
+//		Optional<String> optLoginId = Optional.empty();
+		String loginId = loginMapper.findPwdByIdAndNameAndEmail(userVO.getLogin_id(), userVO.getName(), userVO.getEmail());
+		
+		if (loginId == null || ("").equals(loginId)) {
+			return "not Exsit User Email";
+		} else {
+			String tempPwd = StringUtil.getRandomSpecialEnglishNumberStr(10); // 평문 임시 비밀번호 생성
+			String tempEncryptPwd = bCryptPasswordEncoder.encode(tempPwd); // 임시 비밀번호 암호화
+			
+			userVO.setLogin_pwd(tempEncryptPwd); // DB update를 위하여 암호화된 임시 비밀번호로 set
+			int result = loginMapper.memberLoginPwdUpdate(userVO);
+			
+			if (result > 0) {
+				userVO.setLogin_id(loginId);
+				userVO.setLogin_pwd(tempPwd);
+				return mailService.mailSend(userVO, "email/findLoginPwdTemplete", "[Iam Freelancer] 임시 비밀번호를 알려드립니다.");
+			} else {
+				return "Mail Send Error";
+			}
 		}
 	}
 }

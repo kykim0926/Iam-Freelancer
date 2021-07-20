@@ -193,6 +193,20 @@ var loginHdlr = {
 	
 	// 아이디 찾기
 	findIdByNameAndEmail : function() {
+		if ($('#email').val() == '') {
+			alert("이메일을 입력하여 주세요.");
+		} else {
+			if (!emailChk($('#email').val())) {
+				alert("이메일을 올바르게 입력해주세요.");
+				return;
+			}			
+		}
+		
+		if ($('#name').val() == '') {
+			alert("이름을 입력하여 주세요.");
+			return;
+		}
+		
 		var jsonData = {
 			name : $('#name').val(),
 			email: $('#email').val()
@@ -220,11 +234,69 @@ var loginHdlr = {
 			},
 			fail: function(xhr,status,error) {
 				console.log('[/login/findIdByNameAndEmail fail] ::: '+xhr.responseText);
-				alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
+				alert("메일 전송 중 오류가 발생하였습니다. 관리자에게 문의하세요.");
 			},
 			error: function(xhr,status,error) {
 				console.log('/login/findIdByNameAndEmail error] :::'+xhr.responseText);
-				alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
+				alert("메일 전송 중 오류가 발생하였습니다. 관리자에게 문의하세요.");
+			}
+		});
+	},
+	
+	// 임시 비밀번호 발송
+	findPwdByIdAndNameAndEmail : function() {
+		if ($('#email').val() == '') {
+			alert("이메일을 입력하여 주세요.");
+		} else {
+			if (!emailChk($('#email').val())) {
+				alert("이메일을 올바르게 입력해주세요.");
+				return;
+			}			
+		}
+		
+		if ($('#name').val() == '') {
+			alert("이름을 입력하여 주세요.");
+			return;
+		}
+		
+		if ($('#login_id').val() == '') {
+			alert("아이디를 입력하여 주세요.");
+			return;
+		}
+		
+		var jsonData = {
+			login_id : $('#login_id').val(),
+			name : $('#name').val(),
+			email: $('#email').val()
+		}
+	
+		$.ajax({
+			url: '/login/findPwdByIdAndNameAndEmail',
+			dataType: 'text',
+			type: 'POST',
+			contentType: 'application/json',
+			async: false,
+			data: JSON.stringify(jsonData),
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(CSRF_HEADER, CSRF_TOKEN);
+			},
+			success: function(data) {
+				console.log('[/login/findPwdByIdAndNameAndEmail success] :: ', data);
+				if (data == 'not Exsit User Email') {
+					alert("사용자의 아이디가 존재하지 않습니다.");
+				} else if (data == 'Mail Send Error') {
+					alert("메일 전송에 실패하였습니다. 관리자에게 문의하세요.");
+				} else {
+					alert("메일이 발송되었습니다. 메일을 확인하세요.");
+				}
+			},
+			fail: function(xhr,status,error) {
+				console.log('[/login/findPwdByIdAndNameAndEmail fail] ::: '+xhr.responseText);
+				alert("메일 전송 중 오류가 발생하였습니다. 관리자에게 문의하세요.");
+			},
+			error: function(xhr,status,error) {
+				console.log('/login/findPwdByIdAndNameAndEmail error] :::'+xhr.responseText);
+				alert("메일 전송 중 오류가 발생하였습니다. 관리자에게 문의하세요.");
 			}
 		});
 	}
@@ -511,6 +583,6 @@ $(function() {
 	
 	// 비밀번호 찾기
 	$('#findPw').unbind().on('click', function(){
-					
+		loginHdlr.findPwdByIdAndNameAndEmail();				
 	});
 });	

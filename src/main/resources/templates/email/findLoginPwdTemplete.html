@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<div style="font-family: 'Apple SD Gothic Neo', 'sans-serif' !important; width: 400px; height: 600px; border-top: 4px solid #02b875; margin: 100px auto; padding: 5px 0; box-sizing: border-box;">
+		<h1 style="margin: 0; padding: 0 5px; font-size: 28px; font-weight: 400;">
+			<span style="font-size: 15px; margin: 0 0 10px 3px;">[Iam Freelancer]</span>
+			<br /> <span style="color: #02b875">비밀번호 찾기</span> 안내입니다.
+		</h1>
+		<p style="font-size: 16px; line-height: 26px; margin-top: 20px; padding: 0 5px;">
+			<b style="color: #02b875" th:text="${userVO.name}"></b>님의 임시 비밀번호는 
+			<b style="color: #02b875" th:text="${userVO.login_pwd}"></b>입니다.<br /> 감사합니다.
+		</p>
+		<div style="font-family: 'Apple SD Gothic Neo', 'sans-serif' !important; width: 400px; height: 600px; border-top: 4px solid #02b875; margin: 19px auto; padding: 5px 0; box-sizing: border-box;"></div>
+	</div>
+</body>
+</html>

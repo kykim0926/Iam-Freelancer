@@ -21,5 +21,6 @@ public interface LoginMapper {
 	
 	String findIdByNameAndEmail(@Param("name") String name, @Param("email") String email);
 	
+	String findPwdByIdAndNameAndEmail(@Param("login_id") String login_id, @Param("name") String name, @Param("email") String email);
 	
 }

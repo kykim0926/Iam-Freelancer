@@ -12,17 +12,17 @@
 	        <div> 
 	            <p class="noti marginb10 marginl10">가입하신 이메일 주소로 아이디를 찾을 수 있습니다.</p>                    
 	            <lable hidden>아이디</lable>
-	            <input class="input1" type="text" placeholder="아이디">
+	            <input class="input1" type="text" placeholder="아이디" id="login_id" name="login_id">
 	
 	            <lable hidden>이름</lable>
-	            <input class="input1" type="text" placeholder="이름">
+	            <input class="input1" type="text" placeholder="이름" id="name" name="name">
 	
 	            <lable hidden>이메일</lable>
-	            <input class="input1" type="text" placeholder="이메일">
+	            <input class="input1" type="text" placeholder="이메일" id="email" name="email">
 	                      
-	            <button class="btn1_1h50 blalck_b1">확인</button>     
+	            <button class="btn1_1h50 blalck_b1" id="findPw">확인</button>     
 	            <p class="error">회원이 아니거나 입력된 정보가 올바르지 않습니다.</p>
-	            <a class="btn1_2h50 gray_bo1 gray1" href="join.html">회원가입</a>
+	            <a class="btn1_2h50 gray_bo1 gray1" href="/firstJoinStep">회원가입</a>
 	        </div>
 	    </div>
 	</div>
@@ -30,7 +30,6 @@
 
 <!-- findpw.html 고유의 script -->
 <th:block layout:fragment="script">
-	<script type="text/javascript" th:src="@{/pro/js/login/login.js}"></script>
 	<script type="text/javascript">
 		$(function() {
 			// 아래 코드가 없으면 아이디 찾기 화면에서 하단의 회색이 짤린다.

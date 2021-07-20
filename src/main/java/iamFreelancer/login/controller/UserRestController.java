@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import iamFreelancer.login.service.LoginService;
@@ -69,6 +70,20 @@ public class UserRestController {
 	public String findIdByNameAndEmail(@RequestBody UserVO userVO, BindingResult result) {
 		if (!result.hasErrors()) {
 			return loginService.findIdByNameAndEmail(userVO);			
+		} else {
+			return "param error";
+		}
+	}
+	
+	/**
+	 * 아이디와 이름과 이메일로 로그인 비밀번호 조회
+	 * @param userVO
+	 * @return
+	 */
+	@PostMapping(value="/login/findPwdByIdAndNameAndEmail")
+	public String findPwdByIdAndNameAndEmail(@RequestBody UserVO userVO, BindingResult result) {
+		if (!result.hasErrors()) {
+			return loginService.findPwdByIdAndNameAndEmail(userVO);			
 		} else {
 			return "param error";
 		}

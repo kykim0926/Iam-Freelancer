@@ -20,20 +20,18 @@ public class MailService {
     @Autowired
     private TemplateEngine templateEngine;
 
-    private static final String MAIL_TITLE = "[Iam Freelancer] 아이디를 알려드립니다.";
-
-    public String mailSend(UserVO userVO) {
+    public String mailSend(UserVO userVO, String mailTempletePath, String mailSubject) {
     	try {
         	Context context = new Context();
             context.setVariable("userVO", userVO); // 아래의 thymeleaf html 템플릿에서 사용하기 위하여 userVO를 set.
 
             // 아이디 찾기 메일 본문 html 템플릿 : resource/templates/
-            String process = templateEngine.process("email/findLoginIdTemplete", context);
+            String process = templateEngine.process(mailTempletePath, context);
 
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
             
-            helper.setSubject(MailService.MAIL_TITLE);
+            helper.setSubject(mailSubject);
             helper.setText(process, true);
             helper.setTo(userVO.getEmail());
             

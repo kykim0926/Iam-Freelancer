@@ -192,14 +192,14 @@ var loginHdlr = {
 	}, 
 	
 	// 아이디 찾기
-	findByNameAndEmail : function() {
+	findIdByNameAndEmail : function() {
 		var jsonData = {
 			name : $('#name').val(),
 			email: $('#email').val()
 		}
 	
 		$.ajax({
-			url: '/login/findByNameAndEmail',
+			url: '/login/findIdByNameAndEmail',
 			dataType: 'text',
 			type: 'POST',
 			contentType: 'application/json',
@@ -209,7 +209,7 @@ var loginHdlr = {
 				xhr.setRequestHeader(CSRF_HEADER, CSRF_TOKEN);
 			},
 			success: function(data) {
-				console.log('[/login/findByNameAndEmail success] :: ', data);
+				console.log('[/login/findIdByNameAndEmail success] :: ', data);
 				if (data == 'not Exsit User Email') {
 					alert("사용자의 아이디가 존재하지 않습니다.");
 				} else if (data == 'Mail Send Error') {
@@ -219,11 +219,11 @@ var loginHdlr = {
 				}
 			},
 			fail: function(xhr,status,error) {
-				console.log('[/login/findByNameAndEmail fail] ::: '+xhr.responseText);
+				console.log('[/login/findIdByNameAndEmail fail] ::: '+xhr.responseText);
 				alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
 			},
 			error: function(xhr,status,error) {
-				console.log('/login/findByNameAndEmail error] :::'+xhr.responseText);
+				console.log('/login/findIdByNameAndEmail error] :::'+xhr.responseText);
 				alert("오류가 발생하였습니다. 관리자에게 문의하세요.");
 			}
 		});
@@ -506,6 +506,11 @@ $(function() {
 	
 	// 아이디 찾기
 	$('#findId').unbind().on('click', function(){
-		loginHdlr.findByNameAndEmail();			
+		loginHdlr.findIdByNameAndEmail();			
+	});
+	
+	// 비밀번호 찾기
+	$('#findPw').unbind().on('click', function(){
+					
 	});
 });	

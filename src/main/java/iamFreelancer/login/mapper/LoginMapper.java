@@ -19,7 +19,7 @@ public interface LoginMapper {
 	
 	int memberLoginPwdUpdate(UserVO userVO);
 	
-	String findByNameAndEmail(@Param("name") String name, @Param("email") String email);
+	String findIdByNameAndEmail(@Param("name") String name, @Param("email") String email);
 	
 	
 }

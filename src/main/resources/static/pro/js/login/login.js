@@ -3,7 +3,7 @@ var loginHdlr = {
 	loginPwd : '',
 	name : '',
 	email : '',
-	findByNameAndEmail : function(){
+	findIdByNameAndEmail : function(){
 		
 	}
 }

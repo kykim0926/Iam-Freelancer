@@ -132,8 +132,8 @@ public class LoginService implements UserDetailsService{
 	 * @param userVO
 	 * @return
 	 */
-	public String findByNameAndEmail(UserVO userVO) {
-		String loginId = loginMapper.findByNameAndEmail(userVO.getName(), userVO.getEmail());
+	public String findIdByNameAndEmail(UserVO userVO) {
+		String loginId = loginMapper.findIdByNameAndEmail(userVO.getName(), userVO.getEmail());
 		
 		if (loginId == null || ("").equals(loginId)) {
 			return "not Exsit User Email";

@@ -65,10 +65,10 @@ public class UserRestController {
 	 * @param userVO
 	 * @return
 	 */
-	@PostMapping(value="/login/findByNameAndEmail")
-	public String findByNameAndEmail(@RequestBody UserVO userVO, BindingResult result) {
+	@PostMapping(value="/login/findIdByNameAndEmail")
+	public String findIdByNameAndEmail(@RequestBody UserVO userVO, BindingResult result) {
 		if (!result.hasErrors()) {
-			return loginService.findByNameAndEmail(userVO);			
+			return loginService.findIdByNameAndEmail(userVO);			
 		} else {
 			return "param error";
 		}

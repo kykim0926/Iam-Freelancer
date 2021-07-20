@@ -10,7 +10,7 @@
     </select>
     
     <!-- 이름과 이메일로 로그인 아이디 찾기 -->
-   	<select id="findByNameAndEmail" resultType="String">
+   	<select id="findIdByNameAndEmail" resultType="String">
 		SELECT m.login_id
 		  FROM tb_member m LEFT OUTER JOIN TB_MEMBER_ROLE r ON m.login_id = r.login_id
 		 WHERE m.name = #{name}

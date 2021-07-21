@@ -17,7 +17,7 @@
 		            <input class="input1" type="text" name="password" placeholder="비밀번호" value="!qweqwe2">
 		
 					<p class="error" th:if="${param.error}" th:text="${exception}"></p>
-					<button type="submit" class="btn1_1h50 blalck_b1">로그인</button>
+					<button type="submit" class="btn1_1h50 blalck_b1" onclick="loginSubmit()">로그인</button>
 		
 		            <div>
 		                <div class="checkbox">
@@ -38,11 +38,27 @@
 
 <!-- login.html 고유의 script -->
 <th:block layout:fragment="script">
+	<script type="text/javascript" th:src="@{/pro/js/util/systemUtils.js}"></script>
 	<script type="text/javascript">
 		$(function() {
 			// 아래 코드가 없으면 아이디 찾기 화면에서 하단의 회색이 짤린다.
 			$('.login').height(window.innerHeight);
+			
+			// login_id cookie값이 있으면 set 
+			if (getCookie("login_id") != '') {
+				$('input[name="username"]').val(getCookie("login_id"));
+				$('#save_id').prop('checked' ,true);
+			}
 		});
+		
+		// 로그인시 cookie에 아이디 저장
+		function loginSubmit() {
+		    if ($("#save_id").is(":checked")) {
+		    	setCookie('login_id', $('input[name="username"]').val(), 30);
+		    } else {
+		    	setCookie('login_id', '', 30);
+		    }
+		}
 	</script>
 </th:block>
 </html>

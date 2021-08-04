@@ -60,7 +60,7 @@ public class LoginService implements UserDetailsService{
 	 * */
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
 	public String insertUser(UserVO userVO) {
-		
+		// TODO:회원가입시 발급하는 쿠폰이 있는지 조회하여 있다면 발급하는 로직 추가 필요
 		userVO.setLogin_pwd(bCryptPasswordEncoder.encode(userVO.getLogin_pwd()));
 		int flag = loginMapper.memberSave(userVO);		
 		if (flag > 0) {

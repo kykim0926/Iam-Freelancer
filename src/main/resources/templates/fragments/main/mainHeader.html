@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <header th:fragment="headerFragment">
 	<div class="mvisual">메인비주얼</div>
 		<div class="top">
@@ -10,12 +10,21 @@
 				<ul class="top_smenu">
 					<li class="notFrame" sec:authorize="isAuthenticated()"><a style="background: none;"><span sec:authentication="name">님</span></a></li>
 					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/pro/login/loginPage}">로그인</a></li>
-					<li class="notFrame"><a sec:authorize="isAuthenticated()" th:href="@{/pro/logout}">로그아웃</a></li>
-<!-- 					<li><a sec:authorize="isAuthenticated()" th:href="@{/pro/myPage}">마이페이지</a></li> -->
-					<li class="isFrame" folder="myPage" page="mypage_myinfo"><a th:href="@{/pro/moveMenu/myPage/mypage_myinfo}" sec:authorize="isAuthenticated()">마이페이지</a></li>
 					<li class="notFrame"><a>전문가 등록</a></li>
 					<li class="notFrame"><a sec:authorize="isAnonymous()" th:href="@{/firstJoinStep}">회원가입</a></li>
-					<li class="notFrame"><a class="lang" sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/info}">내정보</a></li>
+					<li sec:authorize="isAuthenticated()">
+						<div id="my-page" style="display:block">
+							<ul class="navi">
+								<li class="topFirstMenu">
+									<a>My Page ▼</a>
+									<ul>
+										<li class="isFrame" folder="myPage" page="mypage_myinfo"><a th:href="@{/pro/moveMenu/myPage/mypage_myinfo}">내 정보</a></li>
+										<li class="notFrame"><a th:href="@{/pro/logout}">로그아웃</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
 				</ul>
 				<nav>
 					<ul class="navi">
@@ -42,5 +51,4 @@
 			</div>
 		</div>
 </header>
-
 </html>

@@ -10,16 +10,16 @@ public class AuthConfig implements WebMvcConfigurer {
 
 	@Autowired
 	SessionInterceptor sessionInterceptor;
-	
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(sessionInterceptor)
-        		.addPathPatterns("/**")
-        		.excludePathPatterns("/pro/login") // ·Î±×ÀÎ ÆäÀÌÁö´Â Á¦¿Ü
-        		.excludePathPatterns("/pro/login/findLoginId") // ·Î±×ÀÎ IDÃ£±â´Â Á¦¿Ü
-        		.excludePathPatterns("/pro/login/findLoginPw") // ·Î±×ÀÎ PWÂù±â´Â Á¦¿Ü
-        		.excludePathPatterns("/pro/css/**", "/pro/js/**", "/pro/img/**"); // Á¤Àû ¸®¼Ò½º ÆÄÀÏÀº Á¦¿Ü. Á¦¿ÜÇÏÁö ¾ÊÀ¸¸é ¿¡·¯ ¹ß»ı
-        		// ¹Ù·Î À­ ÁÙÀ» Ãß°¡ÇÏÁö ¾ÈÀ¸¸é
-        		// because its mime type 'text/html' is not executable and strict mime type checking is enabled. ¿¡·¯ ¹ß»ı
-    }
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(sessionInterceptor)
+				.addPathPatterns("/**")
+				.excludePathPatterns("/pro/login") // ë¡œê·¸ì¸ í˜ì´ì§€ëŠ” ì œì™¸
+				.excludePathPatterns("/pro/login/findLoginId") // ë¡œê·¸ì¸ IDì°¾ê¸°ëŠ” ì œì™¸
+				.excludePathPatterns("/pro/login/findLoginPw") // ë¡œê·¸ì¸ PWì°¬ê¸°ëŠ” ì œì™¸
+				.excludePathPatterns("/pro/css/**", "/pro/js/**", "/pro/img/**"); // ì •ì  ë¦¬ì†ŒìŠ¤ íŒŒì¼ì€ ì œì™¸. ì œì™¸í•˜ì§€ ì•Šìœ¼ë©´ ì—ëŸ¬ ë°œìƒ
+		// ë°”ë¡œ ìœ— ì¤„ì„ ì¶”ê°€í•˜ì§€ ì•ˆìœ¼ë©´
+		// because its mime type 'text/html' is not executable and strict mime type checking is enabled. ì—ëŸ¬ ë°œìƒ
+	}
 }

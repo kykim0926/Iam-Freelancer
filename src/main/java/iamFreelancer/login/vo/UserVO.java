@@ -7,7 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @description : È¸¿ø Á¤º¸ VO
+ * @description : íšŒì› ì •ë³´ VO
  * @author Koreasoft kykim
  * @version : 1.0
  */
@@ -16,22 +16,22 @@ import lombok.ToString;
 @ToString
 public class UserVO implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
-	private String login_id;      // ¾ÆÀÌµğ
-	private String login_pwd;     // ·Î±×ÀÎ ¾ÏÈ£
-	private String cur_login_pwd; // ÇöÀç ·Î±×ÀÎ ¾ÏÈ£
+
+	private String login_id;      // ì•„ì´ë””
+	private String login_pwd;     // ë¡œê·¸ì¸ ì•”í˜¸
+	private String cur_login_pwd; // í˜„ì¬ ë¡œê·¸ì¸ ì•”í˜¸
 	private String name;
-	private String email;         // ÀÌ¸ŞÀÏ
-	private String phone_num;     // ÀüÈ­¹øÈ£
-	private String mobile_num;    // ÇÚµåÆù ¹øÈ£
-	private String addr;          // ÁÖ¼Ò
-	private String addr_detail;          // ÁÖ¼Ò
-	private String post_num;      // ¿ìÆí ¹øÈ£
-	private String user_type;     // ±â¾÷:C °³ÀÎ:I 
-	private String bank;          // ÀºÇà
-	private String bank_account;       // °èÁÂ
-	private String regist_route;  // °¡ÀÔ°æ·Î
-	private String user_kind;     // Àü¹®°¡:S ÀÇ·ÚÀÎ:C
-	
+	private String email;         // ì´ë©”ì¼
+	private String phone_num;     // ì „í™”ë²ˆí˜¸
+	private String mobile_num;    // í•¸ë“œí° ë²ˆí˜¸
+	private String addr;          // ì£¼ì†Œ
+	private String addr_detail;          // ì£¼ì†Œ
+	private String post_num;      // ìš°í¸ ë²ˆí˜¸
+	private String user_type;     // ê¸°ì—…:C ê°œì¸:I
+	private String bank;          // ì€í–‰
+	private String bank_account;       // ê³„ì¢Œ
+	private String regist_route;  // ê°€ì…ê²½ë¡œ
+	private String user_kind;     // ì „ë¬¸ê°€:S ì˜ë¢°ì¸:C
+
 	private String role_id;
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.time.Duration;
 
 /**
- * @description : redis Ã³¸® DAO
+ * @description : redis ì²˜ë¦¬ DAO
  * @author Koreasoft kykim
  * @version : 1.0
  */
@@ -22,7 +22,7 @@ public class SmsCertificationDao {
 
     public void createSmsCertification(String phone, String certificationNumber) {
         redisTemplate.opsForValue()
-            .set(PREFIX + phone, certificationNumber, Duration.ofSeconds(LIMIT_TIME));
+                .set(PREFIX + phone, certificationNumber, Duration.ofSeconds(LIMIT_TIME));
     }
 
     public String getSmsCertification(String phone) {

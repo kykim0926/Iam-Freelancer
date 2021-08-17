@@ -12,33 +12,33 @@ import iamFreelancer.login.vo.UserVO;
 
 @Controller
 public class MainPageController {
-	
+
 	@Autowired
 	public LoginUserDetailHelper loginUserDetailHelper;
-	
+
 	/**
-	 * °³ÀÎ Á¤º¸
+	 * ê°œì¸ ì •ë³´
 	 * @param model
 	 * @return
 	 */
 //	@GetMapping("/pro/myPage")
 //	public String memberMyPage(Model model) {
 //		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
-//		
+//
 //		return "/pro/myPage/mypage_myinfo";
 //	}
-	
+
 	/**
-	 * ¸ŞÀÎ »ó´ÜÀÇ ¸Ş´º
+	 * ë©”ì¸ ìƒë‹¨ì˜ ë©”ë‰´
 	 * @return
 	 */
 	@GetMapping("/pro/mainTopMenu")
 	public String mainHeader() {
 		return "/pro/main/topMainHeader";
 	}
-	
+
 	/**
-	 * top menu ÀÌµ¿
+	 * top menu ì´ë™
 	 * @param model
 	 * @return
 	 */
@@ -46,32 +46,32 @@ public class MainPageController {
 //	public String moveMainMenu(@PathVariable("subPage") String subPage, @PathVariable("detailPage") String detailPage, Model model) {
 //		return "/pro/" + subPage + "/" + detailPage;
 //	}
-	
+
 	/**
-	 * ¸¶ÀÌÆäÀÌÁö ÀÌµ¿
+	 * ë§ˆì´í˜ì´ì§€ ì´ë™
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("/pro/moveMenu/myPage/mypage_myinfo")
 	public String moveMainMenu(Model model) {
 		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
-		
+
 		model.addAttribute("userVO", userVO);
-		
+
 		return "/pro/myPage/mypage_myinfo";
 	}
-	
+
 	@GetMapping("/pro/moveMenu/contest/contest_history")
 	public String moveContestHistoryMenu() {
 		return "/pro/contest/contest_history";
 	}
-	
+
 	@GetMapping("/pro/moveMenu/contest/open_contest")
 	public String moveOpenContestMenu() {
 		return "/pro/contest/open_contest";
 	}
-	
-	/* Å×½ºÆ®¿ë
+
+	/* í…ŒìŠ¤íŠ¸ìš©
 	@GetMapping("/main2")
 	public String index() {
 		return "index";

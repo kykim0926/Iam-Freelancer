@@ -10,86 +10,86 @@ import iamFreelancer.login.util.LoginUserDetailHelper;
 import iamFreelancer.login.vo.UserVO;
 
 /**
- * @description : ·Î±×ÀÎ°ú È¸¿ø °¡ÀÔ Ã³¸®
+ * @description : ë¡œê·¸ì¸ê³¼ íšŒì› ê°€ì… ì²˜ë¦¬
  * @author Koreasoft kykim
  * @version : 1.0
  */
 @Controller
 public class LoginController {
-	// TODO:·Î±×ÀÎ °ü·Ã htmlÆäÀÌÁö´Â loginÆú´õ·Î ÀÌµ¿½ÃÅ°°í ¼Ò½º ¼öÁ¤ÇÒ °Í
+	// TODO:ë¡œê·¸ì¸ ê´€ë ¨ htmlí˜ì´ì§€ëŠ” loginí´ë”ë¡œ ì´ë™ì‹œí‚¤ê³  ì†ŒìŠ¤ ìˆ˜ì •í•  ê²ƒ
 	@Autowired
 	public LoginUserDetailHelper loginUserDetailHelper;
-	
+
 	@GetMapping("/main")
-	public String freeLancerMain(ModelMap model) throws Exception{
+	public String freeLancerMain(ModelMap model){
 		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
-		
+
 		model.addAttribute("userVO", userVO);
 		return "index";
 	}
-	
+
 	@GetMapping("/access-denied")
-	public String loadAccessdeniedPage() throws Exception{
-		return "pro/login";
+	public String loadAccessdeniedPage(){
+		return "/pro/login/login";
 	}
-	
+
 	/*
-	 * ·Î±×ÀÎ ÆäÀÌÁö ÀÌµ¿
+	 * ë¡œê·¸ì¸ í˜ì´ì§€ ì´ë™
 	 */
 	@GetMapping("/pro/login/loginPage")
 	public String login() {
-		return "pro/login/login";
+		return "/pro/login/login";
 	}
-	
+
 	/*
-	 * ¾à°üµ¿ÀÇ
+	 * ì•½ê´€ë™ì˜
 	 */
-	@GetMapping("firstJoinStep")
+	@GetMapping("/firstJoinStep")
 	public String firstJoinStep() {
-		return "pro/join1";
+		return "/pro/join1";
 	}
-	
+
 	/*
-	 * È¸¿ø °¡ÀÔ »ı¼¼ ³»¿ª
+	 * íšŒì› ê°€ì… ìƒì„¸ ë‚´ì—­
 	 */
-	@GetMapping("joinDetailRegist")
+	@GetMapping("/joinDetailRegist")
 	public String joinDetailRegist() {
-		return "pro/join2";
+		return "/pro/join2";
 	}
-	
+
 	/*
-	 * È¸¿ø °¡ÀÔ ¿Ï·á ÆäÀÌÁö
+	 * íšŒì› ê°€ì… ì™„ë£Œ í˜ì´ì§€
 	 */
 	@GetMapping("pro/join3")
 	public String memberRegistComplete() {
-		return "pro/join3";
+		return "/pro/join3";
 	}
-	
+
 	/*
-	 * ·Î±×ÀÎ ¼º°ø ÆäÀÌÁö
-	 * ÀÌ ÄÚµå°¡ ÀÖ¾î¾ß ID ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾ÊÀ» °æ¿ì ´Ù½Ã loginÆäÀÌÁö·Î redirectµÈ´Ù.
+	 * ë¡œê·¸ì¸ ì„±ê³µ í˜ì´ì§€
+	 * ì´ ì½”ë“œê°€ ìˆì–´ì•¼ ID ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•Šì„ ê²½ìš° ë‹¤ì‹œ loginí˜ì´ì§€ë¡œ redirectëœë‹¤.
 	 */
 	@GetMapping("/pro/login")
 	public String loginComplete(Model model) {
-		model.addAttribute("exception","°¡ÀÔÇÏÁö ¾ÊÀº ¾ÆÀÌµğÀÌ°Å³ª, Àß¸øµÈ ºñ¹Ğ¹øÈ£ÀÔ´Ï´Ù");
-		
-		return "pro/login/login";
+		model.addAttribute("exception","ê°€ì…í•˜ì§€ ì•Šì€ ì•„ì´ë””ì´ê±°ë‚˜, ì˜ëª»ëœ ë¹„ë°€ë²ˆí˜¸ì…ë‹ˆë‹¤");
+
+		return "/pro/login/login";
 	}
-	
+
 	/*
-	 * ·Î±×ÀÎ ID Ã£±â ÆäÀÌÁö
+	 * ë¡œê·¸ì¸ ID ì°¾ê¸° í˜ì´ì§€
 	 */
 	@GetMapping("/pro/login/findLoginId")
 	public String findLoginId(Model model) {
-		return "pro/login/findid";
+		return "/pro/login/findid";
 	}
-	
+
 	/*
-	 * ·Î±×ÀÎ Password Ã£±â ÆäÀÌÁö
+	 * ë¡œê·¸ì¸ Password ì°¾ê¸° í˜ì´ì§€
 	 */
 	@GetMapping("/pro/login/findLoginPw")
 	public String findLoginPw(Model model) {
-		return "pro/login/findpw";
+		return "/pro/login/findpw";
 	}
 }
 

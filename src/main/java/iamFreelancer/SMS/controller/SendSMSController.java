@@ -20,22 +20,22 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 public class SendSMSController {
-	private final SmsCertificationService smsCertificationService;
-	
-	//ÀÎÁõ¹øÈ£ ¹ß¼Û
-	@PostMapping("/linkage/sendSMS")
+    private final SmsCertificationService smsCertificationService;
+
+    //ì¸ì¦ë²ˆí˜¸ ë°œì†¡
+    @PostMapping("/linkage/sendSMS")
     public ResponseEntity<String> sendSms(@RequestBody SmsCertificationRequest smsRequestDto) {
         smsCertificationService.sendSms(smsRequestDto.getMobile_num());
         return new ResponseEntity<>("created", HttpStatus.CREATED);
     }
 
-    //redis¿¡¼­ ÀÎÁõ¹øÈ£ È®ÀÎ
+    //redisì—ì„œ ì¸ì¦ë²ˆí˜¸ í™•ì¸
     @PostMapping("/mobile/certNumConfirm")
     public ResponseEntity<String> smsVerification(@RequestBody SmsCertificationRequest smsRequestDto) {
         return smsCertificationService.verifySms(smsRequestDto);
     }
-    
-    // redis¿¡¼­ ÀÎÁõ¹øÈ£ »èÁ¦
+
+    // redisì—ì„œ ì¸ì¦ë²ˆí˜¸ ì‚­ì œ
     @PostMapping("/mobile/certNumDelete")
     public void smsCertNumDelete(@RequestBody SmsCertificationRequest smsRequestDto) {
         smsCertificationService.deleteCertification(smsRequestDto);

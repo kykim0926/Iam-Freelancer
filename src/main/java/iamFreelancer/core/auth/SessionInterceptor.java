@@ -16,51 +16,51 @@ public class SessionInterceptor implements HandlerInterceptor {
 
 	@Autowired
 	public LoginUserDetailHelper loginUserDetailHelper;
-	
+
 	@Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         /*
-         * ÁÖ¼®µÈ ³»¿ëÀº ¼¼¼ÇÀÌ ¾øÀ» °æ¿ì Æ¯Á¤ÆäÀÌÁö(loginÆäÀÌÁö)·Î ÀÌµ¿ ÇÏ´Â ·ÎÁ÷
-         * 
+         * ì£¼ì„ëœ ë‚´ìš©ì€ ì„¸ì…˜ì´ ì—†ì„ ê²½ìš° íŠ¹ì •í˜ì´ì§€(loginí˜ì´ì§€)ë¡œ ì´ë™ í•˜ëŠ” ë¡œì§
+         *
         UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
         if ("/pro/login".equals(request.getRequestURI())) {
         	return true;
         }
-        
+
         if ("[ROLE_ANONYMOUS]".equals(userVO.getRole_id())) {
         	response.sendRedirect("/pro/login");
         	return false;
         }
         */
-        
+
 		UserVO userVO = loginUserDetailHelper.getAuthenticatedUser();
-		
-		// ¼¼¼ÇÀÌ ¾ø°í ¿äÃ»ÇÑ URLÀÌ '/main'ÀÏ °æ¿ì ¿äÃ» ÆäÀÌÁö·Î ÀÌµ¿
+
+		// ì„¸ì…˜ì´ ì—†ê³  ìš”ì²­í•œ URLì´ '/main'ì¼ ê²½ìš° ìš”ì²­ í˜ì´ì§€ë¡œ ì´ë™
 		if ("[ROLE_ANONYMOUS]".equals(userVO.getRole_id()) && "/main".equals(request.getRequestURI())) {
-			return true; // true¸é ¿äÃ»ÇÑ URLÀÇ controller·Î ÀÌµ¿
+			return true; // trueë©´ ìš”ì²­í•œ URLì˜ controllerë¡œ ì´ë™
 		}
-		
-		// ¿äÃ»ÇÑ URLÀÌ ¼¼¼ÇÀÌ ¾øÀ» ¶§ '/main'À¸·Î ÀÌµ¿½ÃÅ°´Â Á¶°Ç
-		// - ³»Á¤º¸ º¯°æ
+
+		// ìš”ì²­í•œ URLì´ ì„¸ì…˜ì´ ì—†ì„ ë•Œ '/main'ìœ¼ë¡œ ì´ë™ì‹œí‚¤ëŠ” ì¡°ê±´
+		// - ë‚´ì •ë³´ ë³€ê²½
 		if ("[ROLE_ANONYMOUS]".equals(userVO.getRole_id()) && "/pro/moveMenu/myPage/mypage_myinfo".equals(request.getRequestURI())) {
 			response.sendRedirect("/main");
-			return false; // ¿äÃ»ÇÑ URLÀÇ controller·Î ÀÌµ¿ ºÒ°¡
+			return false; // ìš”ì²­í•œ URLì˜ controllerë¡œ ì´ë™ ë¶ˆê°€
 		}
-		
-        /*¼¼¼ÇÀÌ ¾ø¾îµµ ¿äÃ»ÇÑ ÆäÀÌÁö·Î ÀÌµ¿*/
-        return true;
-    }
-    
-    @Override
-    public void postHandle(HttpServletRequest request, 
-                           HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
-    }
+		/*ì„¸ì…˜ì´ ì—†ì–´ë„ ìš”ì²­í•œ í˜ì´ì§€ë¡œ ì´ë™*/
+		return true;
+	}
 
-    @Override
-    public void afterCompletion(HttpServletRequest request, 
-                                HttpServletResponse response, Object handler, Exception ex) throws Exception {
+	@Override
+	public void postHandle(HttpServletRequest request,
+						   HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
-    }
+	}
+
+	@Override
+	public void afterCompletion(HttpServletRequest request,
+								HttpServletResponse response, Object handler, Exception ex) throws Exception {
+
+	}
 }

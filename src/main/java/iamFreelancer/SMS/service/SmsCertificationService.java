@@ -30,30 +30,30 @@ public class SmsCertificationService {
 
     // sms로 인증번호 발송하고, 발송 정보를 세션에 저장
     public void sendSms(String phone) {
-    	String randomNumber = StringUtil.getRandomNumberStr(6);
-    	
+        String randomNumber = StringUtil.getRandomNumberStr(6);
+
         // TODO : 이 부분에 SMS발송처리 로직을 구현 필요
-    	
+
         smsCertificationDao.createSmsCertification(phone, randomNumber);
     }
 
     // 입력한 인증번호가 발송되었던(세션에 저장된) 인증번호가 동일한지 확인
     public ResponseEntity<String> verifySms(SmsCertificationRequest smsRequestDto) {
         if (verifyCertNum(smsRequestDto)) {
-        	return new ResponseEntity<>("fail", HttpStatus.OK);
+            return new ResponseEntity<>("fail", HttpStatus.OK);
         } else {
-        	return new ResponseEntity<>("success", HttpStatus.OK);
+            return new ResponseEntity<>("success", HttpStatus.OK);
         }
     }
 
     // 인증이 완료되면 redis에 있는 데이터 삭제 
     public void deleteCertification(SmsCertificationRequest smsRequestDto) {
-    	smsCertificationDao.removeSmsCertification(smsRequestDto.getMobile_num());
+        smsCertificationDao.removeSmsCertification(smsRequestDto.getMobile_num());
     }
-    
+
     private boolean verifyCertNum(SmsCertificationRequest smsRequestDto) {
         return !(smsCertificationDao.hasKey(smsRequestDto.getMobile_num()) &&
-            smsCertificationDao.getSmsCertification(smsRequestDto.getMobile_num())
-                .equals(smsRequestDto.getCertificationNumber()));
+                smsCertificationDao.getSmsCertification(smsRequestDto.getMobile_num())
+                        .equals(smsRequestDto.getCertificationNumber()));
     }
 }

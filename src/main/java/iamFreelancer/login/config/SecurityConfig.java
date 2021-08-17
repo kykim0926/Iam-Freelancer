@@ -15,21 +15,21 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import iamFreelancer.login.service.LoginService;
 
 /**
- * @description : springSecurity ¼³Á¤
+ * @description : springSecurity ì„¤ì •
  * @author Koreasoft kykim
  * @version : 1.0
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-	
-	@Autowired
+
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-	@Autowired
-	private LoginService loginService;
-	
-	/* DaoAuthenticationProvider´Â ³»ºÎÀûÀ¸·Î UserDetailsService¸¦ ÀÌ¿ëÇØ »ç¿ëÀÚ Á¤º¸¸¦ ÀĞ´Â´Ù.*/
-	@Bean
+    @Autowired
+    private LoginService loginService;
+
+    /* DaoAuthenticationProviderëŠ” ë‚´ë¶€ì ìœ¼ë¡œ UserDetailsServiceë¥¼ ì´ìš©í•´ ì‚¬ìš©ì ì •ë³´ë¥¼ ì½ëŠ”ë‹¤.*/
+    @Bean
     public DaoAuthenticationProvider authenticationProvider(LoginService loginService) {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(loginService);
@@ -37,36 +37,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         return authenticationProvider;
     }
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) {
-		  auth.authenticationProvider(authenticationProvider(loginService));
-	}
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) {
+        auth.authenticationProvider(authenticationProvider(loginService));
+    }
 
-	@Override
-	public void configure(WebSecurity web) { // scr/main/resources/static ÇÏÀ§ Æú´õµé Á¢±Ù °¡´ÉÇÏ°Ô ÇÏ±â
-		web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
-	}
-	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception{
-		http
-			.authorizeRequests()
-				// ÆäÀÌÁö ±ÇÇÑ ¼³Á¤
-	            .antMatchers("/admin/**").hasRole("ADMIN")
-				.antMatchers("/pro/main").hasRole("MEMBER")
-				.antMatchers("/**").permitAll()
-			.and() // ·Î±×ÀÎ ¼³Á¤
-				.formLogin()
-				.loginPage("/pro/login")
-				.defaultSuccessUrl("/main") // ·Î±×ÀÎÀÌ ¼º°øÇßÀ» ¶§ ÀÌµ¿µÇ´Â ÆäÀÌÁöÀÌ¸ç, ¸¶Âù°¡Áö·Î ÄÁÆ®·Ñ·¯¿¡¼­ URL ¸ÅÇÎ
-				.permitAll()
-			.and() // ·Î±×¾Æ¿ô ¼³Á¤
-				.logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/pro/logout"))
-				.logoutSuccessUrl("/main")
-				.invalidateHttpSession(true)
-			.and()
-				// 403 ¿¹¿ÜÃ³¸® ÇÚµé¸µ
-            	.exceptionHandling().accessDeniedPage("/access-denied");
-	}
+    @Override
+    public void configure(WebSecurity web) { // scr/main/resources/static í•˜ìœ„ í´ë”ë“¤ ì ‘ê·¼ ê°€ëŠ¥í•˜ê²Œ í•˜ê¸°
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception{
+        http
+                .authorizeRequests()
+                // í˜ì´ì§€ ê¶Œí•œ ì„¤ì •
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/pro/main").hasRole("MEMBER")
+                .antMatchers("/**").permitAll()
+                .and() // ë¡œê·¸ì¸ ì„¤ì •
+                .formLogin()
+                .loginPage("/pro/login")
+                .defaultSuccessUrl("/main") // ë¡œê·¸ì¸ì´ ì„±ê³µí–ˆì„ ë•Œ ì´ë™ë˜ëŠ” í˜ì´ì§€ì´ë©°, ë§ˆì°¬ê°€ì§€ë¡œ ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ URL ë§¤í•‘
+                .permitAll()
+                .and() // ë¡œê·¸ì•„ì›ƒ ì„¤ì •
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/pro/logout"))
+                .logoutSuccessUrl("/main")
+                .invalidateHttpSession(true)
+                .and()
+                // 403 ì˜ˆì™¸ì²˜ë¦¬ í•¸ë“¤ë§
+                .exceptionHandling().accessDeniedPage("/access-denied");
+    }
 }

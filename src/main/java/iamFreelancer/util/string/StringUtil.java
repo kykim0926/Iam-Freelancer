@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class StringUtil {
 	/**
-	 * @description : <pre>¼ıÀÚ ³­¼ö ¹ß»ı</pre>
-	 * @param len : Ãâ·ÂÇÏ·Á´Â ³­¼öÀÇ ÀÚ¸´¼ö
+	 * @description : <pre>ìˆ«ì ë‚œìˆ˜ ë°œìƒ</pre>
+	 * @param len : ì¶œë ¥í•˜ë ¤ëŠ” ë‚œìˆ˜ì˜ ìë¦¿ìˆ˜
 	 * @return
 	 */
 	public static String getRandomNumberStr(int len){
@@ -16,31 +16,31 @@ public class StringUtil {
 		}
 		return temp.toString();
 	}
-	
+
 	/**
-	 * @description : <pre>Æ¯¼ö¹®ÀÚ, ¿µ¹®´ë¼Ò¹®ÀÚ, ¼ıÀÚ Æ÷ÇÔ ³­¼ö ¹ß»ı</pre>
-	 * @param len : Ãâ·ÂÇÏ·Á´Â ³­¼öÀÇ ÀÚ¸´¼ö
+	 * @description : <pre>íŠ¹ìˆ˜ë¬¸ì, ì˜ë¬¸ëŒ€ì†Œë¬¸ì, ìˆ«ì í¬í•¨ ë‚œìˆ˜ ë°œìƒ</pre>
+	 * @param len : ì¶œë ¥í•˜ë ¤ëŠ” ë‚œìˆ˜ì˜ ìë¦¿ìˆ˜
 	 * @return
 	 */
 	public static String getRandomSpecialEnglishNumberStr(int len){
 		StringBuffer temp = new StringBuffer();
 		Random rnd = new Random();
 		for (int i = 0; i < len; i++) {
-		    int rIndex = rnd.nextInt(4);
-		    switch (rIndex) {
-		    case 0:
-		        temp.append((char) ((int) (rnd.nextInt(26)) + 97)); // ¼Ò¹®ÀÚ
-		        break;
-		    case 1:
-		        temp.append((char) ((int) (rnd.nextInt(26)) + 65)); // ´ë¹®ÀÚ
-		        break;
-		    case 2:
-		        temp.append((char) ((int) (rnd.nextInt(15)) + 33)); // Æ¯¼ö¹®ÀÚ
-		        break;
-		    case 3:
-		        temp.append((rnd.nextInt(10))); // ¼ıÀÚ
-		        break;
-		    }
+			int rIndex = rnd.nextInt(4);
+			switch (rIndex) {
+				case 0:
+					temp.append((char) ((int) (rnd.nextInt(26)) + 97)); // ì†Œë¬¸ì
+					break;
+				case 1:
+					temp.append((char) ((int) (rnd.nextInt(26)) + 65)); // ëŒ€ë¬¸ì
+					break;
+				case 2:
+					temp.append((char) ((int) (rnd.nextInt(15)) + 33)); // íŠ¹ìˆ˜ë¬¸ì
+					break;
+				case 3:
+					temp.append((rnd.nextInt(10))); // ìˆ«ì
+					break;
+			}
 		}
 		return temp.toString();
 	}

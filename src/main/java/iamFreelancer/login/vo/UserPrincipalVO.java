@@ -9,59 +9,59 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
- * @description : ·Î±×ÀÎ springSecurity Ã³¸®
+ * @description : ë¡œê·¸ì¸ springSecurity ì²˜ë¦¬
  * @author Koreasoft kykim
  * @version : 1.0
  */
 public class UserPrincipalVO implements UserDetails{
-	//UID°ªÀ» ¸í½Ã ÇØÁÖÁö ¾ÊÀ¸¸é ÀÚ¹Ù ÄÄÆÄÀÏ·¯°¡ ÀÓ½ÃÀûÀÎ °ªÀ» ºÎ¿©ÇÑ´Ù.
+	//UIDê°’ì„ ëª…ì‹œ í•´ì£¼ì§€ ì•Šìœ¼ë©´ ìë°” ì»´íŒŒì¼ëŸ¬ê°€ ì„ì‹œì ì¸ ê°’ì„ ë¶€ì—¬í•œë‹¤.
 	private static final long serialVersionUID = 1L;
-	
+
 	private ArrayList<UserVO> userVO;
-	
+
 	public UserPrincipalVO(ArrayList<UserVO> userAuthes) {
 		this.userVO = userAuthes;
 	}
-	
+
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() { //À¯Àú°¡ °®°í ÀÖ´Â ±ÇÇÑ ¸ñ·Ï
+	public Collection<? extends GrantedAuthority> getAuthorities() { //ìœ ì €ê°€ ê°–ê³  ìˆëŠ” ê¶Œí•œ ëª©ë¡
 
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		
+
 		for(int x=0; x<userVO.size(); x++) {
 			authorities.add(new SimpleGrantedAuthority(userVO.get(x).getRole_id()));
 		}
-		
+
 		return authorities;
 	}
 
 	@Override
-	public String getPassword() { //À¯Àú ºñ¹Ğ¹øÈ£
+	public String getPassword() { //ìœ ì € ë¹„ë°€ë²ˆí˜¸
 		return userVO.get(0).getLogin_pwd();
 	}
 
 	@Override
-	public String getUsername() {// À¯Àú ÀÌ¸§ È¤Àº ¾ÆÀÌµğ
+	public String getUsername() {// ìœ ì € ì´ë¦„ í˜¹ì€ ì•„ì´ë””
 		return userVO.get(0).getLogin_id();
 	}
-	
+
 	@Override
-	public boolean isAccountNonExpired() {// À¯Àú ¾ÆÀÌµğ°¡ ¸¸·á µÇ¾ú´ÂÁö
+	public boolean isAccountNonExpired() {// ìœ ì € ì•„ì´ë””ê°€ ë§Œë£Œ ë˜ì—ˆëŠ”ì§€
 		return true;
 	}
 
 	@Override
-	public boolean isAccountNonLocked() { // À¯Àú ¾ÆÀÌµğ°¡ Lock °É·È´ÂÁö
+	public boolean isAccountNonLocked() { // ìœ ì € ì•„ì´ë””ê°€ Lock ê±¸ë ¸ëŠ”ì§€
 		return true;
 	}
 
 	@Override
-	public boolean isCredentialsNonExpired() { //ºñ¹Ğ¹øÈ£°¡ ¸¸·á µÇ¾ú´ÂÁö
+	public boolean isCredentialsNonExpired() { //ë¹„ë°€ë²ˆí˜¸ê°€ ë§Œë£Œ ë˜ì—ˆëŠ”ì§€
 		return true;
 	}
 
 	@Override
-	public boolean isEnabled() { // °èÁ¤ÀÌ È°¼ºÈ­ µÇ¾ú´ÂÁö
+	public boolean isEnabled() { // ê³„ì •ì´ í™œì„±í™” ë˜ì—ˆëŠ”ì§€
 		return true;
 	}
 }

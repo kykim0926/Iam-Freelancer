@@ -14,33 +14,33 @@ import iamFreelancer.login.vo.UserVO;
 
 @Service
 public class MailService {
-	@Autowired
-	private JavaMailSender javaMailSender;
-    
+    @Autowired
+    private JavaMailSender javaMailSender;
+
     @Autowired
     private TemplateEngine templateEngine;
 
     public String mailSend(UserVO userVO, String mailTempletePath, String mailSubject) {
-    	try {
-        	Context context = new Context();
-            context.setVariable("userVO", userVO); // ¾Æ·¡ÀÇ thymeleaf html ÅÛÇÃ¸´¿¡¼­ »ç¿ëÇÏ±â À§ÇÏ¿© userVO¸¦ set.
+        try {
+            Context context = new Context();
+            context.setVariable("userVO", userVO); // ì•„ë˜ì˜ thymeleaf html í…œí”Œë¦¿ì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•˜ì—¬ userVOë¥¼ set.
 
-            // ¾ÆÀÌµğ Ã£±â ¸ŞÀÏ º»¹® html ÅÛÇÃ¸´ : resource/templates/
+            // ì•„ì´ë”” ì°¾ê¸° ë©”ì¼ ë³¸ë¬¸ html í…œí”Œë¦¿ : resource/templates/
             String process = templateEngine.process(mailTempletePath, context);
 
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
-            
+
             helper.setSubject(mailSubject);
             helper.setText(process, true);
             helper.setTo(userVO.getEmail());
-            
+
             javaMailSender.send(mimeMessage);
-            
+
             return "Mail Send success";
-    	} catch (MessagingException ex) {
-    		System.out.println("" + ex.getMessage());
-    		return "Mail Send Error";
-    	}
+        } catch (MessagingException ex) {
+            System.out.println("" + ex.getMessage());
+            return "Mail Send Error";
+        }
     }
 }

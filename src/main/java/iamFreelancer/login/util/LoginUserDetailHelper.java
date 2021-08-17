@@ -16,7 +16,7 @@ import iamFreelancer.login.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @description : ·Î±×ÀÎÇÑ »ç¿ëÀÚÀÇ Á¤º¸ ¹× Ã¼Å©
+ * @description : ë¡œê·¸ì¸í•œ ì‚¬ìš©ìì˜ ì •ë³´ ë° ì²´í¬
  * @author Koreasoft kykim
  * @version : 1.0
  */
@@ -25,30 +25,30 @@ import lombok.extern.slf4j.Slf4j;
 public final class LoginUserDetailHelper {
 	@Autowired
 	private LoginMapper loginMapper;
-    /**
-     * ÀÎÁõµÈ »ç¿ëÀÚ°´Ã¼¸¦ VOÇü½ÄÀ¸·Î °¡Á®¿Â´Ù.
-     * @return »ç¿ëÀÚ ValueObject
-     */
+	/**
+	 * ì¸ì¦ëœ ì‚¬ìš©ìê°ì²´ë¥¼ VOí˜•ì‹ìœ¼ë¡œ ê°€ì ¸ì˜¨ë‹¤.
+	 * @return ì‚¬ìš©ì ValueObject
+	 */
 	public UserVO getAuthenticatedUser() {
-        SecurityContext context = SecurityContextHolder.getContext();
-        Authentication authentication = context.getAuthentication();
-        UserVO userVO = new UserVO();
-        
-        if (authentication.getPrincipal() instanceof User) {
-        	UserDetails details = (UserDetails) authentication.getPrincipal();
-        	
-        	log.debug("## LoginUserDetailsHelper.getAuthenticatedUser : AuthenticatedUser is {}", details.getUsername());
+		SecurityContext context = SecurityContextHolder.getContext();
+		Authentication authentication = context.getAuthentication();
+		UserVO userVO = new UserVO();
+
+		if (authentication.getPrincipal() instanceof User) {
+			UserDetails details = (UserDetails) authentication.getPrincipal();
+
+			log.debug("## LoginUserDetailsHelper.getAuthenticatedUser : AuthenticatedUser is {}", details.getUsername());
 
 			userVO = loginMapper.findByLoginId(details.getUsername());
-	        return userVO;
-        } else {
-        	Collection<? extends GrantedAuthority> authRole= authentication.getAuthorities();
-        	String userRole = authRole.toString();
-        	userVO.setRole_id(userRole);
-        	
-        	log.debug("## LoginUserDetailsHelper.getAuthenticatedUser : AuthenticatedUser is {}", userRole);
-        	
-        	return userVO;
-        }
-    }
+			return userVO;
+		} else {
+			Collection<? extends GrantedAuthority> authRole= authentication.getAuthorities();
+			String userRole = authRole.toString();
+			userVO.setRole_id(userRole);
+
+			log.debug("## LoginUserDetailsHelper.getAuthenticatedUser : AuthenticatedUser is {}", userRole);
+
+			return userVO;
+		}
+	}
 }

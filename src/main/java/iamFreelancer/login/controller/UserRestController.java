@@ -11,7 +11,7 @@ import iamFreelancer.login.service.LoginService;
 import iamFreelancer.login.vo.UserVO;
 
 /**
- * @description : È¸¿ø °¡ÀÔ controller
+ * @description : íšŒì› ê°€ì… controller
  * @author Koreasoft kykim
  * @version : 1.0
  */
@@ -20,9 +20,9 @@ import iamFreelancer.login.vo.UserVO;
 public class UserRestController {
 	@Autowired
 	private LoginService loginService;
-	
+
 	/**
-	 * È¸¿ø°¡ÀÔ
+	 * íšŒì›ê°€ì…
 	 * @param userVO
 	 * @return
 	 */
@@ -30,9 +30,9 @@ public class UserRestController {
 	public String saveUserInfo(@RequestBody UserVO userVO) {
 		return loginService.insertUser(userVO);
 	}
-	
+
 	/**
-	 * ¾ÆÀÌµğ Á¸Àç ¿©ºÎ
+	 * ì•„ì´ë”” ì¡´ì¬ ì—¬ë¶€
 	 * @param userVO
 	 * @return
 	 */
@@ -40,9 +40,9 @@ public class UserRestController {
 	public boolean existYnByLoginId(@RequestBody UserVO userVO) {
 		return loginService.existYnByLoginId(userVO);
 	}
-	
+
 	/**
-	 * È¸¿ø Á¤º¸ update
+	 * íšŒì› ì •ë³´ update
 	 * @param userVO
 	 * @return
 	 */
@@ -50,9 +50,9 @@ public class UserRestController {
 	public String memberInfoUpdate(@RequestBody UserVO userVO) {
 		return loginService.memberInfoUpdate(userVO);
 	}
-	
+
 	/**
-	 * ·Î±×ÀÎ ºñ¹Ğ¹øÈ£ update
+	 * ë¡œê·¸ì¸ ë¹„ë°€ë²ˆí˜¸ update
 	 * @param userVO
 	 * @return
 	 */
@@ -60,30 +60,30 @@ public class UserRestController {
 	public String memberLoginPwdUpdate(@RequestBody UserVO userVO) {
 		return loginService.memberLoginPwdUpdate(userVO);
 	}
-	
+
 	/**
-	 * ÀÌ¸§°ú ÀÌ¸ŞÀÏ·Î ·Î±×ÀÎ ¾ÆÀÌµğ Á¶È¸
+	 * ì´ë¦„ê³¼ ì´ë©”ì¼ë¡œ ë¡œê·¸ì¸ ì•„ì´ë”” ì¡°íšŒ
 	 * @param userVO
 	 * @return
 	 */
 	@PostMapping(value="/login/findIdByNameAndEmail")
 	public String findIdByNameAndEmail(@RequestBody UserVO userVO, BindingResult result) {
 		if (!result.hasErrors()) {
-			return loginService.findIdByNameAndEmail(userVO);			
+			return loginService.findIdByNameAndEmail(userVO);
 		} else {
 			return "param error";
 		}
 	}
-	
+
 	/**
-	 * ¾ÆÀÌµğ¿Í ÀÌ¸§°ú ÀÌ¸ŞÀÏ·Î ·Î±×ÀÎ ºñ¹Ğ¹øÈ£ Á¶È¸
+	 * ì•„ì´ë””ì™€ ì´ë¦„ê³¼ ì´ë©”ì¼ë¡œ ë¡œê·¸ì¸ ë¹„ë°€ë²ˆí˜¸ ì¡°íšŒ
 	 * @param userVO
 	 * @return
 	 */
 	@PostMapping(value="/login/findPwdByIdAndNameAndEmail")
 	public String findPwdByIdAndNameAndEmail(@RequestBody UserVO userVO, BindingResult result) {
 		if (!result.hasErrors()) {
-			return loginService.findPwdByIdAndNameAndEmail(userVO);			
+			return loginService.findPwdByIdAndNameAndEmail(userVO);
 		} else {
 			return "param error";
 		}

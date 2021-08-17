@@ -13,7 +13,7 @@ import iamFreelancer.util.string.StringUtil;
 @Controller
 public class UtilController {
 	/**
-	 * ÆÄ¶ó¹ÌÅÍ °¹¼ö·Î ³­¼ö ¹ß»ı
+	 * íŒŒë¼ë¯¸í„° ê°¯ìˆ˜ë¡œ ë‚œìˆ˜ ë°œìƒ
 	 * @param model
 	 * @param request
 	 * @param response

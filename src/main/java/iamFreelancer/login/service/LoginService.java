@@ -23,7 +23,7 @@ import iamFreelancer.util.crypt.CryptUtil;
 import iamFreelancer.util.string.StringUtil;
 
 /**
- * @description : È¸¿ø °¡ÀÔ DBÃ³¸® ¹× Á¶È¸
+ * @description : íšŒì› ê°€ì… DBì²˜ë¦¬ ë° ì¡°íšŒ
  * @author Koreasoft kykim
  * @version : 1.0
  */
@@ -31,142 +31,142 @@ import iamFreelancer.util.string.StringUtil;
 public class LoginService implements UserDetailsService{
 	@Autowired
 	private LoginMapper loginMapper;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
 	@Autowired
 	private MailService mailService;
-	
-	/* DB¿¡¼­ À¯ÀúÁ¤º¸¸¦ ºÒ·¯¿Â´Ù.
-	 * CustomÇÑ Userdetails Å¬·¡½º¸¦ ¸®ÅÏ ÇØÁÖ¸é µÈ´Ù.
+
+	/* DBì—ì„œ ìœ ì €ì •ë³´ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
+	 * Customí•œ Userdetails í´ë˜ìŠ¤ë¥¼ ë¦¬í„´ í•´ì£¼ë©´ ëœë‹¤.
 	 * */
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
+	public UserDetails loadUserByUsername(String username){
+
 		UserVO userAuthes = loginMapper.findByLoginId(username);
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		
+
 		authorities.add(new SimpleGrantedAuthority(userAuthes.getRole_id()));
-		
+
 		return new User(userAuthes.getLogin_id(), userAuthes.getLogin_pwd(), authorities);
 	}
-	
+
 	/* *
-	 * È¸¿ø ÀúÀå
-	 * ·Ñ¹é ¼³Á¤
+	 * íšŒì› ì €ì¥
+	 * ë¡¤ë°± ì„¤ì •
 	 * @param userVO
 	 * @return
 	 * */
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
 	public String insertUser(UserVO userVO) {
-		// TODO:È¸¿ø°¡ÀÔ½Ã ¹ß±ŞÇÏ´Â ÄíÆùÀÌ ÀÖ´ÂÁö Á¶È¸ÇÏ¿© ÀÖ´Ù¸é ¹ß±ŞÇÏ´Â ·ÎÁ÷ Ãß°¡ ÇÊ¿ä
+		// TODO:íšŒì›ê°€ì…ì‹œ ë°œê¸‰í•˜ëŠ” ì¿ í°ì´ ìˆëŠ”ì§€ ì¡°íšŒí•˜ì—¬ ìˆë‹¤ë©´ ë°œê¸‰í•˜ëŠ” ë¡œì§ ì¶”ê°€ í•„ìš”
 		userVO.setLogin_pwd(bCryptPasswordEncoder.encode(userVO.getLogin_pwd()));
-		int flag = loginMapper.memberSave(userVO);		
+		int flag = loginMapper.memberSave(userVO);
 		if (flag > 0) {
 			loginMapper.memberRoleSave(userVO.getLogin_id(), userVO.getRole_id());
 			return "success";
 		}
-		
+
 		return "fail";
 	}
-	
+
 	/**
-	 * È¸¿øÁ¤º¸ ¼öÁ¤
+	 * íšŒì›ì •ë³´ ìˆ˜ì •
 	 * @param userVO
 	 * @return
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
 	public String memberInfoUpdate(UserVO userVO) {
-		
-		int flag = loginMapper.memberInfoUpdate(userVO);		
+
+		int flag = loginMapper.memberInfoUpdate(userVO);
 		if (flag > 0) {
 			return "success";
 		}
-		
+
 		return "fail";
 	}
-	
+
 	/**
-	 * login_id Áßº¹ Ã¼Å©
+	 * login_id ì¤‘ë³µ ì²´í¬
 	 * @param userVO
 	 * @return
 	 */
 	public boolean existYnByLoginId(UserVO userVO) {
 
 		boolean bResult = false;
-		
+
 		int userCnt = loginMapper.existYnByLoginId(userVO);
 		if (userCnt > 0) {
 			bResult = true;
 		}
-		
+
 		return bResult;
 	}
-	
+
 	/**
-	 * ÇöÀç »ç¿ëÀÚÀÇ ·Î±×ÀÎ ÆĞ½º¿öµå º¯°æ
+	 * í˜„ì¬ ì‚¬ìš©ìì˜ ë¡œê·¸ì¸ íŒ¨ìŠ¤ì›Œë“œ ë³€ê²½
 	 * @param userVO
 	 * @return
 	 */
 	public String memberLoginPwdUpdate(UserVO userVO) {
 
-		UserVO userInfoVO = loginMapper.findByLoginId(userVO.getLogin_id()); // »ç¿ëÀÚ Á¤º¸
-		userVO.setLogin_pwd(bCryptPasswordEncoder.encode(userVO.getLogin_pwd())); // º¯°æÇÏ·Á´Â ºñ¹Ğ¹øÈ£ ¾ÏÈ£È­
-		
+		UserVO userInfoVO = loginMapper.findByLoginId(userVO.getLogin_id()); // ì‚¬ìš©ì ì •ë³´
+		userVO.setLogin_pwd(bCryptPasswordEncoder.encode(userVO.getLogin_pwd())); // ë³€ê²½í•˜ë ¤ëŠ” ë¹„ë°€ë²ˆí˜¸ ì•”í˜¸í™”
+
 		boolean bCompaperResult = CryptUtil.loginPwdEncryptCompare(userVO.getCur_login_pwd(), userInfoVO.getLogin_pwd());
-		
+
 		if (bCompaperResult) {
 			int result = loginMapper.memberLoginPwdUpdate(userVO);
 			if (result > 0) {
-				return "sucess";	
+				return "sucess";
 			} else {
 				return "fail";
 			}
-			
+
 		} else {
 			return "inconsistent";
 		}
 	}
-	
+
 	/**
-	 * ÀÌ¸§°ú ÀÌ¸ŞÀÏ·Î ·Î±×ÀÎ ¾ÆÀÌµğ Á¶È¸
+	 * ì´ë¦„ê³¼ ì´ë©”ì¼ë¡œ ë¡œê·¸ì¸ ì•„ì´ë”” ì¡°íšŒ
 	 * @param userVO
 	 * @return
 	 */
 	public String findIdByNameAndEmail(UserVO userVO) {
 		String loginId = loginMapper.findIdByNameAndEmail(userVO.getName(), userVO.getEmail());
-		
+
 		if (loginId == null || ("").equals(loginId)) {
 			return "not Exsit User Email";
 		} else {
 			userVO.setLogin_id(loginId);
-			return mailService.mailSend(userVO, "email/findLoginIdTemplete", "[Iam Freelancer] ¾ÆÀÌµğ¸¦ ¾Ë·Áµå¸³´Ï´Ù.");			
+			return mailService.mailSend(userVO, "email/findLoginIdTemplete", "[Iam Freelancer] ì•„ì´ë””ë¥¼ ì•Œë ¤ë“œë¦½ë‹ˆë‹¤.");
 		}
 	}
-	
+
 	/**
-	 * ÀÌ¸§°ú ÀÌ¸ŞÀÏ·Î ·Î±×ÀÎ ¾ÆÀÌµğ Á¶È¸
+	 * ì´ë¦„ê³¼ ì´ë©”ì¼ë¡œ ë¡œê·¸ì¸ ì•„ì´ë”” ì¡°íšŒ
 	 * @param userVO
 	 * @return
 	 */
 	public String findPwdByIdAndNameAndEmail(UserVO userVO) {
 //		Optional<String> optLoginId = Optional.empty();
 		String loginId = loginMapper.findPwdByIdAndNameAndEmail(userVO.getLogin_id(), userVO.getName(), userVO.getEmail());
-		
+
 		if (loginId == null || ("").equals(loginId)) {
 			return "not Exsit User Email";
 		} else {
-			String tempPwd = StringUtil.getRandomSpecialEnglishNumberStr(10); // Æò¹® ÀÓ½Ã ºñ¹Ğ¹øÈ£ »ı¼º
-			String tempEncryptPwd = bCryptPasswordEncoder.encode(tempPwd); // ÀÓ½Ã ºñ¹Ğ¹øÈ£ ¾ÏÈ£È­
-			
-			userVO.setLogin_pwd(tempEncryptPwd); // DB update¸¦ À§ÇÏ¿© ¾ÏÈ£È­µÈ ÀÓ½Ã ºñ¹Ğ¹øÈ£·Î set
+			String tempPwd = StringUtil.getRandomSpecialEnglishNumberStr(10); // í‰ë¬¸ ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ ìƒì„±
+			String tempEncryptPwd = bCryptPasswordEncoder.encode(tempPwd); // ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ ì•”í˜¸í™”
+
+			userVO.setLogin_pwd(tempEncryptPwd); // DB updateë¥¼ ìœ„í•˜ì—¬ ì•”í˜¸í™”ëœ ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ë¡œ set
 			int result = loginMapper.memberLoginPwdUpdate(userVO);
-			
+
 			if (result > 0) {
 				userVO.setLogin_id(loginId);
 				userVO.setLogin_pwd(tempPwd);
-				return mailService.mailSend(userVO, "email/findLoginPwdTemplete", "[Iam Freelancer] ÀÓ½Ã ºñ¹Ğ¹øÈ£¸¦ ¾Ë·Áµå¸³´Ï´Ù.");
+				return mailService.mailSend(userVO, "email/findLoginPwdTemplete", "[Iam Freelancer] ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì•Œë ¤ë“œë¦½ë‹ˆë‹¤.");
 			} else {
 				return "Mail Send Error";
 			}

@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CryptUtil {
 	@Autowired
 	private PasswordEncoder passwordEncoderBean;
-	
+
 	private static PasswordEncoder passwordEncoder;
 
 	@PostConstruct
@@ -23,21 +23,21 @@ public class CryptUtil {
 	}
 
 	/**
-	 * »ç¿ëÀÚÀÇ ºñ¹Ğ¹øÈ£ ÀÏÄ¡ ¿©ºÎ
+	 * ì‚¬ìš©ìì˜ ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜ ì—¬ë¶€
 	 * @param plainText
 	 * @param cryptText
 	 * @return
 	 */
 	public static boolean loginPwdEncryptCompare(String plainText, String cryptText) {
 		boolean bCompare = false;
-		log.debug("[ºñ¹Ğ¹øÈ£ º¯°æ] ÇöÀç ºñ¹Ğ¹øÈ£" + plainText);
+		log.debug("[ë¹„ë°€ë²ˆí˜¸ ë³€ê²½] í˜„ì¬ ë¹„ë°€ë²ˆí˜¸" + plainText);
 		if (passwordEncoder.matches(plainText, cryptText)) {
 			bCompare = true;
-			log.debug("°èÁ¤Á¤º¸ ÀÏÄ¡");
+			log.debug("ê³„ì •ì •ë³´ ì¼ì¹˜");
 		} else {
-			log.debug("°èÁ¤Á¤º¸ ºÒÀÏÄ¡");
+			log.debug("ê³„ì •ì •ë³´ ë¶ˆì¼ì¹˜");
 		}
-		
+
 		return bCompare;
 
 	}

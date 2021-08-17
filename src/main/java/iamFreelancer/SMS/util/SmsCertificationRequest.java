@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
 
 /**
- * @description : ÇÚµåÆù ¹øÈ£ ¹× ÀÎÁõ¹øÈ£
+ * @description : í•¸ë“œí° ë²ˆí˜¸ ë° ì¸ì¦ë²ˆí˜¸
  * @author Koreasoft kykim
  * @version : 1.0
  */
